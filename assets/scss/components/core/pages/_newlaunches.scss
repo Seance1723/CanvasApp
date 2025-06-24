@@ -41,5 +41,21 @@ body{
             background-color: #000 !important;
             --bs-backdrop-bg: #000 !important;
         }
+
+        #pamCardContainer{
+            .card-wrapper-main {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .card-wrapper-main.fade-in-show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .card-wrapper-main.fade-out {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
     }
 }

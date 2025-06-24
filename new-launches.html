@@ -949,10 +949,12 @@
 
                             </div>
 
+                            <div id="pamCardContainer" class="mt-4"></div>
+
                             <div class="action-button row">
                               <div class="col-md-12 d-flex justify-content-start">
-                                <select id="idDropdownTab" class="form-control form-select form-select-sm custom-select" style="width:140px">
-                                  <option value="Add PAM">Add PAM</option>
+                                <select id="pamAddDropdown" class="form-control form-select form-select-sm custom-select" style="width:140px">
+                                  <option value="" disabled selected>Add PAM</option>
                                   <option value="9:4">9:4</option>
                                   <option value="4:3">4:3</option>
                                   <option value="1:1">1:1</option>
@@ -962,7 +964,12 @@
                               </div>
                             </div>
 
-
+                            <div class="row mt-3">
+                              <div class="col-md-12 d-flex gap-3 justify-content-end">
+                                <button id="scoreBtn" class="cta cta-secondary">Score</button>
+                                <button id="submitBtn" class="cta cta-primary">Submit</button>
+                              </div>
+                            </div>
 
                           </div> <!-- ./ end of cardsContainer -->
                         </div>
@@ -2114,6 +2121,33 @@
           mfUploadBtn.disabled = true;
         }
 
+        // =====================================================
+        // ADD NEW PAM ROW
+        // =====================================================
+        const pamDropdown = document.getElementById("pamAddDropdown");
+        const pamContainer = document.getElementById("cardsContainer");
+        const pamRowTemplate = document.getElementById("pamRowTemplate");
+
+        if (pamDropdown && pamContainer && pamRowTemplate) {
+          pamDropdown.addEventListener("change", function () {
+            const ratio = this.value;
+            if (!ratio || ratio === "Add PAM") return;
+            const newRow = pamRowTemplate.cloneNode(true);
+            newRow.removeAttribute("id");
+            const ratioHeading = newRow.querySelector(".card-wrapper.text-center h4");
+            if (ratioHeading) {
+              ratioHeading.textContent = ratio;
+            }
+            newRow.querySelectorAll(".card-body").forEach(cb => {
+              cb.style.backgroundImage = "none";
+            });
+            newRow.querySelectorAll(".plus-icon").forEach(icon => icon.style.display = "inline-block");
+            newRow.querySelectorAll(".delete-icon").forEach(icon => icon.style.display = "none");
+            pamContainer.appendChild(newRow);
+            this.value = "Add PAM";
+          });
+        }
+
         // Extra: When any modal shows, add a custom class to <body>; remove when all modals are hidden.
         $("#staticBackdrop, #collapseModal, #exceptionModal, #exceptionApprovalModal, #lightboxModal, #singleimageUploadModal, #bulkImageUploadModal").on("shown.bs.modal", function () {
           $("body").addClass("modal-custom");
@@ -2126,6 +2160,132 @@
         });
 
       });
+
+      $(document).ready(function () {
+        const $dropdown = $('#pamAddDropdown');
+        const $container = $('#pamCardContainer');
+
+        $dropdown.on('change', function () {
+          const selectedValue = $(this).val();
+          if (!selectedValue) return;
+
+          const $card = $(`
+            <div class="card-wrapper-main row g-3 align-items-center mb-3" style="display: none;">
+              <div class="col-md-2 card-wrapper text-center position-relative">
+                <h4>${selectedValue}</h4>
+                <span class="remove-icon position-absolute top-0 end-0 me-2 mt-2" style="cursor:pointer;" title="Remove">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icon-tabler-trash">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                </span>
+              </div>
+
+              ${Array(5).fill().map(() => `
+                <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                  <div class="card image-card" draggable="true">
+                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                      <div class="card-title-container">
+                        <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about BOP" style="visibility: hidden; cursor: pointer;"></i>
+                      </div>
+                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>  
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                      <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                      <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `);
+
+          // Append with animation
+          $container.append($card);
+          $card.slideDown(200).css({ opacity: 0 }).animate({ opacity: 1 }, 200);
+
+          // Reset to placeholder
+          $dropdown.prop('selectedIndex', 0);
+
+          // Remove logic
+          $card.find('.remove-icon').on('click', function () {
+            $card.animate({ opacity: 0 }, 200).slideUp(200, function () {
+              $card.remove();
+            });
+          });
+        });
+      });
+
+      // Global reusable file input
+      const $imageInput = $('<input type="file" accept="image/*" style="display:none">');
+      $('body').append($imageInput);
+
+      // Open file picker on plus icon click
+      $(document).on('click', '.plus-icon', function () {
+        const $card = $(this).closest('.card-body');
+        $imageInput.data('targetCard', $card);
+        $imageInput.val(null); // reset file
+        $imageInput.trigger('click');
+      });
+
+      // Handle image selection
+      $imageInput.on('change', function (e) {
+        const file = e.target.files[0];
+        if (!file || !file.type.startsWith('image/')) {
+          alert('Please select an image file only.');
+          return;
+        }
+
+        const reader = new FileReader();
+        const $card = $imageInput.data('targetCard');
+        const $plus = $card.find('.plus-icon');
+        const $trash = $card.closest('.image-card').find('.delete-icon');
+
+        reader.onload = function (e) {
+          $card.css({
+            'background-image': `url(${e.target.result})`,
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'background-position': 'center'
+          });
+          $plus.hide();
+          $trash.show();
+        };
+
+        reader.readAsDataURL(file);
+      });
+
+      // Handle trash icon to reset background
+      $(document).on('click', '.delete-icon', function () {
+        const $card = $(this).closest('.image-card').find('.card-body');
+        $card.css('background-image', '');
+        $card.find('.plus-icon').show();
+        $(this).hide();
+      });
+
+      // Handle full row removal
+      $(document).on('click', '.card-wrapper-main .remove-icon', function () {
+        const $row = $(this).closest('.card-wrapper-main');
+        $row.find('.card-body').css('background-image', '');
+        $row.find('.plus-icon').show();
+        $row.find('.delete-icon').hide();
+
+        $row.animate({ opacity: 0 }, 200).slideUp(200, function () {
+          $row.remove();
+        });
+      });
+
+
+
+
     </script>
       
       

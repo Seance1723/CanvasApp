@@ -1866,4 +1866,17 @@ body.new-launches-page .modal-backdrop {
   height: 100% !important;
   background-color: #000 !important;
   --bs-backdrop-bg: #000 !important;
+}
+body.new-launches-page #pamCardContainer .card-wrapper-main {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+body.new-launches-page #pamCardContainer .card-wrapper-main.fade-in-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.new-launches-page #pamCardContainer .card-wrapper-main.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
 }/*# sourceMappingURL=style.css.map */
