@@ -1,0 +1,90 @@
+.register-form{
+    form{
+        padding: 24px;
+        border-radius: 4px;
+        border: 1px solid rgba(var(--dark),.3);
+        box-shadow: 2px 4px 12px rgba(var(--dark),.2);
+        background-color: #F3F3F3;
+        textarea{
+            max-height: 160px;
+        }
+        select{
+            &::before{
+                content: "\f107"; /* Unicode for Bootstrap's caret-down icon */
+                font-family: "Bootstrap Icons";
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.out-top {
+	animation: rotate 20s linear infinite;
+	transform-origin: 13px 25px;
+}
+.in-top {
+	animation: rotate 10s linear infinite;
+	transform-origin: 13px 25px;
+}
+.out-bottom {
+	animation: rotate 25s linear infinite;
+	transform-origin: 84px 93px;
+}
+.in-bottom {
+	animation: rotate 15s linear infinite;
+	transform-origin: 84px 93px;
+}
+
+.future-info{
+    padding: 30px;
+    border-radius: 4px;
+    color: var(--white-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: var(--dark-color);
+    &:hover{
+        box-shadow: 2px 4px 12px rgba(var(--dark),.2);
+    }
+    svg{
+        width: 100%;
+        height: 100%;
+    }
+    .animated-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .future-info-content{
+        z-index: 9;
+        width: 100%;
+    }
+}
+
+.contact-us-sec-inner{
+    padding: 40px;
+}
+
+.contact-us-sec-inner{
+    padding: 40px;
+    border: 1px solid var(--dark-color);
+}

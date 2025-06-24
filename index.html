@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-wrapper">
+        <div  id="app" class="app">
+            <header id="header" class="header">
+                <div class="logo-place">
+                    <a href="#/">
+                        <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+                    </a>
+                </div>
+                <div class="page-heading text-center">
+                    <span class="header-text1">CANVAS</span>
+                    <span class="header-text2"></span>
+                </div>
+                <div class="header-block header-block-nav">
+                    <ul class="nav nav-profile d-flex align-items-center">
+                        <li class="nav-item dropdown notification" style="display: none;">
+                            <a class="nav-link" href="#" role="button" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                                    <i class="fa fa-circle notification-circle"></i>
+                                    <span class="num"></span>
+                                </i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                <div class="text-center">
+                                    <strong>No new notification</strong>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="avatar" class="nav-item">
+                            <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+                        </li>
+                        <li class="nav-item username ml-2">Neha Dudhoria</li>
+                        <li class="nav-item dropdown profile ml-2">
+                            <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-lock"></i> Change Password
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- ./header -->
+            <aside class="sidebar" style="left: 0 !important;">
+                <div class="sidebar-container">
+                    <div class="sidebar-header"></div>
+                    <nav class="menu">
+                        <ul id="sidebar-menu" class="nav flex-column">
+                            <li class="nav-item">&nbsp;</li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/">
+                                    <i class="fa fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/portfolio">
+                                    <i class="fa fa-briefcase"></i> Portfolio
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#/launches">
+                                    <i class="fa fa-laptop"></i> New Launches
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/refresh">
+                                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/extension">
+                                    <i class="fa fa-plus"></i> Extension
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/deployment-summary">
+                                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- ./sidebar -->
+
+            <div id="includedContent" class="main-content">
+                <div class="diff-list-heading">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="someTextt">
+                                <p>Launches Written Content</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="goBack">
+                                <a href="#/launches">
+                                    <i class="fa fa-angle-left"></i>
+                                    <span _ngcontent-lgu-c83="">Launches</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./row -->
+                </div>
+                <!-- ./diff-list-heading -->
+                <div class="content-header">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px; margin-top: 20px;">
+                                <tbody class="noborder">
+                                    <tr class="noborder" style="line-height: 0px;">
+                                        <td class="noborder">
+                                            <div class="workspace-progress">
+                                                <ul class="workspace-progress-num">
+                                                    <li class="text active">
+                                                        <a href="#/launches">Product Details</a>
+                                                    </li>
+                                                    <li class="text active">Send For SM Review</li>
+                                                    <li class="text active">SM Approved</li>
+                                                    <li class="text">
+                                                        <a href="#/launches/launches-written-content">Written Content</a>
+                                                    </li>
+                                                    <li class="text">Visual Content</li>
+                                                    <li class="text">Send For Content Review</li>
+                                                    <li class="text">Published</li>
+                                                </ul>
+                                            </div>
+                                            <div class="workspace-progress margin">
+                                                <div class="workspace-progress-bar" style="width: 33.3333%;"></div>
+                                                <div class="progress-bar-grey" style="left: 33.3333%; width: 66.6667%;"></div>
+                                                <ul class="workspace-progress-num">
+                                                    <a href="#/launches">
+                                                        <li class="step active">
+                                                            <i class="fa fa-check"></i>
+                                                        </li>
+                                                    </a>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <a href="#/launches/launches-written-content">
+                                                        <li class="step active-grey">
+                                                            <i class="fa fa-check"></i>
+                                                        </li>
+                                                    </a>
+                                                    <li class="step active-grey">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active-grey">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active-grey">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row sum-details1">
+                        <div class="col-md-12">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th><span>Workspace</span></th>
+                                        <th><span>MOC</span></th>
+                                        <th><span>Launch Type</span></th>
+                                        <th><span>Platforms</span></th>
+                                        <th><span>BigC</span></th>
+                                        <th><span>SmallC</span></th>
+                                        <th><span>Templates</span></th>
+                                        <th><span>Scorecard</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="noborder">
+                                        <td class="noborder">
+                                            <p class="prjName">Tresemme Winter Launch</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>11-24</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>New Launch</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <img class="tag-brand-logo" src="assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                                        </td>
+                                        <td class="noborder">
+                                            <p>BPC</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>BG_BB03 : HAIR CARE</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <a href="javascript:void(0)" class="upload-download-purple">
+                                                <i class="fa fa-cloud-download"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="upload-download-purple">
+                                                <i class="fa fa-cloud-upload"></i>
+                                            </a>
+                                        </td>
+                                        <td class="noborder">
+                                            <span class="score" style="font-size: 20px; font-family: ui-sans-serif;">
+                                                <a href="javascript:void(0)" style="font-size: 14px; color: orange; margin-left: 18px; text-decoration: none;">
+                                                    6 / 10
+                                                </a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="body_contain">
+                    <div class="row pages-written">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-8">
+                            <div class="written-pages">
+                                <div id="written-page"></div>
+                                <ul class="nav nav-tabs tab-cur" id="myTab" role="tablist">
+                                    <li class="nav-item step tablinks active" role="presentation">
+                                      <div class="nav-link bet-lin active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                                        <p class="sameee">1</p><span class="sameee">Basic Details</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <div class="nav-link bet-lin step tablinks" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                                        <p class="sameee">2</p><span class="sameee">Bullet Points &amp; Desc</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <div class="nav-link bet-lin step tablinks" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                                        <p>3</p><span>Other Details</span>
+                                      </div>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <div class="nav-link bet-lin step tablinks" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">
+                                        <p>4</p><span>Keywords</span>
+                                      </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="lower-part">
+                        <div class="row">
+                            <div class="col-md-1 text-center" style="font-size: 12px; padding: 0;">
+                                <div class="side-body-constant">
+                                    <p>Base Pack</p>
+                                    <div style="font: Cabin; font-size: 12px;">
+                                        <a href="javascript:void(0)" class="different-basepacks active">84927</a>
+                                    </div>
+                                    <div style="font: Cabin; font-size: 12px;">
+                                        <a href="javascript:void(0)" class="different-basepacks">41008</a>
+                                    </div>
+                                    <div style="font: Cabin; font-size: 12px;">
+                                        <a href="javascript:void(0)" class="different-basepacks">41007</a>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-1 text-center" style="font-size: 12px; padding: 0 6px;">
+                                <div class="side-body-constant">
+                                    <p>Score Card</p>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks active-amber">7.5/10</a>
+                                    </div>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks">5.5/10</a>
+                                    </div>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks">5/10</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 text-center" style="font-size: 12px; padding: 0 6px;">
+                                <div class="side-body-constant">
+                                    <p>Suggestions <i class="fa fa-refresh" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></p>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks active-amber">No Suggestions</a>
+                                    </div>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks active-check">Check Suggestions</a>
+                                    </div>
+                                    <div style="font-size: 11px; margin-bottom: 2px; font: Cabin;">
+                                        <a href="javascript:void(0)" class="different-basepacks text-danger">In Progress</a>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-7">
+                                <form novalidate class="ng-untouched ng-pristine ng-valid">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                            <div class="tabcontent">
+                                                <div class="row tabcon-header">
+                                                    <div class="col-md-3">
+                                                        <p>Basic Details</p>
+                                                    </div>
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="basepack-info1">
+                                                    <div class="row firstRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="basepack" class="col-form-label">Basepack<span>*</span></label>
+                                                                <input type="text" formcontrolname="basepack" readonly placeholder="Basepack" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="bigC" class="col-form-label">BigC<span>*</span></label>
+                                                                <input type="text" formcontrolname="bigc" readonly placeholder="BigC" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="smallC" class="col-form-label">SmallC<span>*</span></label>
+                                                                <input type="text" formcontrolname="smallc" readonly placeholder="SmallC" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row secondRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="brand" class="col-form-label">Brand<span>*</span></label>
+                                                                <input type="text" formcontrolname="brand" readonly placeholder="Brand" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="cbu" class="col-form-label">CBU<span>*</span></label>
+                                                                <input type="text" formcontrolname="cbu" readonly placeholder="CBU" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="ean" class="col-form-label">EAN<span>*</span></label>
+                                                                <input type="text" formcontrolname="ean" readonly placeholder="EAN" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row thirdRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="mrp" class="col-form-label">MRP<span>*</span></label>
+                                                                <input type="text" formcontrolname="mrp" readonly placeholder="MRP" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="productName" class="col-form-label">Product Name<span>*</span></label>
+                                                                <input type="text" formcontrolname="productName" required placeholder="Product Name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="amazonProductName" class="col-form-label">Amazon Product Name</label>
+                                                                <input type="text" formcontrolname="retailorProductName" placeholder="Amazon Product Name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                            <div class="tabcontent">
+                                                <div class="row tabcon-header">
+                                                    <div class="col-md-3">
+                                                        <p>Bullet points &amp; Description</p>
+                                                    </div>
+                                                    <div class="col-md-5"></div>
+                                                    <div class="col-md-4"></div>
+                                                </div>
+                                                <div class="point-desc2">
+                                                    <div class="row thirdRowInfo same-len">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="productDescription" class="col-form-label">Product Description<span >*</span></label>
+                                                                <textarea rows="4" required="" formcontrolname="productDescription" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row firstRowInfo same-len">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet1" class="col-form-label">Feature Bullet 1<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet1" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet2" class="col-form-label">Feature Bullet 2<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet2" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet3" class="col-form-label">Feature Bullet 3<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet3" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row secondRowInfo same-len">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet4" class="col-form-label">Feature Bullet 4<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet4" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet5" class="col-form-label">Feature Bullet 5<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet5" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="featureBullet6" class="col-form-label">Feature Bullet 6<span >*</span></label>
+                                                                <textarea rows="4" cols="40" required="" formcontrolname="featureBullet6" class="form-control ng-untouched ng-pristine ng-valid"></textarea>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                            <div class="tabcontent">
+                                                <div class="row tabcon-header">
+                                                    <div class="col-md-3">
+                                                        <p>Other Details</p>
+                                                    </div>
+                                                    <div class="col-md-5"></div>
+                                                    <div class="col-md-4"></div>
+                                                </div>
+                                                <div class="other-detail3">
+                                                    <div class="row secondRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyIngredients" class="col-form-label">Key Ingredients<span >*</span>
+                                                                    
+                                                                </label>
+                                                                <input type="text" formcontrolname="keyIngredients" class="form-control ng-untouched ng-pristine ng-valid" required="">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="gender" class="col-form-label">Gender</label>
+                                                                <select formcontrolname="gender" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select Gender</option>
+                                                                    <option value="Men">Men</option>
+                                                                    
+                                                                    <option value="Women">Women</option>
+                                                                    
+                                                                    <option value="Unisex">Unisex</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="skinType" class="col-form-label">Skin Type
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="skinType" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select Skin Type</option>
+                                                                    
+                                                                    <option value="Combination">Combination</option>
+                                                                    
+                                                                    <option value="Dry">Dry</option>
+                                                                    
+                                                                    <option value="Oily">Oily</option>
+                                                                    
+                                                                    <option value="Normal">Normal</option>
+                                                                    
+                                                                    <option value="Sensitive">Sensitive</option>
+                                                                    
+                                                                    <option value="All Skin Types">All Skin Types</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row thirdRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="hairType" class="col-form-label">Hair Type<span >*</span>
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="hairType" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    
+                                                                    <option value="Dry Hair">Dry Hair</option>
+                                                                    
+                                                                    <option value="Dull Hair">Dull Hair</option>
+                                                                    
+                                                                    <option value="Fine Hair">Fine Hair</option>
+                                                                    
+                                                                    <option value="Normal Hair">Normal Hair</option>
+                                                                    
+                                                                    <option value="Oily Hair">Oily Hair</option>
+                                                                    
+                                                                    <option value="Straight Hair">Straight Hair</option>
+                                                                    
+                                                                    <option value="Thin Hair">Thin Hair</option>
+                                                                    
+                                                                    <option value="Curly Hair">Curly Hair</option>
+                                                                    
+                                                                    <option value="Colored Hair">Colored Hair</option>
+                                                                    
+                                                                    <option value="All Hair Types">All Hair Types</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="shadeName" class="col-form-label">Shade Name
+                                                                    
+                                                                </label>
+                                                                <input type="text" formcontrolname="shadeName" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="colorFamily" class="col-form-label">Color Family
+                                                                    
+                                                                </label>
+                                                                <input type="text" formcontrolname="colorFamily" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row fourthRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="concern" class="col-form-label"> Concern<span >*</span>
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="concern" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select Concern</option>
+                                                                    <option value="Acne/Blemishes">Acne/Blemishes</option>
+                                                                    
+                                                                    <option value="Anti-ageing">Anti-ageing</option>
+                                                                    
+                                                                    <option value="Pores/Blackheads/Whiteheads">Pores/Blackheads/Whiteheads</option>
+                                                                    
+                                                                    <option value="Brightening/Fairness">Brightening/Fairness</option>
+                                                                    
+                                                                    <option value="Color Protection">Color Protection</option>
+                                                                    
+                                                                    <option value="Cuticle Care">Cuticle Care</option>
+                                                                    
+                                                                    <option value="Dandruff">Dandruff</option>
+                                                                    
+                                                                    <option value="Under Eye Concern">Under Eye Concern</option>
+                                                                    
+                                                                    <option value="Dark Spots/Pigmentation">Dark Spots/Pigmentation</option>
+                                                                    
+                                                                    <option value="Chapped Lips">Chapped Lips</option>
+                                                                    
+                                                                    <option value="Dryness">Dryness</option>
+                                                                    
+                                                                    <option value="Dullness">Dullness</option>
+                                                                    
+                                                                    <option value="Fine Lines/Wrinkles">Fine Lines/Wrinkles</option>
+                                                                    
+                                                                    <option value="Firming">Firming</option>
+                                                                    
+                                                                    <option value="Firmness">Firmness</option>
+                                                                    
+                                                                    <option value="Frizzy Hair">Frizzy Hair</option>
+                                                                    
+                                                                    <option value="Hair Fall">Hair Fall</option>
+                                                                    
+                                                                    <option value="Heat Protection">Heat Protection</option>
+                                                                    
+                                                                    <option value="Menstrual Cycle">Menstrual Cycle</option>
+                                                                    
+                                                                    <option value="Oil Control">Oil Control</option>
+                                                                    
+                                                                    <option value="Product Build-Up">Product Build-Up</option>
+                                                                    
+                                                                    <option value="Soap-Free">Soap-Free</option>
+                                                                    
+                                                                    <option value="Split Ends">Split Ends</option>
+                                                                    
+                                                                    <option value="Stretch Marks">Stretch Marks</option>
+                                                                    
+                                                                    <option value="Sun Protection">Sun Protection</option>
+                                                                    
+                                                                    <option value="Tangled Hair">Tangled Hair</option>
+                                                                    
+                                                                    <option value="Thinning">Thinning</option>
+                                                                    
+                                                                    <option value="Volumizing">Volumizing</option>
+                                                                    
+                                                                    <option value="Tan Removal">Tan Removal</option>
+                                                                    
+                                                                    <option value="Anti-Pollution">Anti-Pollution</option>
+                                                                    
+                                                                    <option value="Waterproof">Waterproof</option>
+                                                                    
+                                                                    <option value="Bad Breath">Bad Breath</option>
+                                                                    
+                                                                    <option value="Plague">Plague</option>
+                                                                    
+                                                                    <option value="Cavities">Cavities</option>
+                                                                    
+                                                                    <option value="Skin Concerns">Skin Concerns</option>
+                                                                    
+                                                                    <option value="Dark skin/Pigmentation">Dark skin/Pigmentation</option>
+                                                                    
+                                                                    <option value="Dullness">Dullness</option>
+                                                                    
+                                                                    <option value="Brightening">Brightening</option>
+                                                                    
+                                                                    <option value="Anti-ageing">Anti-ageing</option>
+                                                                    
+                                                                    <option value="Fine lines &amp; wrinkles">Fine lines &amp; wrinkles</option>
+                                                                    
+                                                                    <option value="Acne &amp; Blemishes">Acne &amp; Blemishes</option>
+                                                                    
+                                                                    <option value="Hydration">Hydration</option>
+                                                                    
+                                                                    <option value="Oil Control">Oil Control</option>
+                                                                    
+                                                                    <option value="Pores/Blackheads/Whiteheads">Pores/Blackheads/Whiteheads</option>
+                                                                    
+                                                                    <option value="Uneven skin tone">Uneven skin tone</option>
+                                                                    
+                                                                    <option value="Firming">Firming</option>
+                                                                    
+                                                                    <option value="Sun Protection">Sun Protection</option>
+                                                                    
+                                                                    <option value="Tan removal">Tan removal</option>
+                                                                    
+                                                                    <option value="Hair concerns">Hair concerns</option>
+                                                                    
+                                                                    <option value="Dry and Frizzy hair">Dry and Frizzy hair</option>
+                                                                    
+                                                                    <option value="Hairfall and Thinning">Hairfall and Thinning</option>
+                                                                    
+                                                                    <option value="Dandruff/Flaky scalp">Dandruff/Flaky scalp</option>
+                                                                    
+                                                                    <option value="Split ends">Split ends</option>
+                                                                    
+                                                                    <option value="Damaged hair">Damaged hair</option>
+                                                                    
+                                                                    <option value="Colour protection">Colour protection</option>
+                                                                    
+                                                                    <option value="Dryness">Dryness</option>
+                                                                    
+                                                                    <option value="Anti Pollution">Anti Pollution</option>
+                                                                    
+                                                                    <option value="Heat protection">Heat protection</option>
+                                                                    
+                                                                    <option value="Hair growth">Hair growth</option>
+                                                                    
+                                                                    <option value="Hair Density">Hair Density</option>
+                                                                    
+                                                                    <option value="Hair length">Hair length</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="formulation" class="col-form-label"> Formulation
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="formulation" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select Formulation</option>
+                                                                    <option value="Balm">Balm</option>
+                                                                    
+                                                                    <option value="Bar">Bar</option>
+                                                                    
+                                                                    <option value="Capsule">Capsule</option>
+                                                                    
+                                                                    <option value="Cleansing Milk">Cleansing Milk</option>
+                                                                    
+                                                                    <option value="Crayon">Crayon</option>
+                                                                    
+                                                                    <option value="Cream">Cream</option>
+                                                                    
+                                                                    <option value="Eye Pad">Eye Pad</option>
+                                                                    
+                                                                    <option value="Gel">Gel</option>
+                                                                    
+                                                                    <option value="Kajal">Kajal</option>
+                                                                    
+                                                                    <option value="Liquid">Liquid</option>
+                                                                    
+                                                                    <option value="Loose Powder">Loose Powder</option>
+                                                                    
+                                                                    <option value="Lotion/Body Butter">Lotion/Body Butter</option>
+                                                                    
+                                                                    <option value="Mask">Mask</option>
+                                                                    
+                                                                    <option value="Mist">Mist</option>
+                                                                    
+                                                                    <option value="Mousse">Mousse</option>
+                                                                    
+                                                                    <option value="Oil">Oil</option>
+                                                                    
+                                                                    <option value="Pack">Pack</option>
+                                                                    
+                                                                    <option value="Paper">Paper</option>
+                                                                    
+                                                                    <option value="Pearls">Pearls</option>
+                                                                    
+                                                                    <option value="Pen">Pen</option>
+                                                                    
+                                                                    <option value="Pencil">Pencil</option>
+                                                                    
+                                                                    <option value="Powder">Powder</option>
+                                                                    
+                                                                    <option value="Pressed Powder">Pressed Powder</option>
+                                                                    
+                                                                    <option value="Roll on">Roll on</option>
+                                                                    
+                                                                    <option value="Solid">Solid</option>
+                                                                    
+                                                                    <option value="Sponge">Sponge</option>
+                                                                    
+                                                                    <option value="Spray">Spray</option>
+                                                                    
+                                                                    <option value="Stick">Stick</option>
+                                                                    
+                                                                    <option value="Tablet">Tablet</option>
+                                                                    
+                                                                    <option value="Wax">Wax</option>
+                                                                    
+                                                                    <option value="Wipes">Wipes</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="finish" class="col-form-label">Preference</label>
+                                                                <select formcontrolname="preference" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select Preference</option>
+                                                                    <option value="Alcohol-Free">Alcohol-Free</option>
+                                                                    
+                                                                    <option value="Ammonia-Free">Ammonia-Free</option>
+                                                                    
+                                                                    <option value="Anti-Inflammatory">Anti-Inflammatory</option>
+                                                                    
+                                                                    <option value="Anti-Oxidants">Anti-Oxidants</option>
+                                                                    
+                                                                    <option value="Clinically Proven">Clinically Proven</option>
+                                                                    
+                                                                    <option value="Collagen">Collagen</option>
+                                                                    
+                                                                    <option value="Dermatologically Tested">Dermatologically Tested</option>
+                                                                    
+                                                                    <option value="Formaldehyde Free">Formaldehyde Free</option>
+                                                                    
+                                                                    <option value="Fragrance-Free">Fragrance-Free</option>
+                                                                    
+                                                                    <option value="Herbal">Herbal</option>
+                                                                    
+                                                                    <option value="Hyaluronic Acid">Hyaluronic Acid</option>
+                                                                    
+                                                                    <option value="Hypo-allergenic">Hypo-allergenic</option>
+                                                                    
+                                                                    <option value="Mineral Oil-Free">Mineral Oil-Free</option>
+                                                                    
+                                                                    <option value="Natural">Natural</option>
+                                                                    
+                                                                    <option value="Non-Comedogenic">Non-Comedogenic</option>
+                                                                    
+                                                                    <option value="Oil-Free">Oil-Free</option>
+                                                                    
+                                                                    <option value="Ophthalmologically Tested">Ophthalmologically Tested</option>
+                                                                    
+                                                                    <option value="Organic">Organic</option>
+                                                                    
+                                                                    <option value="PABA-Free">PABA-Free</option>
+                                                                    
+                                                                    <option value="Paraben-Free">Paraben-Free</option>
+                                                                    
+                                                                    <option value="Paraffin-Free">Paraffin-Free</option>
+                                                                    
+                                                                    <option value="Petrochemical-Free">Petrochemical-Free</option>
+                                                                    
+                                                                    <option value="Propleyne-Free">Propleyne-Free</option>
+                                                                    
+                                                                    <option value="Pthalate-Free">Pthalate-Free</option>
+                                                                    
+                                                                    <option value="Salicylic Acid">Salicylic Acid</option>
+                                                                    
+                                                                    <option value="Silicone-Free">Silicone-Free</option>
+                                                                    
+                                                                    <option value="SLS-Free">SLS-Free</option>
+                                                                    
+                                                                    <option value="Soap-Free">Soap-Free</option>
+                                                                    
+                                                                    <option value="Sulfate-Free">Sulfate-Free</option>
+                                                                    
+                                                                    <option value="Synthetic Color-Free">Synthetic Color-Free</option>
+                                                                    
+                                                                    <option value="Vitamin C">Vitamin C</option>
+                                                                    
+                                                                    <option value="Vitamin A">Vitamin A</option>
+                                                                    
+                                                                    <option value="Vitamin E">Vitamin E</option>
+                                                                    
+                                                                    <option value="Water Resistant">Water Resistant</option>
+                                                                    
+                                                                    <option value="Cruelty Free">Cruelty Free</option>
+                                                                    
+                                                                    <option value="Vegan">Vegan</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row fifthRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="spf" class="col-form-label"> SPF
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="spf" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="">Select SPF</option>
+                                                                    <option value="Above 30">Above 30</option>
+                                                                    
+                                                                    <option value="Below 15">Below 15</option>
+                                                                    
+                                                                    <option value="Between 15-30">Between 15-30</option>
+                                                                    
+                                                                    <option value="None">None</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="finish" class="col-form-label"> Finish
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="finish" class="form-control ng-untouched ng-pristine ng-valid" disabled="">
+                                                                    <option value="">Select Finish</option>
+                                                                    <option value="Glossy">Glossy</option>
+                                                                    
+                                                                    <option value="Creme">Creme</option>
+                                                                    
+                                                                    <option value="Clear">Clear</option>
+                                                                    
+                                                                    <option value="Duochrome">Duochrome</option>
+                                                                    
+                                                                    <option value="Gel">Gel</option>
+                                                                    
+                                                                    <option value="Glitter">Glitter</option>
+                                                                    
+                                                                    <option value="Luminous">Luminous</option>
+                                                                    
+                                                                    <option value="Matte">Matte</option>
+                                                                    
+                                                                    <option value="Mettalic">Mettalic</option>
+                                                                    
+                                                                    <option value="Natural">Natural</option>
+                                                                    
+                                                                    <option value="Satin">Satin</option>
+                                                                    
+                                                                    <option value="Shimmer">Shimmer</option>
+                                                                    
+                                                                    <option value="None">None</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="skinTone" class="col-form-label">Skin Tone</label>
+                                                                <select formcontrolname="skinTone" class="form-control ng-untouched ng-pristine ng-valid" disabled="">
+                                                                    <option value="">Select Skin Tone</option>
+                                                                    <option value="Dusky/Dark">Dusky/Dark</option>
+                                                                    
+                                                                    <option value="Light">Light</option>
+                                                                    
+                                                                    <option value="Medium/Wheatish">Medium/Wheatish</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row sixthRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="coverage" class="col-form-label">Coverage</label>
+                                                                <select formcontrolname="coverage" class="form-control ng-untouched ng-pristine ng-valid" disabled="">
+                                                                    <option value="">Select Coverage</option>
+                                                                    <option value="Full">Full</option>
+                                                                    
+                                                                    <option value="Medium">Medium</option>
+                                                                    
+                                                                    <option value="Light">Light</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="crueltyFree" class="col-form-label"> Cruelty-Free<span >*</span>
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="crueltyFree" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="Yes">Yes</option>
+                                                                    
+                                                                    <option value="No">No</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="vegan" class="col-form-label"> Vegan<span >*</span>
+                                                                    
+                                                                </label>
+                                                                <select formcontrolname="vegan" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="Yes">Yes</option>
+                                                                    
+                                                                    <option value="No">No</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row seventhRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="segment" class="col-form-label">Segment<span >*</span></label>
+                                                                <select formcontrolname="segment" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                    <option value="Shampoos">Shampoos</option>
+                                                                    
+                                                                    <option value="Hair Serums">Hair Serums</option>
+                                                                    
+                                                                    <option value="Hair Masks &amp; Packs">Hair Masks &amp; Packs</option>
+                                                                    
+                                                                    <option value="Conditioners">Conditioners</option>
+                                                                    
+                                                                    <option value="Others">Others</option>
+                                                                    
+                                                                    
+                                                                </select>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+                                            <div class="tabcontent">
+                                                <div class="row tabcon-header">
+                                                    <div class="col-md-3">
+                                                        <p>Keywords</p>
+                                                    </div>
+                                                    <div class="col-md-5"></div>
+                                                    <div class="col-md-4"></div>
+                                                </div>
+                                                <div class="keywordInfo4">
+                                                    <div class="row firstRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword1" class="col-form-label">Keyword 1<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword1" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword2" class="col-form-label">Keyword 2<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword2" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword3" class="col-form-label">Keyword 3<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword3" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row secondRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword4" class="col-form-label">Keyword 4<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword4" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword5" class="col-form-label">Keyword 5<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword5" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword6" class="col-form-label">Keyword 6<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword6" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row secondRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword7" class="col-form-label">Keyword 7<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword7" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword8" class="col-form-label">Keyword 8<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword8" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword9" class="col-form-label">Keyword 9<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword9" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row secondRowInfo">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="keyword10" class="col-form-label">Keyword 10<span >*</span></label>
+                                                                <input type="text" required="" formcontrolname="keyword10" class="form-control ng-untouched ng-pristine ng-valid">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row basicbutton1 mt-5 mb-4">
+                                        <div class="col-md-2 align-self-center">
+                                            <div class="some_buttons aligning-butn text-start">
+                                                <button type="button" class="createButton btn px-4">Next</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 align-self-center">
+                                            <div class="some_buttons aligning-butn d-flex justify-content-end">
+                                                <button type="button" class="createButton2 btn disabled" disabled> Re-score content</button>
+                                                <button type="button" class="createButton2 btn ms-3">Score Written Content</button>
+                                                <button type="button" class="createButton2 btn ms-3">Submit Written Content</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./main-content -->
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body p-4">
+                        <h3>Information</h3>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-2 align-self-center">
+                                    <img src="./assets/images/info.png" alt="logo" class="img-fluid">
+                                </div>
+                                <div class="col-md-10 align-self-center">
+                                    <p>The content for all basepacks will be generated now.</p>
+                                    <p></p>Please check basepack status for suggestions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta some_buttons aligning-butn mt-2 text-end">
+                            <button type="button" class="createButton btn" data-bs-dismiss="modal">Ok</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- ./modal -->
+            <footer class="footer-custom">
+                <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+            </footer>
+            <!-- ./footer -->
+        </div>
+        <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
+
+

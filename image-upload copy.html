@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div id="app" class="app">
+        <header id="header" class="header">
+          <div class="logo-place">
+            <a href="#/">
+              <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+            </a>
+          </div>
+          <div class="page-heading text-center">
+            <span class="header-text1">CANVAS</span>
+            <span class="header-text2"></span>
+          </div>
+          <div class="header-block header-block-nav">
+            <ul class="nav nav-profile d-flex align-items-center">
+              <li class="nav-item dropdown notification" style="display: none;">
+                <a class="nav-link" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                    <i class="fa fa-circle notification-circle"></i>
+                    <span class="num"></span>
+                  </i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                  <div class="text-center">
+                    <strong>No new notification</strong>
+                  </div>
+                </div>
+              </li>
+              <li id="avatar" class="nav-item">
+                <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+              </li>
+              <li class="nav-item username ml-2">Neha Dudhoria</li>
+              <li class="nav-item dropdown profile ml-2">
+                <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-lock"></i> Change Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-power-off"></i> Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <!-- ./header -->
+        <aside class="sidebar" style="left: 0 !important;">
+          <div class="sidebar-container">
+            <div class="sidebar-header"></div>
+            <nav class="menu">
+              <ul id="sidebar-menu" class="nav flex-column">
+                <li class="nav-item">&nbsp;</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/">
+                    <i class="fa fa-home"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/portfolio">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> New Launches
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/refresh">
+                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> Extension
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/deployment-summary">
+                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <!-- ./sidebar -->
+
+        <div id="includedContent" class="main-content">
+          <div class="diff-list-heading">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="someTextt">
+                  <p>Launches Written Content</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="goBack">
+                  <a href="#/launches">
+                    <i class="fa fa-angle-left"></i>
+                    <span>Launches</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- ./row -->
+          </div>
+          <!-- ./diff-list-heading -->
+          <div class="content-header">
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px; margin-top: 20px;">
+                  <tbody class="noborder">
+                    <tr class="noborder" style="line-height: 0px;">
+                      <td class="noborder">
+                        <div class="workspace-progress">
+                          <ul class="workspace-progress-num">
+                            <li class="text active">
+                              <a href="#/launches">Product Details</a>
+                            </li>
+                            <li class="text active">Send For SM Review</li>
+                            <li class="text active">SM Approved</li>
+                            <li class="text active">
+                              <a href="#/launches/launches-written-content">Written Content</a>
+                            </li>
+                            <li class="text active">Visual Content</li>
+                            <li class="text active">Send For Content Review</li>
+                            <li class="text active">Published</li>
+                          </ul>
+                        </div>
+                        <div class="workspace-progress margin">
+                          <div class="workspace-progress-bar" style="width: 33.3333%;"></div>
+                          <div class="progress-bar-grey1 workspace-progress-bar" style="left: 33.3333%; width: 66.6667%;"></div>
+                          <ul class="workspace-progress-num">
+                            <a href="#/launches">
+                              <li class="step active">
+                                <i class="fa fa-check"></i>
+                              </li>
+                            </a>
+                            <li class="step active">
+                              <i class="fa fa-check"></i>
+                            </li>
+                            <li class="step active">
+                              <i class="fa fa-check"></i>
+                            </li>
+                            <a href="#/launches/launches-written-content">
+                              <li class="step active">
+                                <i class="fa fa-check"></i>
+                              </li>
+                            </a>
+                            <li class="step active">
+                              <i class="fa fa-check"></i>
+                            </li>
+                            <li class="step active">
+                              <i class="fa fa-check"></i>
+                            </li>
+                            <li class="step active">
+                              <i class="fa fa-check"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row sum-details1">
+              <div class="col-md-12">
+                <table class="table mb-0">
+                  <thead>
+                    <tr>
+                      <th><span>Workspace</span></th>
+                      <th><span>MOC</span></th>
+                      <th><span>Launch Type</span></th>
+                      <th><span>Platforms</span></th>
+                      <th><span>BigC</span></th>
+                      <th><span>SmallC</span></th>
+                      <th><span>Exception</span></th>
+                      <th><span>Scorecard</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="noborder">
+                      <td class="noborder">
+                        <p class="prjName">Tresemme Winter Launch</p>
+                      </td>
+                      <td class="noborder">
+                        <p>11-24</p>
+                      </td>
+                      <td class="noborder">
+                        <p>New Launch</p>
+                      </td>
+                      <td class="noborder">
+                        <img class="tag-brand-logo" src="assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      </td>
+                      <td class="noborder">
+                        <p>BPC</p>
+                      </td>
+                      <td class="noborder">
+                        <p>BG_BB03 : HAIR CARE</p>
+                      </td>
+                      <td class="noborder">
+                        <a href="javascript:void(0)" class="upload-download-purple" data-bs-toggle="modal" data-bs-target="#exceptionModal">
+                          <i class="fa fa-exclamation-triangle"></i>
+                        </a>
+                      </td>
+                      <td class="noborder">
+                        <span class="score" style="font-size: 20px; font-family: ui-sans-serif;">
+                          <a href="javascript:void(0)" style="font-size: 14px; color: orange; margin-left: 18px; text-decoration: none;">
+                            6 / 10
+                          </a>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div id="uploadImages" class="body_contain">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <!-- Right Side (AI Content) -->
+                  <div class="mt-3 d-flex flex-column">
+                    <div class="uploadimg-section d-flex align-items-center justify-content-between">
+                      <ul class="nav nav-tabs w-50 border-0 d-flex" id="tabSet1" role="tablist">
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100 active" id="optiona-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optiona-tab-pane" type="button" role="tab">Images 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100" id="optionb-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optionb-tab-pane" type="button" role="tab">A+ 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100" id="optionc-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optionc-tab-pane" type="button" role="tab">Video 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                      </ul>
+
+                      <ul class="nav nav-tabs w-100 border-0 d-flex d-none" id="tabSet2" role="tablist">
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100" id="optiond-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optiond-tab-pane" type="button" role="tab">Option D 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100" id="optione-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optione-tab-pane" type="button" role="tab">Option E 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                          <button class="nav-link p-0 border-0 w-100" id="optionf-tab" data-bs-toggle="tab" 
+                                  data-bs-target="#optionf-tab-pane" type="button" role="tab">Option F 
+                            <i class="fa fa-circle text-success ps-3"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-content" id="myImageTabContent">
+                      <div class="tab-pane fade show active" id="optiona-tab-pane" role="tabpanel" aria-labelledby="optiona-tab" tabindex="0">
+                        <div class="container-fluid">
+                          <!-- Top Section for Upload Images with Unique IDs -->
+                          <div class="d-flex justify-content-between align-items-center mb-4">
+                            <!-- Left Section: Dropdowns and Expand/Collapse CTA -->
+                            <div class="d-flex align-items-center gap-2">
+                              <select id="idDropdownTab" class="form-control form-select form-select-sm custom-select">
+                                <option value="90001">90001</option>
+                              </select>
+                              <select id="accountDropdownTab" class="form-control form-select form-select-sm custom-select" disabled>
+                                <option value="all">All Accounts</option>
+                                <option value="amazon">Amazon</option>
+                                <option value="bigbasket">BigBasket</option>
+                              </select>
+                              <button id="toggleExpandTab" class="cta cta-outline-primary d-flex align-items-center gap-2">
+                                <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                                <span class="expand-text">Expand</span>
+                              </button>
+                            </div>
+                            <!-- Right Section: Bulk Upload -->
+                            <div class="d-flex align-items-center gap-2">
+                              <button id="bulkUploadBtnTab" class="cta cta-secondary">Bulk Upload</button>
+                              <p class="p-0 m-0 d-flex align-items-center gap-1" style="font-size: 12px;">
+                                <span class="text-danger">Note: Bulk upload images of all basepacks here</span>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                              </p>
+                              <!-- Hidden file input for Bulk Upload -->
+                              <input type="file" id="bulkFileInputTab" style="display: none;" multiple accept="image/*">
+                            </div>
+                          </div>
+                        
+                          <!-- Cards Container (Unified view) -->
+                          <div id="cardsContainerTab" class="row g-3">
+                            <!-- Card 1: BOP* -->
+                            <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">BOP <span class="text-danger">*</span></span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about BOP" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>  
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <!-- Card 2: HERO* -->
+                            <div class="col-md-2 card-wrapper" data-card-name="HERO" data-info="This is the HERO card tooltip.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">HERO <span class="text-danger">*</span></span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about HERO" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <!-- Card 3: FOP* -->
+                            <div class="col-md-2 card-wrapper" data-card-name="FOP" data-info="This is the FOP card tooltip.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">FOP <span class="text-danger">*</span></span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about FOP" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <!-- Card 4: EAN* -->
+                            <div class="col-md-2 card-wrapper" data-card-name="EAN" data-info="This is the EAN card tooltip.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">EAN <span class="text-danger">*</span></span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about EAN" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <!-- Card 5: S1 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S1" data-info="Detailed information about S1.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">S1</span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <!-- Card 6: S2 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S2" data-info="Detailed information about S2.">
+                              <div class="card image-card" draggable="true">
+                                <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                  <div class="card-title-container">
+                                    <span class="card-title">S2</span>
+                                    <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                    <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                  </div>
+                                  <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                </div>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                  <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                  <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Card 7: S3 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S3" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S3</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 8: S4 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S5" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S4</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 9: S5 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S5" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S5</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 10: S6 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S6" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S6</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 11: S7 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S7" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S7</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 12: S8 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S8" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S8</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 13: S9 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S9" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S9</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 14: S10 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S10" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S10</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 15: S11 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S11" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S11</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 16: S12 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S12" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S12</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 17: S13 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S13" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S13</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 18: S14 -->
+                            <div class="col-md-2 card-wrapper" data-card-name="S14" data-info="Detailed information about S2.">
+                                <div class="card image-card" draggable="true">
+                                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                                      <div class="card-title-container">
+                                        <span class="card-title">S14</span>
+                                        <!-- Info icon is hidden by default, but will be shown on hover of the container -->
+                                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about S" style="visibility: hidden; cursor: pointer;"></i>
+                                      </div>
+                                      <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                                    </div>
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                                        <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                                        <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- (Repeat additional card blocks for S3 to S14 as needed) -->
+                          </div>
+                        
+                          <!-- Hidden file input for individual card uploads -->
+                          <input type="file" id="cardFileInputTab" accept="image/*" style="display: none;">
+                        
+                          <!-- Save Button at the bottom right -->
+                          <div class="d-flex justify-content-end mt-3">
+                            <button id="saveBtnTab" class="cta cta-primary ">Save</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="optionb-tab-pane" role="tabpanel" aria-labelledby="optionb-tab" tabindex="0">
+                        <!-- Tab 2 -->
+                      </div>
+                      <div class="tab-pane fade" id="optionc-tab-pane" role="tabpanel" aria-labelledby="optionc-tab" tabindex="0">
+                        <!-- Tab 3 -->
+                      </div>
+                      <div class="tab-pane fade" id="optiond-tab-pane" role="tabpanel" aria-labelledby="optiond-tab" tabindex="0">
+                        <!-- Tab 4 -->
+                      </div>
+                      <div class="tab-pane fade" id="optione-tab-pane" role="tabpanel" aria-labelledby="optione-tab" tabindex="0">
+                        <!-- Tab 5 -->
+                      </div>
+                      <div class="tab-pane fade" id="optionf-tab-pane" role="tabpanel" aria-labelledby="optionf-tab" tabindex="0">
+                        <!-- Tab 6 -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>                      
+          </div>
+        </div>
+        <!-- ./main-content -->
+        
+        <!-- Modal: Static Backdrop Save Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body p-4">
+                <h5 class="text-center">Written Content Uploaded Successfully</h5>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2 align-self-center">
+                      <img src="./assets/images/check.png" alt="logo" class="img-fluid">
+                    </div>
+                    <div class="col-md-5"></div>
+                  </div>
+                </div>
+                <div class="mt-4 text-center">
+                  <button type="button" class="cta cta-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./modal -->
+        
+        <!-- Modal: Collapse Warning Modal -->
+        <div class="modal fade" id="collapseModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img src="./assets/images/info.svg" alt="Warning" class="img-fluid mb-3" style="width: 16%; height: auto;">
+                <p class="mt-3">Collapsing the accounts will revert the changes made after expanding. Do you want to continue?</p>
+                <div class="d-flex justify-content-center gap-2">
+                  <button id="modalCancel" class="cta cta-secondary">Cancel</button>
+                  <button id="modalContinue" class="cta cta-primary">Continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal: Exception Modal -->
+        <div class="modal fade" id="exceptionModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body text-start p-4">
+                <div class="visual-exception-container">
+                  <h1 class="form-title">Visual Content Exception</h1>
+                  <form class="exception-form">
+                    <p class="form-subtitle">
+                      Submit your request to proceed without <span class="required">*</span>
+                    </p>
+                
+                    <!-- Checkbox Group -->
+                    <div class="checkbox-group m-0">
+                      <div class="form-group m-0 d-inline-block">
+                        <label class="checkbox-wrapper">
+                          <input type="checkbox" name="imageCheckbox" />
+                          <label for="aPlusContent" class="form-label m-0 fw-bold">Image</label>
+                        </label>
+                      </div>
+                      <div class="ps-3 mb-3">
+                        <label class="checkbox-wrapper">
+                          <input type="checkbox" name="mandatoryCheckbox" />
+                          <span class="checkbox-label">Mandatory Image – FOP, EAN</span>
+                        </label>
+                        <label class="checkbox-wrapper">
+                          <input type="checkbox" name="numImagesCheckbox" />
+                          <span class="checkbox-label">Number of Images – 2</span>
+                        </label>
+                      </div>
+                    </div>
+                
+                    <!-- Reason -->
+                    <div class="form-group">
+                      <label for="reason1" class="form-label d-flex justify-content-between">
+                        <span>Reason <span class="required">*</span></span>
+                        <small class="text-danger fw-normal">Please enter a reason to proceed</small>
+                      </label>
+                      <textarea id="reason1" class="form-textarea" placeholder="Please enter a reason to proceed"></textarea>
+                    </div>
+                
+                    <hr>
+                
+                    <!-- A+ Content -->
+                    <div class="form-group">
+                      <div class="checkbox-group mb-3 d-inline-block">
+                        <label class="checkbox-wrapper">
+                          <input type="checkbox" name="imageCheckbox" />
+                          <label for="aPlusContent" class="form-label m-0 fw-bold">A+ Content</label>
+                        </label>
+                      </div>
+                
+                      <!-- Reason -->
+                      <div class="form-group">
+                        <label for="reason2" class="form-label d-flex justify-content-between">
+                          <span>Reason <span class="required">*</span></span>
+                          <small class="text-danger fw-normal">Please enter a reason to proceed</small>
+                        </label>
+                        <textarea id="reason2" class="form-textarea" placeholder="Enter Reason for Visual Content Exception Here"></textarea>
+                      </div>
+                
+                      <hr>
+                
+                      <!-- Video -->
+                      <div class="form-group">
+                        <div class="checkbox-group d-inline-block mb-3">
+                          <label class="checkbox-wrapper">
+                            <input type="checkbox" name="imageCheckbox" />
+                            <label for="videoReason" class="form-label m-0 fw-bold">Video</label>
+                          </label>
+                        </div>
+                
+                        <!-- Reason -->
+                        <div class="form-group">
+                          <label for="reason3" class="form-label d-flex justify-content-between">
+                            <span>Reason <span class="required">*</span></span>
+                            <small class="text-danger fw-normal">Please enter a reason to proceed</small>
+                          </label>
+                          <textarea id="reason3" class="form-textarea" placeholder="Enter Reason for Visual Content Exception Here"></textarea>
+                        </div>
+                
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center gap-2">
+                          <button id="modalCancel" class="cta cta-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button id="modalContinue" class="cta cta-primary">Continue</button>
+                        </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal: Lightbox Modal for enlarged image view -->
+        <div id="lightboxModal" class="modal fade" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body p-0 position-relative">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="" alt="Lightbox Image" class="img-fluid w-100">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <footer class="footer-custom">
+          <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+        </footer>
+        <!-- ./footer -->
+      </div>
+      <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        let expanded = false;
+        let originalCardsHTML = ""; // Will store the unified state before expansion.
+        
+        // Use unique IDs for the upload section (with the "Tab" suffix).
+        const toggleBtn = document.getElementById("toggleExpandTab");
+        const accountDropdown = document.getElementById("accountDropdownTab");
+        const collapseModal = new bootstrap.Modal(document.getElementById("collapseModal"));
+        const bulkUploadBtn = document.getElementById("bulkUploadBtnTab");
+        const bulkFileInput = document.getElementById("bulkFileInputTab");
+        const cardFileInput = document.getElementById("cardFileInputTab");
+        const cardsContainer = document.getElementById("cardsContainerTab");
+        let currentCard = null;
+  
+        // Save the initial unified view HTML.
+        originalCardsHTML = cardsContainer.innerHTML;
+        
+        // Initialize Bootstrap tooltips.
+        Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => {
+          new bootstrap.Tooltip(el);
+        });
+  
+        // Toggle Expand/Collapse functionality.
+        toggleBtn.addEventListener("click", function(e) {
+          console.log("Toggle button clicked. expanded =", expanded);
+          if (!expanded) {
+            // Store the current unified state before expanding.
+            originalCardsHTML = cardsContainer.innerHTML;
+            expanded = true;
+            toggleBtn.innerHTML = '<i class="fa fa-angle-double-up" aria-hidden="true"></i><span class="expand-text">Collapse</span>';
+            accountDropdown.disabled = false;
+            accountDropdown.value = "all";
+            createGroups();
+            console.log("Expanded state set. Groups created.");
+          } else {
+            console.log("Already expanded; showing collapse modal.");
+            collapseModal.show();
+          }
+        });
+        
+        document.getElementById("modalContinue").addEventListener("click", function() {
+          console.log("Collapse modal: Continue clicked, collapsing view.");
+          expanded = false;
+          toggleBtn.innerHTML = '<i class="fa fa-angle-double-down" aria-hidden="true"></i><span class="expand-text">Expand</span>';
+          accountDropdown.disabled = true;
+          accountDropdown.value = "all";
+          resetGrouping();
+          collapseModal.hide();
+          console.log("Collapsed: Unified view restored.");
+        });
+        
+        document.getElementById("modalCancel").addEventListener("click", function() {
+          collapseModal.hide();
+        });
+        
+        // Bulk upload functionality.
+        bulkUploadBtn.addEventListener("click", function() {
+          bulkFileInput.click();
+        });
+        
+        bulkFileInput.addEventListener("change", function() {
+          const files = this.files;
+          if (files.length > 0) {
+            Array.from(files).forEach(file => {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                const fileName = file.name.toUpperCase();
+                // Loop through all card wrappers.
+                const cards = document.querySelectorAll(".card-wrapper");
+                let assigned = false;
+                cards.forEach(card => {
+                  if (!assigned) {
+                    const cardName = card.getAttribute("data-card-name").toUpperCase();
+                    const cardBody = card.querySelector(".card-body");
+                    const bg = cardBody ? getComputedStyle(cardBody).backgroundImage : "";
+                    if (fileName.indexOf(cardName) !== -1 && (!bg || bg === "none")) {
+                      setCardImage(card, e.target.result);
+                      assigned = true;
+                    }
+                  }
+                });
+              };
+              reader.readAsDataURL(file);
+            });
+            bulkFileInput.value = "";
+          }
+        });
+  
+        // Event delegation for individual card upload (plus icon) and delete icon.
+        cardsContainer.addEventListener("click", function(e) {
+          if (e.target.classList.contains("plus-icon")) {
+            currentCard = e.target.closest(".card-wrapper");
+            if (currentCard) {
+              cardFileInput.click();
+            }
+          }
+          if (e.target.classList.contains("delete-icon")) {
+            const card = e.target.closest(".card-wrapper");
+            if (card) {
+              clearCardImage(card);
+            }
+          }
+        });
+  
+        // Handle individual card file selection.
+        cardFileInput.addEventListener("change", function() {
+          const file = this.files[0];
+          if (file && currentCard) {
+            const cardForThisUpload = currentCard; // capture card for closure
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              //alert("Image URL: " + e.target.result);
+              setCardImage(cardForThisUpload, e.target.result);
+            };
+            reader.readAsDataURL(file);
+          }
+          this.value = "";
+          currentCard = null;
+        });
+  
+        // Lightbox: Clicking on card body (except for plus, delete, info icons) opens enlarged view.
+        cardsContainer.addEventListener("click", function(e) {
+          const ignoreClasses = ["plus-icon", "delete-icon", "info-icon"];
+          if (ignoreClasses.some(cls => e.target.classList.contains(cls))) return;
+          const cardBody = e.target.closest(".card-body");
+          if (cardBody) {
+            const bg = getComputedStyle(cardBody).backgroundImage;
+            if (bg && bg !== "none") {
+              const url = bg.slice(5, -2);
+              const lightboxModal = new bootstrap.Modal(document.getElementById("lightboxModal"));
+              document.querySelector("#lightboxModal img").src = url;
+              lightboxModal.show();
+            }
+          }
+        });
+  
+        // Drag and Drop functionality with transparent, resized ghost image.
+        let dragSourceCard = null;
+        cardsContainer.addEventListener("dragstart", function(e) {
+          const card = e.target.closest(".card-wrapper");
+          if (card) {
+            const cardBody = card.querySelector(".card-body");
+            const bg = cardBody ? getComputedStyle(cardBody).backgroundImage : "";
+            if (!bg || bg === "none") {
+              e.preventDefault();
+              return;
+            }
+            dragSourceCard = card;
+            const url = bg.slice(5, -2);
+            const dragImg = document.createElement("img");
+            dragImg.src = url;
+            dragImg.style.opacity = "0.5";
+            dragImg.style.width = "120px";
+            dragImg.style.height = "120px";
+            document.body.appendChild(dragImg);
+            e.dataTransfer.setDragImage(dragImg, 60, 60);
+            setTimeout(() => { document.body.removeChild(dragImg); }, 0);
+            e.dataTransfer.setData("text/plain", card.getAttribute("data-card-name"));
+          }
+        });
+  
+        cardsContainer.addEventListener("dragover", function(e) {
+          e.preventDefault();
+        });
+  
+        cardsContainer.addEventListener("drop", function(e) {
+          e.preventDefault();
+          const targetCard = e.target.closest(".card-wrapper");
+          if (dragSourceCard && targetCard && targetCard !== dragSourceCard) {
+            const targetBody = targetCard.querySelector(".card-body");
+            if (targetBody && getComputedStyle(targetBody).backgroundImage === "none") {
+              const sourceBody = dragSourceCard.querySelector(".card-body");
+              const sourceBg = sourceBody ? getComputedStyle(sourceBody).backgroundImage : "";
+              if (sourceBg && sourceBg !== "none") {
+                setCardImage(targetCard, sourceBg.slice(5, -2));
+                clearCardImage(dragSourceCard);
+              }
+            }
+          }
+          dragSourceCard = null;
+        });
+  
+        // Filtering: Adjust group visibility based on the selected account.
+        accountDropdown.addEventListener("change", function() {
+          filterGroups(this.value);
+        });
+        
+        function filterGroups(account) {
+          const groups = document.querySelectorAll(".group-section");
+          groups.forEach(group => {
+            const groupBrand = group.getAttribute("data-brand");
+            group.style.display = (account === "all" || groupBrand === account) ? "block" : "none";
+          });
+        }
+  
+        // Helper: Set a card's image by updating the card-body's background.
+        function setCardImage(card, src) {
+          if (!card) return;
+          const cardBody = card.querySelector(".card-body");
+          const plusIcon = card.querySelector(".plus-icon");
+          const deleteIcon = card.querySelector(".delete-icon");
+          if (cardBody) {
+            cardBody.style.backgroundImage = `url('${src}')`;
+            cardBody.style.backgroundSize = "cover";
+            cardBody.style.backgroundPosition = "center";
+          }
+          if (plusIcon) {
+            plusIcon.style.display = "none";
+          }
+          if (deleteIcon) {
+            deleteIcon.style.display = "inline-block";
+          }
+        }
+  
+        // Helper: Clear a card's image.
+        function clearCardImage(card) {
+          if (!card) return;
+          const cardBody = card.querySelector(".card-body");
+          const plusIcon = card.querySelector(".plus-icon");
+          const deleteIcon = card.querySelector(".delete-icon");
+          if (cardBody) {
+            cardBody.style.backgroundImage = "none";
+          }
+          if (plusIcon) {
+            plusIcon.style.display = "inline-block";
+          }
+          if (deleteIcon) {
+            deleteIcon.style.display = "none";
+          }
+        }
+  
+        // Helper: Create groups for Amazon and BigBasket from the stored unified state.
+        function createGroups() {
+          const container = document.getElementById("cardsContainerTab");
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = originalCardsHTML;
+          const cards = Array.from(tempDiv.querySelectorAll(".card-wrapper"));
+          container.innerHTML = "";
+        
+          // Build Amazon group.
+          const amazonGroup = document.createElement("div");
+          amazonGroup.className = "group-section mb-4";
+          amazonGroup.setAttribute("data-brand", "amazon");
+          const amazonTitle = document.createElement("h4");
+          amazonTitle.textContent = "Amazon";
+          amazonGroup.appendChild(amazonTitle);
+          const amazonRow = document.createElement("div");
+          amazonRow.className = "row g-3";
+        
+          // Build BigBasket group.
+          const bbGroup = document.createElement("div");
+          bbGroup.className = "group-section mb-4";
+          bbGroup.setAttribute("data-brand", "bigbasket");
+          const bbTitle = document.createElement("h4");
+          bbTitle.textContent = "BigBasket";
+          bbGroup.appendChild(bbTitle);
+          const bbRow = document.createElement("div");
+          bbRow.className = "row g-3";
+        
+          cards.forEach(card => {
+            const amazonCard = card.cloneNode(true);
+            amazonCard.setAttribute("data-brand", "amazon");
+            amazonRow.appendChild(amazonCard);
+        
+            const bbCard = card.cloneNode(true);
+            bbCard.setAttribute("data-brand", "bigbasket");
+            bbRow.appendChild(bbCard);
+          });
+        
+          amazonGroup.appendChild(amazonRow);
+          bbGroup.appendChild(bbRow);
+          container.appendChild(amazonGroup);
+          container.appendChild(bbGroup);
+        }
+        
+        // Helper: Reset grouping by restoring the stored unified state.
+        function resetGrouping() {
+          const container = document.getElementById("cardsContainerTab");
+          container.innerHTML = originalCardsHTML;
+        }
+
+
+
+        // ---- Extra: When modal shows, add a custom class to <body> ----
+        // We add a common class "modal-open-custom" when either modal is shown.
+        $("#collapseModal, #lightboxModal, #exceptionModal").on("shown.bs.modal", function () {
+          $("body").addClass("modal-custom");
+        });
+        // When the modals are hidden, check if any other modal is still shown before removing.
+        $("#collapseModal, #lightboxModal, #exceptionModal").on("hidden.bs.modal", function () {
+          if ($(".modal.show").length === 0) {
+            $("body").removeClass("modal-custom");
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>

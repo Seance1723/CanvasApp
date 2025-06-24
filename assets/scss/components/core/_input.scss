@@ -1,0 +1,151 @@
+// Apply the placeholder mixin to input and textarea
+body{
+  .form-check{
+    margin: 0px !important;
+  }
+  .form-check-input{
+    appearance: auto;
+  }
+  .form-control, select, input{
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    border: 1px solid #D1D0D4 !important;
+    background: #e9ecef !important;
+    &:active, &:focus{
+      border-color: var(--dark-color) !important;
+      box-shadow: none !important;
+    }
+    &:disabled{
+      background: var(--white-color) !important;
+    }
+  }
+  form{
+    label{
+      margin-bottom: 8px;
+      ul{
+        list-style-type: none;
+        display: inline-block;
+        padding-left: 15px;
+        margin: 0;
+        font-size: 14px;
+        li{
+          color: var(--secondary-color);
+          display: inline-block;
+        }
+      }
+      a{
+        font-size: 14px !important;
+        color: var(--dark-color) !important;
+        &:hover{
+          color: var(--secondary-color) !important;
+        }
+      }
+    }
+  }
+  .form-group {
+      margin-bottom: 18px;
+      .col-form-label {
+        font-size: 14px !important;
+        font-weight: 600;
+        span {
+          color: #F00;
+        }
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        // padding: 0.15rem 0.2rem !important;
+        // font-size: 0.9rem !important;
+        // line-height: 1.5;
+        // color: var(--dark-color);
+        // background-color: #fff;
+        // background-clip: padding-box;
+        // border: 1px solid #ced4da;
+        // border-radius: .25rem;
+        border-radius: 0;
+        // transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+  }
+}
+select{
+  &.form-control {
+    /* This ensures the arrow appears and is not overwritten */
+    -webkit-appearance: menulist !important;
+    -moz-appearance: menulist !important;
+    appearance: menulist !important;
+    &.custom-select {
+      padding-right: 30px !important;
+      background: url('../../assets/images/down-arrow.png') no-repeat right 10px center !important; /* Custom arrow */
+      background-color: #e9ecef !important;
+      background-size: 18px !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+    }
+  }
+}
+
+.select-with-dot {
+  position: relative;
+  display: inline-block;
+
+  .btn {
+    background-color: #ffffff !important;
+    min-width: 140px;
+    border: 1px solid #D1D0D4;
+    .status-dot {
+      margin-left: auto;
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    li{
+      a{
+        text-decoration: none !important;
+        color: var(--dark-color) !important;
+        &:hover{
+          color: var(--white-color) !important;
+          background: var(--primary-color) !important;
+        }
+      }
+    }
+  }
+  .dropdown-item {
+    // flex container: label on left, dot on right
+    justify-content: space-between !important;
+    padding-right: 1rem;         // a little breathing room
+    .status-dot {
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right:  15px;       // exactly 15px from the right edge
+      background-color: transparent;
+
+      &.green { background: var(--success-color); }
+      &.red   { background: var(--danger-color); }
+    }
+  }
+  #accountStatusDot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 6px;
+    display: none;
+    &.green {
+      background: var(--success-color);
+    }
+    &.red {
+      background: var(--danger-color);
+    }
+  }
+}
+
+#accountDropdownBtn{
+  &:hover, &:focus, &:active{
+    color: var(--dark-color) !important;
+  }
+}
+

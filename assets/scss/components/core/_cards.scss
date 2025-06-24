@@ -1,0 +1,106 @@
+.card{
+    &-01, &-02{
+        padding: 15px 20px;
+        border-radius: 6px;
+        position: relative;
+        overflow: hidden;
+        .card-head, .card-header{
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .card-content{
+            font-size: 16px;
+            font-weight: 400;
+        }
+        &.one, &.two, &.three {
+            &::before{
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 99;
+                font-size: 180px;
+                line-height: 220px;
+                font-weight: 500;
+                color: transparent;
+                -webkit-text-stroke: 1px rgba(90, 106, 133, 0.42);
+                opacity: 0.4;
+            }
+        }
+        &.one {
+            &::before{
+                content: '01';
+            }
+        }
+        &.two {
+            &::before{
+                content: '02';
+            }
+        }
+        &.three {
+            &::before{
+                content: '03';
+            }
+        }
+    }
+    //Card .card-01
+    &-01{
+        text-align: center !important;
+        overflow: hidden;
+        transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
+        background: rgb(234, 84, 85);
+        background: -moz-linear-gradient(180deg, #ff9b07 0%, #fb5d4a 100%) 0% 0% no-repeat padding-box;
+        background: -webkit-linear-gradient(180deg, #ff9b07 0%, #fb5d4a 100%) 0% 0% no-repeat padding-box;
+        background: transparent linear-gradient(180deg, #ff9b07 0%, #fb5d4a 100%) 0% 0% no-repeat padding-box;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9b07",endColorstr="#fb5d4a",GradientType=1);
+        color: var(--white-color);
+        &:hover{
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(149,44,9,1) 0%, rgba(42,53,70,1) 90% );
+            figure {
+                transform: scale(1.1);
+            }
+        }
+        .card-head{
+            font-size: 22px;
+            @include responsive-font-size(1.125rem, 2.5vw, 1.375rem);
+            font-weight: 600;
+        }
+        &.register, &.challenge, &.submission, &.presentation, &.announcement, &.interview {
+            figure{
+                position: absolute;
+                bottom: -14%;
+                right: -14%;
+                width: 140px;
+                height: auto;
+                opacity: 0.16;
+                transition: transform 0.3s ease-in-out;
+            }
+        }
+    }
+    //Card .card-02
+    &-02{
+        border: 1px solid rgba(var(--dark), 0.3);
+        &:hover{
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        p{
+            font-size: 14px;
+            color: var(--secondary-color);
+            &.notes{
+                font-size: 13px;
+                color: var(--info-color);
+            }
+        }
+        ul{
+            li{
+                color: var(--secondary-color);
+                font-weight: 400;
+                font-size: 14px;
+                strong{
+                    font-weight: 400 !important;
+                }
+            }
+        }
+    }
+}

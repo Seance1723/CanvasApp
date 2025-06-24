@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-wrapper">
+        <div  id="app" class="app">
+            <header id="header" class="header">
+                <div class="logo-place">
+                    <a href="#/">
+                        <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+                    </a>
+                </div>
+                <div class="page-heading text-center">
+                    <span class="header-text1">CANVAS</span>
+                    <span class="header-text2"></span>
+                </div>
+                <div class="header-block header-block-nav">
+                    <ul class="nav nav-profile d-flex align-items-center">
+                        <li class="nav-item dropdown notification" style="display: none;">
+                            <a class="nav-link" href="#" role="button" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                                    <i class="fa fa-circle notification-circle"></i>
+                                    <span class="num"></span>
+                                </i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                <div class="text-center">
+                                    <strong>No new notification</strong>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="avatar" class="nav-item">
+                            <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+                        </li>
+                        <li class="nav-item username ml-2">Neha Dudhoria</li>
+                        <li class="nav-item dropdown profile ml-2">
+                            <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-lock"></i> Change Password
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- ./header -->
+            <aside class="sidebar" style="left: 0 !important;">
+                <div class="sidebar-container">
+                    <div class="sidebar-header"></div>
+                    <nav class="menu">
+                        <ul id="sidebar-menu" class="nav flex-column">
+                            <li class="nav-item">&nbsp;</li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/">
+                                    <i class="fa fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/portfolio">
+                                    <i class="fa fa-briefcase"></i> Portfolio
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#/launches">
+                                    <i class="fa fa-laptop"></i> New Launches
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/refresh">
+                                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/extension">
+                                    <i class="fa fa-plus"></i> Extension
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/deployment-summary">
+                                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- ./sidebar -->
+
+            <div id="includedContent" class="main-content">
+                <div class="diff-list-heading container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="someTextt">
+                                <p>Account Level Image Order</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="goBack">
+                                <a href="#/launches">
+                                    <i class="fa fa-angle-left"></i>
+                                    <span _ngcontent-lgu-c83="">Launches</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./row -->
+                </div>
+                <!-- ./diff-list-heading -->
+                <div id="imageOrder" class="main-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-no">No.</th>
+                                            <th>DEFAULT</th>
+                                            <th>AMZ</th>
+                                            <th>ZPTO</th>
+                                            <th>BB</th>
+                                            <th>BLIN</th>
+                                            <th>FPKT</th>
+                                            <th>FPKT-GRO</th>
+                                            <th>SWIGGY</th>
+                                            <th>PURP</th>
+                                            <th>NYKA</th>
+                                            <th>MYN</th>
+                                            <th>JIOM</th>
+                                            <th>TATAC</th>
+                                            <th>TIRA</th>
+                                            <th>DMART</th>
+                                            <th>1MG</th>
+                                            <th>FCRY</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- Rows will be generated dynamically -->
+                                    </tbody>
+                                </table>
+                                <!-- ./table -->
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="row mt-4 mb-4">
+                            <div class="col-md-12 d-flex justify-content-between">
+                                <div class="left-buttons"></div>
+                                <div class="right-buttons">
+                                    <button type="button" class="cta cta-primary me-3">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+            <!-- ./main-content -->
+            <footer class="footer-custom">
+                <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+            </footer>
+            <!-- ./footer -->
+        </div>
+        <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./assets/js/admin-canva.js"></script>
+  </body>
+</html>
+
+

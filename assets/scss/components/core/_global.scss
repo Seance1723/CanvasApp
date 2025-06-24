@@ -1,0 +1,185 @@
+body{
+    margin: 0;
+    font-family: Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    height: 100%;
+    .main-wrapper{
+        width: 100%;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        .app{
+            position: relative;
+            width: 100%;
+            padding-left: 200px;
+            min-height: 100vh;
+            margin: 0 auto;
+            left: 0;
+            background-color: #FFF !important;
+            -webkit-box-shadow: 0 0 3px var(--border-color);
+            box-shadow: 0 0 3px var(--border-color);
+            -webkit-transition: left 0.3s ease, padding-left 0.3s ease;
+            transition: left 0.3s ease, padding-left 0.3s ease;
+            overflow: hidden;
+        }
+    } 
+}
+
+.noborder {
+    border: none !important;
+}
+
+a:not(.btn) {
+    -webkit-transition: initial;
+    transition: initial;
+    text-decoration: underline;
+    color: #969696;
+}
+a:not(.btn):hover {
+    text-decoration: underline;
+    color: #70b02b;
+}
+
+.cstscroll{
+    &::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	    background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar{
+        width: 6px;
+	    background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #000000;
+    }
+}
+.modal{
+    .modal-dialog{
+        .modal-content{
+            border-radius: 0;
+            border: none !important;
+            box-shadow: 0px 4px 4px 0 rgba(0,0,0,0.25);
+        }
+    }
+}
+.modal-backdrop{
+    opacity: 0.96 !important;
+    background-color: var(--white-color) !important;
+    --bs-backdrop-bg: var(--white-color) !important;
+}
+
+.bg-light{
+    background: var(--bg-light-color) !important;
+}
+
+html, body{
+    .mb-10{
+        margin-bottom: 10px !important;
+    }
+    .cu-upload-wrapper {
+        // Custom container styling if needed
+      }
+      
+      .cu-upload-zone {
+        border-style: dashed;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
+        
+        &:hover,
+        &.dragover {
+          border-color: #007bff;
+          background-color: #f8f9fa;
+        }
+        
+        .cu-choose-file {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      
+      .cu-upload-details {
+        .cu-filename {
+          font-size: 0.9rem;
+        }
+        
+        .cu-filesize {
+          font-size: 0.8rem;
+        }
+        
+        .cu-upload-progress {
+          margin-bottom: 0;
+        }
+        
+        #cu_progress_percentage {
+          font-size: 0.8rem;
+        }
+      }
+
+      
+      .mf-upload-wrapper {
+        // Overall container styling
+      }
+      
+      .mf-upload-zone {
+        border-style: dashed !important;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
+      
+        &:hover,
+        &.dragover {
+          border-color: #007bff;
+          background-color: #f8f9fa;
+        }
+      
+        .mf-choose-file {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      
+      .mf-upload-list {
+        margin-top: 20px;
+      }
+      
+      /* Style for each file upload item */
+      .mf-upload-item {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+      
+      .mf-thumbnail {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      
+      .mf-filename {
+        font-size: 0.9rem;
+      }
+      
+      .mf-filesize {
+        font-size: 0.8rem;
+      }
+      
+      .mf-upload-progress {
+        margin-top: 0.5rem;
+      }
+      
+      .mf-progress-percentage {
+        font-size: 0.8rem;
+      }
+      
+      .mf-cta-container {
+        // CTA container styling
+      }
+      
+
+}

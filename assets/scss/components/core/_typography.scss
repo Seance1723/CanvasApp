@@ -1,0 +1,22 @@
+.section-header{
+    font-weight: 700;
+    font-size: 46px;
+    @include responsive-font-size(1.4rem, 2.5vw, 2.875rem);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    b, strong{
+        font-weight: 700 !important;
+    }
+    &::before{
+        content: '';
+        height: 3px;
+        width: 70px;
+        background: #ff3a54;
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        margin: 0 auto;
+    }
+}

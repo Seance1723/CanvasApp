@@ -1,0 +1,29 @@
+/*
+* Includes all Styles for the Theme
+*
+*
+*
+*/
+
+@import "inc/variables";
+
+
+@import "header/nav";
+@import "header/pageHeader";
+@import "footer/footer";
+
+@import "core/global";
+@import "core/responsive";
+@import "core/input";
+@import "core/typography";
+@import "core/cta";
+@import "core/cards";
+@import "core/modals";
+
+//Pages
+@import "core/pages/home";
+@import "core/admin/admin";
+@import "core/pages/contentgen";
+@import "core/pages/register";
+@import "core/pages/uploadimages";
+@import "core/pages/newlaunches";

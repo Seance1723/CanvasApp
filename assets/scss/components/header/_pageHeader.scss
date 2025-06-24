@@ -1,0 +1,90 @@
+.header {
+    border: 1px solid var(--border-color);
+    height: 55px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    -webkit-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    z-index: 12;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    .logo-place {
+        width: 200px;
+        vertical-align: middle;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        background-color: #FFF;
+    }
+    .page-heading {
+        float: left;
+        padding-left: 10px;
+        .header-text1{
+            text-align: left;
+            font: normal 20px / 18px Montserrat;
+            letter-spacing: 2px;
+            color: var(--white-color);
+        }
+    }
+    .header-block-nav{
+        margin-left: auto;
+        white-space: nowrap;
+        padding-right: 15px;
+        &::after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+        ul{
+            display: table;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li{
+                &::before{
+                    display: block;
+                    content: " ";
+                    width: 1px;
+                    height: 24px;
+                    top: 50%;
+                    margin-top: -12px;
+                    position: absolute;
+                    left: 0;
+                }
+                &#avatar {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    display: table-cell;
+                    position: relative;
+                    .avatar {
+                        vertical-align: middle;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        width: 100%;
+                    }
+                }
+                &.username {
+                    font-size: 12px;
+                    color: var(--white-color);
+                }
+                a{
+                    padding: 0 15px;
+                    color: var(--sky-color);
+                    text-decoration: none;
+                    position: relative;
+                    top: 3px;
+                }
+            }
+        }
+    }
+}

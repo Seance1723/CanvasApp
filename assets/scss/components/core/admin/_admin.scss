@@ -1,0 +1,243 @@
+#imageOrder {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+  
+    // Optional: Custom scrollbar styling for WebKit browsers
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  
+    .container-fluid {
+      width: 100%;
+    }
+    .table-container {
+        border-color: #dee2e6;
+        border-width: 2px;
+        max-height: 560px;
+        overflow-y: auto;
+        overflow-x: auto; // allow horizontal scrolling
+        position: relative;
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            min-width: 800px; // Ensure table doesn't shrink too much
+            background: #fff;
+            th, td {
+                width: 220px;
+                max-width: 220px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border: 1px solid #dee2e6;
+                // If a cell has .col-no, use a narrower width:
+                &.col-no {
+                    width: 160px !important;
+                    min-width: 160px !important;
+                    max-width: 160px !important;
+                    text-align: center;
+                }
+            }
+            // -------------------------
+            // Header: Sticky vertically
+            // -------------------------
+            thead {
+                background-color: #f5f5f5;
+                th {
+                    position: sticky;
+                    top: 0;
+                    z-index: 2;
+                    padding: 10px !important;
+                    background: #f8f9fa;
+                    height: 42px;
+                    border: 1px solid #dee2e6;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 14px;
+                    // For all header cells, allow horizontal scrolling (left: auto)
+                    left: auto;
+                    // Special case for first header cell (SL No)
+                    &.col-no {
+                        position: sticky;
+                        top: 0;      // Fixed vertically
+                        left: 0;     // Fixed horizontally
+                        z-index: 10; // Higher z-index to stay on top
+                        background-color: #f8f9fa;
+                        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+            // -------------------------
+            // Body: Sticky first column
+            // -------------------------
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: #f9f9f9;
+                    }
+                }
+                td {
+                    height: 42px;
+                    padding: 10px !important;
+                    border: 1px solid #ddd;
+                    font-size: 13px;
+                    white-space: nowrap;
+                    text-align: center;
+                    position: relative;
+                    overflow: visible;
+                    // Make the first cell of every row fixed horizontally:
+                    &:first-child {
+                        position: sticky;
+                        left: 0;
+                        top: auto; // Let the row scroll vertically
+                        z-index: 3;
+                        background-color: #fff;
+                        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                    }
+                    .dropdown-container{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        .dropdown{
+                            position: relative;
+                            .dropdown-toggle {
+                                width: 100%;
+                                min-width: 134px;
+                                text-align: left;
+                                position: relative;
+                                border-width: initial;
+                                border-style: none;
+                                border-color: initial;
+                                border-image: initial;
+                                border-radius: 0px !important;
+                                &::after{
+                                    position: absolute;
+                                    top: 16px;
+                                    right: 10px;
+                                }
+                            }
+                            .dropdown-menu {
+                                max-height: 200px;
+                                overflow-y: auto;
+                                padding: 10px;
+                                &.show{
+                                    width: 286px;
+                                    max-height: 320px;
+                                    overflow-y: auto;
+                                    padding: 20px;
+                                    li{
+                                        padding: 8px 0;
+                                        .mandatory-checkbox {
+                                            position: relative;
+                                            display: inline-block;
+                                            width: 20px;
+                                            height: 20px;
+                                            padding: 0 !important;
+                                            border: 2px solid black;
+                                            cursor: pointer;
+                                            -webkit-appearance: none;
+                                            appearance: none;
+                                            vertical-align: middle;
+                                            margin-right: 8px;
+                                            border: 1px solid #D1D0D4 !important;
+                                            background: #fff !important;
+                                            &:checked {
+                                                background-color: #005eff !important;
+                                                &::after {
+                                                    content: '*';
+                                                    position: absolute;
+                                                    top: 13px;
+                                                    left: 9px;
+                                                    transform: translate(-50%, -50%);
+                                                    font-size: 16px;
+                                                    line-height: 0;
+                                                    color: #ffffff;
+                                                    font-weight: bold;
+                                                }
+                                            }
+                                        }
+                                        .mandatory-text{
+                                            background: #D1D0D4;
+                                            color: #666666;
+                                            padding: 3px 8px;
+                                            border-radius: 8px;
+                                            font-size: 13px;
+                                            text-align: center;
+                                            cursor: pointer;
+                                            &.active{
+                                                background: #d1e2ff;
+                                                color: #005eff;
+                                            }
+                                            &.disabled{
+                                                background: #D1D0D4;
+                                                color: #666666;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .btn-sm {
+                                padding: 2px;
+                                font-size: 14px;
+                            }
+                        }
+                        .add-row {
+                            background: #F7EBFE;
+                            color: #7705BC;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            width: 34px;
+                            font-size: 18px;
+                            font-weight: 600;
+                            &:hover {
+                                color: #ffffff;
+                                background: #333333;
+                            }
+                        }
+                        .remove-row {
+                            background: #F8D7DA;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            margin-left: 5px;
+                            min-width: 34px;
+                            min-height: 34px;
+                            img{
+                                width: 14px;
+                                height: auto;
+                            }
+                            &:hover {
+                                background: #f4bec2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    table {
+        th, 
+        td {
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+}

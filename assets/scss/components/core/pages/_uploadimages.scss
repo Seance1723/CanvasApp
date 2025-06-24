@@ -1,0 +1,251 @@
+#uploadImages{
+    .uploadimg-section{
+        background: #EBEBED;
+        .nav-item{
+            .nav-link{
+                background: #EBEBED;
+                border: 1px solid #EBEBED !important;
+                border-radius: 0;
+                color: var(--dark-color);
+                font-weight: 600;
+                padding: 14px 0 !important;
+                font-size: 14px !important;
+                &.active{
+                    background: var(--white-color);
+                    color: var(--secondary-color);
+                }
+                i{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    #myImageTabContent{
+        background: #F8F7FA;
+        padding: 24px;
+    }
+    select{
+        background-color: #ffffff !important;
+        min-width: 140px;
+    }
+}
+
+
+/* Ensure that the card header is positioned relative */
+/* Card title styling */
+.card-title {
+    font-weight: bold;
+}
+  
+/* Plus icon styling */
+.plus-icon {
+    color: #7705BC;
+    background-color: #F7EBFE;
+    width: 34px;
+    height: 34px;
+    position: relative;
+    border-radius: 4px;
+    &::before{
+        position: absolute;
+        left: 8px;
+        top: 7px;
+        font-weight: 300;
+    }
+    &:hover{
+        color: #F7EBFE;
+        background-color: var(--dark-color);
+    }
+}
+  
+/* Delete icon styling (red) */
+.delete-icon {
+    color: #dc3545;
+}
+  
+/* Info icon styling:
+     - Initially hidden (via inline style in HTML) is overridden on hover of the card title wrapper.
+     - Using !important ensures that the inline "display: none" is overridden.  */
+.card-title-wrapper:hover .info-icon {
+    display: inline-block !important;
+    cursor: pointer;
+}
+  
+/* Main card image styling */
+  
+  
+/* Group section styling for expanded view */
+.group-section {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+  
+.modal-body {
+    padding: 1rem;
+}
+  
+.card-wrapper {
+    background: transparent;
+    .image-card {
+        border: none;
+        background: transparent;
+        .card-header {
+            background: none;
+            border: none;
+            position: relative;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .card-body {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            transition: box-shadow 0.3s ease;
+            background-color: #ffffff;
+            cursor: grab;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 4px;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            &:active {
+                cursor: grabbing;
+            }
+            &:hover {
+                box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+            }
+            .card-image {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: contain;
+                cursor: pointer;
+            }
+        }
+    }
+}
+  
+.card-title-container {
+    display: inline-block;
+    position: relative;
+    /* Optionally, adjust spacing as needed */
+}
+  
+.card-title-container:hover .info-icon {
+    visibility: visible !important;
+    cursor: pointer;
+}
+  
+
+body{
+    &.modal-open{
+        &.modal-custom{
+            .modal-backdrop{
+                &.show{
+                    display: block;
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    min-height: 100vh;
+                    z-index: 1051;
+                    top: 0 !important;
+                    left: 0 !important;
+                    background: rgba(0, 0, 0, 0.75) !important;
+                }
+            }
+        }
+    }
+}
+
+body{
+    .visual-exception-container {
+        // max-width: 480px;
+        // margin: 2rem auto;
+        // padding: 2rem;
+        // background-color: #fff;
+        // border-radius: 8px;
+        // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+      
+    .form-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+        color: #242424;
+      }
+      
+      .form-subtitle {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        color: #555;
+        
+        .required {
+          color: #d00;
+          margin-left: 0.2rem;
+        }
+      }
+      
+      /* Checkbox Styling */
+      .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+        
+        input[type="checkbox"] {
+          margin-right: 0.5rem;
+          transform: scale(1.15);
+        }
+        
+        .checkbox-label {
+          color: #333;
+        }
+      }
+      
+      /* Form Groups */
+      .form-group {
+        margin-bottom: 1.5rem;
+        
+        .form-label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: #333;
+          
+          .required {
+            color: #d00;
+            margin-left: 0.2rem;
+          }
+        }
+        
+        .form-textarea {
+          width: 100%;
+          min-height: 48px;
+          resize: vertical;
+          padding: 0.75rem;
+          font-size: 0.95rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          color: #333;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease;
+          
+          &:focus {
+            outline: none;
+            border-color: #6f42c1;
+            box-shadow: 0 0 0 2px rgba(111, 66, 193, 0.2);
+          }
+        }
+      }
+}

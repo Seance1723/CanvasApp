@@ -1,0 +1,90 @@
+/*
+*
+* Contains all mixins for the scss
+*
+*
+*/
+
+
+@mixin root-vars {
+    :root {
+      @include default-font;
+
+      @each $name, $hex in $colors {
+        // Call the mixin with the hexadecimal value of each color
+        --#{$name}-color: #{$hex};
+      }
+      @each $color, $hex in $colors {
+        --#{$color}: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+      }
+      @each $header, $font-size in $header-font-sizes {
+        --#{$header}-font-size: #{$font-size};
+      }
+      @each $size, $value in $font-sizes {
+        --text-#{$size}: #{$value};
+      }
+    }
+}
+
+@mixin default-font {
+    --default-font-family: Plus Jakarta Sans, sans-serif !important;
+}
+
+@mixin header-style($size) {
+    font-size: map-get($header-font-sizes, $size) !important;
+    font-weight: 600 !important;
+}
+
+@mixin hex-to-rgb($hex) {
+    $red: 0;
+    $green: 0;
+    $blue: 0;
+    
+    @if (length($hex) == 6) {
+      $red:   red($hex);
+      $green: green($hex);
+      $blue:  blue($hex);
+    }
+    
+    cl-red: $red;
+    cl-green: $green;
+    cl-blue: $blue;
+}
+
+@mixin responsive-font-size($min-size, $max-size) {
+    font-size: calc(#{$min-size}px + (#{$max-size} - #{$min-size}) * ((100vw - #{$minViewportSize} * 1px) / (#{$maxViewportSize} - #{$minViewportSize}))) !important;
+}
+
+// SCSS for input and textarea placeholders
+
+// Define a placeholder mixin to handle browser-specific prefixes
+@mixin placeholder {
+  &::-moz-placeholder {
+      color: inherit;
+      opacity: 1;
+      text-overflow: ellipsis;
+  }
+
+  &::-webkit-input-placeholder {
+      color: inherit;
+      opacity: 1;
+      text-overflow: ellipsis;
+  }
+
+  &::-o-placeholder {
+      color: inherit;
+      opacity: 1;
+      text-overflow: ellipsis;
+  }
+
+  &::-ms-input-placeholder {
+      color: inherit;
+      opacity: 1;
+      text-overflow: ellipsis;
+  }
+}
+
+// Define the mixin
+@mixin responsive-font-size($min-size, $preferred-size, $max-size) {
+  font-size: clamp($min-size, $preferred-size, $max-size);
+}

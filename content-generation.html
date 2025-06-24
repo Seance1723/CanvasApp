@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-wrapper">
+        <div  id="app" class="app">
+            <header id="header" class="header">
+                <div class="logo-place">
+                    <a href="#/">
+                        <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+                    </a>
+                </div>
+                <div class="page-heading text-center">
+                    <span class="header-text1">CANVAS</span>
+                    <span class="header-text2"></span>
+                </div>
+                <div class="header-block header-block-nav">
+                    <ul class="nav nav-profile d-flex align-items-center">
+                        <li class="nav-item dropdown notification" style="display: none;">
+                            <a class="nav-link" href="#" role="button" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                                    <i class="fa fa-circle notification-circle"></i>
+                                    <span class="num"></span>
+                                </i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                <div class="text-center">
+                                    <strong>No new notification</strong>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="avatar" class="nav-item">
+                            <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+                        </li>
+                        <li class="nav-item username ml-2">Neha Dudhoria</li>
+                        <li class="nav-item dropdown profile ml-2">
+                            <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-lock"></i> Change Password
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- ./header -->
+            <aside class="sidebar" style="left: 0 !important;">
+                <div class="sidebar-container">
+                    <div class="sidebar-header"></div>
+                    <nav class="menu">
+                        <ul id="sidebar-menu" class="nav flex-column">
+                            <li class="nav-item">&nbsp;</li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/">
+                                    <i class="fa fa-home"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/portfolio">
+                                    <i class="fa fa-briefcase"></i> Portfolio
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#/launches">
+                                    <i class="fa fa-laptop"></i> New Launches
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/refresh">
+                                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/extension">
+                                    <i class="fa fa-plus"></i> Extension
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#/deployment-summary">
+                                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- ./sidebar -->
+
+            <div id="includedContent" class="main-content">
+                <div class="diff-list-heading">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="someTextt">
+                                <p>Launches Written Content</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="goBack">
+                                <a href="#/launches">
+                                    <i class="fa fa-angle-left"></i>
+                                    <span _ngcontent-lgu-c83="">Launches</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ./row -->
+                </div>
+                <!-- ./diff-list-heading -->
+                <div class="content-header">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px; margin-top: 20px;">
+                                <tbody class="noborder">
+                                    <tr class="noborder" style="line-height: 0px;">
+                                        <td class="noborder">
+                                            <div class="workspace-progress">
+                                                <ul class="workspace-progress-num">
+                                                    <li class="text active">
+                                                        <a href="#/launches">Product Details</a>
+                                                    </li>
+                                                    <li class="text active">Send For SM Review</li>
+                                                    <li class="text active">SM Approved</li>
+                                                    <li class="text active">
+                                                        <a href="#/launches/launches-written-content">Written Content</a>
+                                                    </li>
+                                                    <li class="text active">Visual Content</li>
+                                                    <li class="text active">Send For Content Review</li>
+                                                    <li class="text active">Published</li>
+                                                </ul>
+                                            </div>
+                                            <div class="workspace-progress margin">
+                                                <div class="workspace-progress-bar" style="width: 33.3333%;"></div>
+                                                <div class="progress-bar-grey1 workspace-progress-bar" style="left: 33.3333%; width: 66.6667%;"></div>
+                                                <ul class="workspace-progress-num">
+                                                    <a href="#/launches">
+                                                        <li class="step active">
+                                                            <i class="fa fa-check"></i>
+                                                        </li>
+                                                    </a>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <a href="#/launches/launches-written-content">
+                                                        <li class="step active">
+                                                            <i class="fa fa-check"></i>
+                                                        </li>
+                                                    </a>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                    <li class="step active">
+                                                        <i class="fa fa-check"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row sum-details1">
+                        <div class="col-md-12">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th><span>Workspace</span></th>
+                                        <th><span>MOC</span></th>
+                                        <th><span>Launch Type</span></th>
+                                        <th><span>Platforms</span></th>
+                                        <th><span>BigC</span></th>
+                                        <th><span>SmallC</span></th>
+                                        <th><span>Templates</span></th>
+                                        <th><span>Scorecard</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="noborder">
+                                        <td class="noborder">
+                                            <p class="prjName">Tresemme Winter Launch</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>11-24</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>New Launch</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <img class="tag-brand-logo" src="assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                                        </td>
+                                        <td class="noborder">
+                                            <p>BPC</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <p>BG_BB03 : HAIR CARE</p>
+                                        </td>
+                                        <td class="noborder">
+                                            <a href="javascript:void(0)" class="upload-download-purple">
+                                                <i class="fa fa-cloud-download"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="upload-download-purple">
+                                                <i class="fa fa-cloud-upload"></i>
+                                            </a>
+                                        </td>
+                                        <td class="noborder">
+                                            <span class="score" style="font-size: 20px; font-family: ui-sans-serif;">
+                                                <a href="javascript:void(0)" style="font-size: 14px; color: orange; margin-left: 18px; text-decoration: none;">
+                                                    6 / 10
+                                                </a>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="contentgen" class="body_contain">
+                    <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <!-- Left Side (Brand Content) -->
+                            <div class="section-title">
+                                <p>Brand Content</p>
+                            </div>
+                            <div class="congen-left-section cstscroll pe-3" style="height: 600px; max-height: 600px; overflow-y: scroll;">
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group align-self-center d-inline-block pid">
+                                        <!-- <label for="productId">Product ID</label> -->
+                                        <select id="productId" class="form-control custom-select">
+                                          <option>123456</option>
+                                          <!-- Add other options -->
+                                        </select>
+                                    </div>
+                                    <div class="meter align-self-center d-inline-block">
+                                        <p class="m-0 text-danger text-center">6.5/10</p>
+                                        <svg width="63" height="37" viewBox="0 0 63 37" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <rect width="63" height="37" fill="url(#pattern0_3197_569)"/>
+                                            <defs>
+                                            <pattern id="pattern0_3197_569" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                <use xlink:href="#image0_3197_569" transform="matrix(0.00238663 0 0 0.00406373 0 -0.603948)"/>
+                                            </pattern>
+                                            <image id="image0_3197_569" width="419" height="397" xlink:href="data:image/png;base64,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"/>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="productName">Product Name</label>
+                                        <input type="text" class="form-control mb-2 content-selected secondary" id="productName" value="Tresemme Moisturizer, Niacinamide Face Cream for Women, 3g">
+                                    </div>
+    
+                                  
+                                  <div class="form-group">
+                                    <label for="amazonProductName" class="d-flex justify-content-between">
+                                        <span>
+                                            <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                            Amazon Product Name
+                                        </span>
+                                        <small class="form-text text-muted">
+                                            <span class="char-count pe-3">Char: 75/100</span>
+                                            <span class="kw-count">KW: 1/2</span>
+                                        </small>
+                                    </label>
+                                    <input type="text" class="form-control mb-2 content-selected primary" id="amazonProductName" value="Tresemme Cream | Hyaluronic Acid Moisturizer | Vitamin C and Niacinamide | Glow Moisturizer for Face | for Dry to Oily Skin">
+                                    <div class="some_buttons aligning-butn text-end mt-1">
+                                        <span class="pe-2">Or</span>
+                                        <button class="createButton2 btn m-0">Craft My Title</button>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productDescription" class="d-flex justify-content-between">
+                                        <span>
+                                            <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                            Product Description
+                                        </span>
+                                        <small class="form-text text-muted">
+                                            <span class="char-count pe-3">Words: 1400/200</span>
+                                            <span class="kw-count">KW: 20%</span>
+                                        </small>
+                                    </label>
+                                    <textarea class="form-control content-selected primary" id="productDescription" rows="4">Discover the secret to a radiant complexion with Tresemme 9 to 5 Lumi Lit Cream, the ultimate moisturizer for face that doubles as a subtle highlighter. This innovative face moisturizer for women is designed to give your skin a natural 3D glow that lasts from day to night. Infused with hyaluronic acid moisturizer properties, it deeply hydrates, while Niacinamide and Vitamin C work harmoniously to brighten and even out skin tone.</textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productDescription" class="d-flex justify-content-between">
+                                        <span>
+                                            <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                            Bullet Points
+                                        </span>
+                                    </label>
+                                    <div class="table-container cstscroll solid" style="max-height: 103.2px;">
+                                        <table class="table bullet-points m-0">
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row" style="width: 30px !important;">1</th>
+                                                <td>
+                                                    <input class="w-100 border-0 bg-transparent" value="Infused with hyaluronic acid and niacinamide">
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row" style="width: 30px !important;">2</th>
+                                                <td>
+                                                    <input class="w-100 border-0 bg-transparent" value="A hyaluronic acid moisturizer that quenches dry skin">
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row" style="width: 30px !important;">3</th>
+                                                <td>
+                                                    <input class="w-100 border-0 bg-transparent" value="Vitamin C moisturizer and niacinamide blend to even out skin tone">
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row" style="width: 30px !important;">4</th>
+                                                <td>
+                                                    <input class="w-100 border-0 bg-transparent" value="Choose from Golden Glaze, Silver Shimmer, or Dewy Rose">
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn-outline-primary cta-secondary my-3" data-bs-toggle="modal" data-bs-target="#keywords">Keywords</button>
+                                  <div class="accordion accordion-flush" id="accordionKeywords">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                          Hidden Keywords
+                                        </button>
+                                      </h2>
+                                      <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionKeywords">
+                                        <div class="accordion-body">
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">1</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">2</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">3</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">4</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">5</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">6</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">7</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">8</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1 mb-5">
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">9</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 m-0">
+                                                    <div class="row">
+                                                        <div class="col-auto">
+                                                            <label  class="col-form-label pe-0 text-end" style="width:42px;">10</label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Metatags/Attributes
+                                        </button>
+                                      </h2>
+                                      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionKeywords">
+                                        <div class="accordion-body">
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Key Ingredients:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Gender:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Hair Type:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Shade Name:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Skin Type:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Color Family:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Concern:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Formulation:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">SPF:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Finish:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row g-3 align-items-center mt-1">
+                                                <div class="col-3 mt-0">
+                                                    <label  class="col-form-label">Preference:</label>
+                                                </div>
+                                                <div class="col mt-0">
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            <!-- ./congen-left-section -->
+                          </div>
+                      
+                          <div class="col-lg-6">
+                            <!-- Right Side (AI Content) -->
+                            <div class="section-title">
+                                <p>AI Content</p>
+                            </div>
+                            <form>
+                                <div class="congen-right-section d-flex align-items-center justify-content-between">
+                                    <div class="form-group me-3 mb-0">
+                                        <input id="productIdAI" type="text" class="form-control" placeholder="Product ID" value="123456">
+                                    </div>
+                                    <ul class="nav nav-tabs w-100 border-0 d-flex" id="aiContent" role="tablist">
+                                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                                          <button class="nav-link p-0 border-0 w-100 py-1 active" id="optiona-tab" data-bs-toggle="tab" data-bs-target="#optiona-tab-pane" type="button" role="tab" aria-controls="optiona-tab-pane" aria-selected="true">Option A <i class="fa fa-circle text-success ps-3" aria-hidden="true"></i></button>
+                                        </li>
+                                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                                          <button class="nav-link p-0 border-0 w-100 py-1" id="optionb-tab" data-bs-toggle="tab" data-bs-target="#optionb-tab-pane" type="button" role="tab" aria-controls="optionb-tab-pane" aria-selected="false">Option B <i class="fa fa-circle text-success ps-3" aria-hidden="true"></i></button>
+                                        </li>
+                                        <li class="nav-item flex-fill d-flex justify-content-center" role="presentation">
+                                          <button class="nav-link p-0 border-0 w-100 py-1" id="optionc-tab" data-bs-toggle="tab" data-bs-target="#optionc-tab-pane" type="button" role="tab" aria-controls="optionc-tab-pane" aria-selected="false">Option C <i class="fa fa-circle text-success ps-3" aria-hidden="true"></i></button>
+                                        </li>
+                                    </ul>
+                                    <i class="fa fa-angle-double-right ms-2 next-link" aria-hidden="true"></i>
+                                </div>
+                                <div class="tab-content" id="aiContentContent">
+                                    <div class="tab-pane fade show active" id="optiona-tab-pane" role="tabpanel" aria-labelledby="optiona-tab" tabindex="0">
+                                        <div class="form-group mt-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Product Name
+                                                </label>
+                                            </div>
+                                            <input type="text" class="form-control border-dash-primary" id="aiProductName" value="Tresemme Lumi Lit, Hyaluronic Acid Moisturizer, Niacinamide Face Cream for Women, 3g" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiAmazonProductName" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                                        Amazon Product Name
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Char: 80/100</span>
+                                                    <span class="kw-count">KW: 3/2</span>
+                                                </small>
+                                            </label>
+                                            <input type="text" class="form-control border-dash-primary" id="aiAmazonProductName" value="Tresemme Lumi Lit Cream | Hyaluronic Acid Moisturizer | 30g Face Cream for Women | Vitamin C and Niacinamide | Glow Moisturizer for Face | for Dry to Oily Skin" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-success pe-2" aria-hidden="true"></i>
+                                                        Product Description
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Words: 180/200</span>
+                                                    <span class="kw-count">KW: 70%</span>
+                                                </small>
+                                            </label>
+                                            <textarea class="form-control border-dash-primary" id="aiProductDescription" rows="4" readonly>Discover the secret to a radiant complexion with Tresemme 9 to 5 Lumi Lit Cream, the ultimate moisturizer for face that doubles as a subtle highlighter. This innovative face moisturizer for women is designed to give your skin a natural 3D glow that lasts from day to night. Infused with hyaluronic acid moisturizer properties, it deeply hydrates, while Niacinamide and Vitamin C work harmoniously to brighten and even out skin tone.</textarea>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        Bullet Points
+                                                    </span>
+                                                </div>
+                                            </label>
+                                            <div class="table-container cstscroll dashed" style="max-height: 103.2px;">
+                                                <table class="table bullet-points m-0 right-section">
+                                                    <tbody>
+                                                      <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>INSTANT RADIANCE: Infused with hyaluronic acid and niacinamide</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>HYDRATION BOOST: A hyaluronic acid moisturizer that quenches dry skin</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>SKIN BRIGHTENING: Vitamin C moisturizer and niacinamide blend to even out skin tone</td>
+                                                      </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="topProduct" class="d-flex justify-content-between">
+                                                <span>
+                                                    Top 5 Keywords Used:
+                                                </span>
+                                            </label>
+                                            <div class="keyword-section">
+                                                <p>Keyword1(X), Keyword2(Y), Keyword3(A), Keyword4(B), Keyword5(C)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="optionb-tab-pane" role="tabpanel" aria-labelledby="optionb-tab" tabindex="0">
+                                        <div class="form-group mt-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Product Name
+                                                </label>
+                                            </div>
+                                            <input type="text" class="form-control border-dash-primary" id="aiProductName" value="Tresemme Lumi Lit, Hyaluronic Acid Moisturizer, Niacinamide Face Cream for Women, 3g" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiAmazonProductName" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                                        Amazon Product Name
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Char: 80/100</span>
+                                                    <span class="kw-count">KW: 3/2</span>
+                                                </small>
+                                            </label>
+                                            <input type="text" class="form-control border-dash-primary" id="aiAmazonProductName" value="Tresemme Lumi Lit Cream | Hyaluronic Acid Moisturizer | 30g Face Cream for Women | Vitamin C and Niacinamide | Glow Moisturizer for Face | for Dry to Oily Skin" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-success pe-2" aria-hidden="true"></i>
+                                                        Product Description
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Words: 180/200</span>
+                                                    <span class="kw-count">KW: 70%</span>
+                                                </small>
+                                            </label>
+                                            <textarea class="form-control border-dash-primary" id="aiProductDescription" rows="4" readonly>Discover the secret to a radiant complexion with Tresemme 9 to 5 Lumi Lit Cream, the ultimate moisturizer for face that doubles as a subtle highlighter. This innovative face moisturizer for women is designed to give your skin a natural 3D glow that lasts from day to night. Infused with hyaluronic acid moisturizer properties, it deeply hydrates, while Niacinamide and Vitamin C work harmoniously to brighten and even out skin tone.</textarea>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        Bullet Points
+                                                    </span>
+                                                </div>
+                                            </label>
+                                            <table class="table bullet-points m-0">
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>INSTANT RADIANCE: Infused with hyaluronic acid and niacinamide</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>HYDRATION BOOST: A hyaluronic acid moisturizer that quenches dry skin</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>SKIN BRIGHTENING: Vitamin C moisturizer and niacinamide blend to even out skin tone</td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="topProduct" class="d-flex justify-content-between">
+                                                <span>
+                                                    Top 5 Keywords Used:
+                                                </span>
+                                            </label>
+                                            <div class="keyword-section">
+                                                <p>Keyword1(X), Keyword2(Y), Keyword3(A), Keyword4(B), Keyword5(C)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="optionc-tab-pane" role="tabpanel" aria-labelledby="optionc-tab" tabindex="0">
+                                        <div class="form-group mt-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Product Name
+                                                </label>
+                                            </div>
+                                            <input type="text" class="form-control border-dash-primary" id="aiProductName" value="Tresemme Lumi Lit, Hyaluronic Acid Moisturizer, Niacinamide Face Cream for Women, 3g" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiAmazonProductName" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-danger pe-2" aria-hidden="true"></i>
+                                                        Amazon Product Name
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Char: 80/100</span>
+                                                    <span class="kw-count">KW: 3/2</span>
+                                                </small>
+                                            </label>
+                                            <input type="text" class="form-control border-dash-primary" id="aiAmazonProductName" value="Tresemme Lumi Lit Cream | Hyaluronic Acid Moisturizer | 30g Face Cream for Women | Vitamin C and Niacinamide | Glow Moisturizer for Face | for Dry to Oily Skin" readonly>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        <i class="fa fa-circle text-success pe-2" aria-hidden="true"></i>
+                                                        Product Description
+                                                    </span>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <span class="char-count pe-3">Words: 180/200</span>
+                                                    <span class="kw-count">KW: 70%</span>
+                                                </small>
+                                            </label>
+                                            <textarea class="form-control border-dash-primary" id="aiProductDescription" rows="4" readonly>Discover the secret to a radiant complexion with Tresemme 9 to 5 Lumi Lit Cream, the ultimate moisturizer for face that doubles as a subtle highlighter. This innovative face moisturizer for women is designed to give your skin a natural 3D glow that lasts from day to night. Infused with hyaluronic acid moisturizer properties, it deeply hydrates, while Niacinamide and Vitamin C work harmoniously to brighten and even out skin tone.</textarea>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="aiProductDescription" class="d-flex justify-content-between">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                    <span>
+                                                        Bullet Points
+                                                    </span>
+                                                </div>
+                                            </label>
+                                            <div class="table-container cstscroll solid" style="max-height: 103.2px;">
+                                                <table class="table bullet-points m-0">
+                                                    <tbody>
+                                                      <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>INSTANT RADIANCE: Infused with hyaluronic acid and niacinamide</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>HYDRATION BOOST: A hyaluronic acid moisturizer that quenches dry skin</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>SKIN BRIGHTENING: Vitamin C moisturizer and niacinamide blend to even out skin tone</td>
+                                                      </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label for="topProduct" class="d-flex justify-content-between">
+                                                <span>
+                                                    Top 5 Keywords Used:
+                                                </span>
+                                            </label>
+                                            <div class="keyword-section">
+                                                <p>Keyword1(X), Keyword2(Y), Keyword3(A), Keyword4(B), Keyword5(C)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+                      
+                        <div class="row mt-4 mb-4">
+                            <div class="col-md-12 d-flex justify-content-between">
+                                <div class="left-buttons">
+                                    <button type="button" class="btn btn-outline-primary cta-secondary me-3">Undo All</button>
+                                    <button type="button" class="btn btn-outline-primary cta-secondary me-3">Score</button>
+                                    <button type="button" class="btn btn-primary cta-primary me-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Save</button>
+                                    <button type="button" class="btn btn-primary cta-primary me-3">Generate</button>
+                                    <button type="button" class="btn btn-outline-primary cta-secondary me-3">Close</button>
+                                </div>
+                                <div class="right-buttons">
+                                    <button type="button" class="btn btn-outline-primary cta-secondary me-3">Use All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+            <!-- ./main-content -->
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body p-4">
+                            <h5 class="text-center">Written Content Uploaded Successfully</h5>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-2 align-self-center">
+                                        <img src="./assets/images/check.png" alt="logo" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-5"></div>
+                                </div>
+                            </div>
+                            <div class="cta some_buttons aligning-butn mt-4 text-center">
+                                <button type="button" class="createButton btn" data-bs-dismiss="modal">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="keywords" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="keywordsLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content" style="border-radius: 16px">
+                        <div class="modal-body px-4 pt-0">
+                            <div class="modal-header d-flex justify-content-between">
+                                <h3>Keywords</h3>
+                                <span><i class="fa fa-times" aria-hidden="true" data-bs-dismiss="modal"></i></span>
+                            </div>
+                            <div class="cstscroll" style="overflow-x:auto; max-height: 400px;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <th scope="col" class="align-middle text-center">Keyword</th>
+                                            <th scope="col" class="align-middle text-center">Keyword Rank</th>
+                                            <th scope="col" class="align-middle text-center">Volume (Amazon)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 1</td>
+                                            <td scope="col" class="align-middle text-center">1</td>
+                                            <td scope="col" class="align-middle text-center">9234</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 2</td>
+                                            <td scope="col" class="align-middle text-center">2</td>
+                                            <td scope="col" class="align-middle text-center">7123</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 3</td>
+                                            <td scope="col" class="align-middle text-center">3</td>
+                                            <td scope="col" class="align-middle text-center">6234</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 4</td>
+                                            <td scope="col" class="align-middle text-center">4</td>
+                                            <td scope="col" class="align-middle text-center">5487</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 5</td>
+                                            <td scope="col" class="align-middle text-center">5</td>
+                                            <td scope="col" class="align-middle text-center">4234</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 6</td>
+                                            <td scope="col" class="align-middle text-center">6</td>
+                                            <td scope="col" class="align-middle text-center">2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 7</td>
+                                            <td scope="col" class="align-middle text-center">7</td>
+                                            <td scope="col" class="align-middle text-center">1234</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 8</td>
+                                            <td scope="col" class="align-middle text-center">8</td>
+                                            <td scope="col" class="align-middle text-center">609</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 9</td>
+                                            <td scope="col" class="align-middle text-center">9</td>
+                                            <td scope="col" class="align-middle text-center">509</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                                </div>
+                                            </th>
+                                            <td scope="col" class="align-middle text-center">Keyword 10</td>
+                                            <td scope="col" class="align-middle text-center">10</td>
+                                            <td scope="col" class="align-middle text-center">12</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+                            
+                            <div class="cta some_buttons aligning-butn mt-4 text-end">
+                                <button type="button" class="createButton btn" data-bs-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./modal -->
+            <footer class="footer-custom">
+                <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+            </footer>
+            <!-- ./footer -->
+        </div>
+        <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
+
+
