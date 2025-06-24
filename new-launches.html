@@ -757,8 +757,6 @@
                             <!-- Right Section: Bulk Upload -->
                             <div class="d-flex align-items-center gap-2">
                               <a id="scoreCardBtnTab" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal" data-bs-target="#scoreCardModal">Score Card</a>
-                              <a id="validationBtnTab" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal" data-bs-target="#validationModal">Validation</a>
-                              <a id="scoringProgressBtnTab" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal" data-bs-target="#scoringProgressModal">Scoring Progress</a>
                               <button id="importBtnTab" class="cta cta-primary" data-bs-toggle="modal" data-bs-target="#importUploadModal">Import</button>
                               <button id="bulkUploadBtnTab" class="cta cta-primary" data-bs-toggle="modal" data-bs-target="#bulkImageUploadModal">Bulk Upload</button>
                             </div>
@@ -966,8 +964,8 @@
 
                             <div class="row mt-3">
                               <div class="col-md-12 d-flex gap-3 justify-content-end">
-                                <button id="scoreBtn" class="cta cta-secondary">Score</button>
-                                <button id="submitBtn" class="cta cta-primary">Submit</button>
+                                <button id="scoreBtn" class="cta cta-secondary" data-bs-toggle="modal" data-bs-target="#scoringProgressModal">Score</button>
+                                <button id="submitBtn" class="cta cta-primary" data-bs-toggle="modal" data-bs-target="#validationModal">Submit</button>
                               </div>
                             </div>
 
@@ -1376,7 +1374,10 @@
                           <!-- Hidden File Input accepting multiple files -->
                           <input type="file" id="mf_file_upload" class="d-none" accept="image/*" multiple>
                         </div>
-                        
+
+                        <!-- Upload List Section: Container for each upload item -->
+                        <div id="mf_upload_list" class="mf-upload-list"></div>
+
                         <!-- Info Row: Supported formats and Maximum size -->
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
                           <div class="mb-2 text-start">
@@ -1390,9 +1391,6 @@
                             <p class="text-danger small pt-2 m-0"></p>
                           </div>
                         </div>
-                        
-                        <!-- Upload List Section: Container for each upload item -->
-                        <div id="mf_upload_list" class="mf-upload-list"></div>
                         
                         <!-- Bulk Modal CTA Buttons: Cancel & Upload -->
                         <div id="mf_cta_container" class="mf-cta-container d-flex justify-content-end gap-2 mt-3">
@@ -1423,14 +1421,19 @@
                         <h5 class="text-start mb-3">Import Paid Asset Master</h5>
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
                           <div class="mb-2 text-start">
-                            <label for="basepacksdownTab">Import from basepack</label>
-                            <select id="basepacksdownTab" class="form-control form-select form-select-sm custom-select bg-white w-100" style="margin-top:6px; background-color: #fff !important;">
-                              <option value="basepacks">Select Basepack</option>
+                            <label for="importFromBasepacks">Import from basepack</label>
+                            <select id="importFromBasepacks" class="form-control form-select form-select-sm custom-select bg-white w-100" style="margin-top:6px; background-color: #fff !important;">
+                              <option value="">Select Basepack</option>
                               <option value="basepacks1">Basepack 1</option>
                               <option value="basepacks2">Basepack 2</option>
                               <option value="basepacks3">Basepack 3</option>
                             </select>
                           </div>
+                        </div>
+
+                        <!-- Preview Selected Basepack Images -->
+                        <div id="import_preview_container" class="row g-2 mb-3 d-none">
+                          <!-- Dynamically populated -->
                         </div>
 
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
@@ -2004,124 +2007,6 @@
         }
         
         // =====================================================
-        // BULK (MULTIPLE) FILE UPLOAD MODAL FUNCTIONALITY
-        // =====================================================
-        const mfFileInput = document.getElementById("mf_file_upload");
-        const mfChooseFile = document.querySelector(".mf-choose-file");
-        const mfUploadList = document.getElementById("mf_upload_list");
-        const mfCancelBtn = document.getElementById("mf_cancel_btn");
-        const mfUploadBtn = document.getElementById("mf_upload_btn");
-        const bulkModalEl = document.getElementById("bulkImageUploadModal");
-        const bulkUploadModal = new bootstrap.Modal(bulkModalEl);
-        
-        bulkModalEl.addEventListener("show.bs.modal", function() {
-          resetBulkModal();
-        });
-        
-        mfChooseFile.addEventListener("click", function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          mfFileInput.click();
-        });
-        
-        mfFileInput.addEventListener("change", function() {
-          const files = this.files;
-          if (files.length > 0) {
-            Array.from(files).forEach(file => {
-              if (!file.type.startsWith("image/")) {
-                alert("Please select an image file.");
-                return;
-              }
-              createBulkUploadItem(file);
-            });
-            mfFileInput.value = "";
-          }
-        });
-        
-        function createBulkUploadItem(file) {
-          const item = document.createElement("div");
-          item.className = "mf-upload-item card mb-3";
-          item.innerHTML = `
-            <div class="card-body d-flex align-items-center">
-              <img class="mf-thumbnail me-3" src="" alt="Thumbnail">
-              <div class="flex-grow-1">
-                <div class="mf-filename fw-bold">${file.name}</div>
-                <div class="mf-filesize text-muted small">${(file.size / (1024 * 1024)).toFixed(2)} MB</div>
-                <div class="mf-upload-progress mt-2">
-                  <div class="progress" style="height:6px;">
-                    <div class="mf-progress-bar progress-bar bg-primary" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="mf-progress-percentage text-end mt-1 small text-muted">0%</div>
-                </div>
-              </div>
-              <div class="mf-cta-container ms-3">
-                <button class="mf-delete-btn btn btn-outline-danger btn-sm" title="Delete file"><svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg></button>
-              </div>
-            </div>
-          `;
-          mfUploadList.appendChild(item);
-        
-          const thumbnail = item.querySelector(".mf-thumbnail");
-          const progressBar = item.querySelector(".mf-progress-bar");
-          const progressPercentage = item.querySelector(".mf-progress-percentage");
-          const deleteBtn = item.querySelector(".mf-delete-btn");
-        
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            thumbnail.src = e.target.result;
-          };
-          reader.readAsDataURL(file);
-        
-          let progress = 0;
-          const intervalId = setInterval(() => {
-            progress += 10;
-            if (progress > 100) progress = 100;
-            progressBar.style.width = progress + "%";
-            progressBar.setAttribute("aria-valuenow", progress);
-            progressPercentage.textContent = progress + "%";
-            if (progress === 100) {
-              clearInterval(intervalId);
-              deleteBtn.disabled = false;
-            }
-          }, 500);
-        
-          deleteBtn.addEventListener("click", function() {
-            clearInterval(intervalId);
-            item.remove();
-            updateBulkCTAState();
-          });
-        
-          updateBulkCTAState();
-        }
-        
-        function updateBulkCTAState() {
-          if (mfUploadList.children.length > 0) {
-            //mfCancelBtn.disabled = false;
-            mfUploadBtn.disabled = false;
-          } else {
-            //mfCancelBtn.disabled = true;
-            mfUploadBtn.disabled = true;
-          }
-        }
-        
-        mfCancelBtn.addEventListener("click", function() {
-          bulkUploadModal.hide();
-          resetBulkModal();
-        });
-        
-        mfUploadBtn.addEventListener("click", function() {
-          console.log("Bulk upload initiated. Backend processing will occur.");
-          // No further action – backend handling is assumed.
-        });
-        
-        function resetBulkModal() {
-          mfFileInput.value = "";
-          mfUploadList.innerHTML = "";
-          //mfCancelBtn.disabled = true;
-          mfUploadBtn.disabled = true;
-        }
-
-        // =====================================================
         // ADD NEW PAM ROW
         // =====================================================
         const pamDropdown = document.getElementById("pamAddDropdown");
@@ -2160,6 +2045,109 @@
         });
 
       });
+
+
+      // =====================================================
+      // BULK (MULTIPLE) FILE UPLOAD MODAL FUNCTIONALITY
+      // =====================================================
+      $(document).ready(function () {
+        const $input = $('#mf_file_upload');
+        const $trigger = $('.mf-choose-file');
+        const $dropArea = $('#mf_drop_area');
+        const $preview = $('#mf_upload_list');
+        const $uploadBtn = $('#mf_upload_btn');
+
+        // Make drop area clickable
+        $dropArea.on('click', function (e) {
+          // Prevent double trigger from inner button
+          if (!$(e.target).is('input') && !$(e.target).hasClass('mf-remove-thumb')) {
+            $input.trigger('click');
+          }
+        });
+
+        // Separate trigger from "Choose files"
+        $trigger.on('click', function (e) {
+          e.stopPropagation(); // Prevent bubble to drop area
+          $input.trigger('click');
+        });
+
+        // Handle file input
+        $input.on('change', function (e) {
+          const files = Array.from(e.target.files);
+          files.forEach(renderPreview);
+        });
+
+        // Drag & Drop events
+        $dropArea.on('dragover', function (e) {
+          e.preventDefault();
+          $(this).addClass('border-primary bg-light');
+        });
+
+        $dropArea.on('dragleave', function (e) {
+          e.preventDefault();
+          $(this).removeClass('border-primary bg-light');
+        });
+
+        $dropArea.on('drop', function (e) {
+          e.preventDefault();
+          $(this).removeClass('border-primary bg-light');
+          const files = Array.from(e.originalEvent.dataTransfer.files);
+          files.forEach(renderPreview);
+        });
+
+        // Render preview
+        function renderPreview(file) {
+          if (!file.type.startsWith('image/')) return;
+
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const size = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+            const $item = $(`
+              <div class="mf-upload-thumb position-relative d-inline-block me-2 mb-2 text-center" style="width: 110px;">
+                <img src="${e.target.result}" class="img-thumbnail mb-1" style="width: 100px; height: 100px; object-fit: cover;">
+                <div class="small text-truncate" title="${file.name}">${file.name}</div>
+                <div class="small text-muted">${size}</div>
+                <span class="mf-remove-thumb position-absolute top-0 end-0 p-1" style="cursor: pointer;" title="Remove">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icon-tabler-trash">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                </span>
+              </div>
+            `);
+            $preview.append($item);
+            toggleUploadBtn();
+          };
+          reader.readAsDataURL(file);
+        }
+
+        // Remove preview
+        $(document).on('click', '.mf-remove-thumb', function () {
+          $(this).closest('.mf-upload-thumb').remove();
+          toggleUploadBtn();
+        });
+
+        // Enable/Disable Upload
+        function toggleUploadBtn() {
+          $uploadBtn.prop('disabled', $preview.children().length === 0);
+        }
+
+        // Reset modal
+        $('#bulkImageUploadModal').on('hidden.bs.modal', function () {
+          $preview.empty();
+          $input.val('');
+          toggleUploadBtn();
+        });
+      });
+
+
 
       $(document).ready(function () {
         const $dropdown = $('#pamAddDropdown');
@@ -2282,6 +2270,55 @@
           $row.remove();
         });
       });
+
+      // =====================================================
+      // BASEPACKS IMPORT FUNCTIONALITY
+      // =====================================================
+
+      $(document).ready(function () {
+  const basepackImages = {
+    basepacks1: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ],
+    basepacks2: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ],
+    basepacks3: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ]
+  };
+
+  $('#importFromBasepacks').on('change', function () {
+    const selected = $(this).val();
+    const $previewContainer = $('#import_preview_container');
+
+    $previewContainer.empty().addClass('d-none');
+
+    if (selected && basepackImages[selected]) {
+      basepackImages[selected].forEach(src => {
+        $previewContainer.append(`
+          <div class="col-3">
+            <div class="border rounded p-2 text-center">
+              <img src="${src}" alt="Preview" class="img-fluid mb-1" style="height: 100px; object-fit: cover;">
+              <div class="small text-muted">${src.split('?text=')[1]}</div>
+            </div>
+          </div>
+        `);
+      });
+      $previewContainer.removeClass('d-none');
+    }
+  });
+});
+
 
 
 
