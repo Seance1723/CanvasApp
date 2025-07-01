@@ -35,6 +35,15 @@
     font-weight: 600 !important;
 }
 
+@mixin generate-text-colors($colors) {
+  @each $name, $value in $colors {
+    .txt-#{$name} {
+      color: $value !important;
+    }
+  }
+}
+
+
 @mixin hex-to-rgb($hex) {
     $red: 0;
     $green: 0;

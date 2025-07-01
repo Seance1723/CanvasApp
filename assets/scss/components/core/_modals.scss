@@ -141,3 +141,26 @@
     }
   }
 }
+
+
+#approvexceptionModal{
+  .visual-exception-container{
+    .exception-form{
+      ul{
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        li{
+          ul{
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            li{
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}

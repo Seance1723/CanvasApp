@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body class="new-exception-page">
+    <div class="main-wrapper">
+      <div id="app" class="app">
+        <header id="header" class="header">
+          <div class="logo-place">
+            <a href="#/">
+              <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+            </a>
+          </div>
+          <div class="page-heading text-center">
+            <span class="header-text1">CANVAS</span>
+            <span class="header-text2"></span>
+          </div>
+          <div class="header-block header-block-nav">
+            <ul class="nav nav-profile d-flex align-items-center">
+              <li class="nav-item dropdown notification" style="display: none;">
+                <a class="nav-link" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                    <i class="fa fa-circle notification-circle"></i>
+                    <span class="num"></span>
+                  </i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                  <div class="text-center">
+                    <strong>No new notification</strong>
+                  </div>
+                </div>
+              </li>
+              <li id="avatar" class="nav-item">
+                <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+              </li>
+              <li class="nav-item username ml-2">Neha Dudhoria</li>
+              <li class="nav-item dropdown profile ml-2">
+                <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-lock"></i> Change Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-power-off"></i> Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <!-- ./header -->
+        <aside class="sidebar" style="left: 0 !important;">
+          <div class="sidebar-container">
+            <div class="sidebar-header"></div>
+            <nav class="menu">
+              <ul id="sidebar-menu" class="nav flex-column">
+                <li class="nav-item">&nbsp;</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/">
+                    <i class="fa fa-home"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/portfolio">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> New Launches
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/refresh">
+                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> Extension
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/deployment-summary">
+                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <!-- ./sidebar -->
+
+        <div id="includedContent" class="main-content new-launches">
+          <div class="diff-list-heading">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-auto">
+                <div class="someTextt">
+                  <p>Exception</p>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="input-container">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="search">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row g-3 align-items-center select-exception">
+                  <div class="col-auto">
+                    <label for="exceptionType" class="col-form-label">Exception Type</label>
+                  </div>
+                  <div class="col-auto">
+                    <select id="exceptionType" class="form-control form-select form-select-sm custom-select" aria-label="Default select example">
+                      <option selected>Select</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ./row -->
+          </div>
+          <!-- ./diff-list-heading -->
+          
+          <section class="exception-page-inner">
+            <!-- Table -->
+            <div class="exception-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Workspace</th>
+                    <th>MOC</th>
+                    <th>Platforms</th>
+                    <th>BigC</th>
+                    <th>SmallC</th>
+                    <th>Owned Content Status</th>
+                    <th>Paid Content Status</th>
+                    <th>Template</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status draft active">Draft</span></td>
+                    <td><span class="status draft inactive">Draft</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status draft active">Submit for SM Approval</span></td>
+                    <td><span class="status draft inactive">Draft</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status draft active">Submit for SM Approval</span></td>
+                    <td><span class="status draft inactive">Draft</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status draft active">Submit for SM Approval</span></td>
+                    <td><span class="status draft active">Submit for SM Approval</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status danger">Exception Rejected</span></td>
+                    <td><span class="status danger">Exception Rejected</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">Lakme_0606</td>
+                    <td class="txt-gray-dark">08-25 <i class="fa fa-pencil txt-info edit"></i></td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" title="Blinkit">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" title="Myntra">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="TIRA" title="TIRA">
+                      <i class="fa fa-pencil txt-info edit"></i>
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status success">Published</span></td>
+                    <td><span class="status success">Published</span></td>
+                    <td class="txt-info edit">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.57 .811 3.128 1.986" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /></svg>
+                      </span>
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cloud-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18.004h-5.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.38 0 2.573 .813 3.13 1.99" /><path d="M19 16v6" /><path d="M22 19l-3 3l-3 -3" /></svg>
+                      </span>
+                    </td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <span>Results as per page 10</span>
+              <div class="pages">
+                <button class="prev">Previous</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button class="next">Next</button>
+              </div>
+            </div>
+          </section>
+          
+        </div>
+        <!-- ./main-content -->
+
+        
+        <footer class="footer-custom">
+          <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+        </footer>
+        <!-- ./footer -->
+      </div>
+      <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./assets/js/image_upload.js"></script>
+    <script src="./assets/js/exception.js"></script>
+    
+  </body>
+</html>

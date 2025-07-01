@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body class="new-exception-page">
+    <div class="main-wrapper">
+      <div id="app" class="app">
+        <header id="header" class="header">
+          <div class="logo-place">
+            <a href="#/">
+              <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+            </a>
+          </div>
+          <div class="page-heading text-center">
+            <span class="header-text1">CANVAS</span>
+            <span class="header-text2"></span>
+          </div>
+          <div class="header-block header-block-nav">
+            <ul class="nav nav-profile d-flex align-items-center">
+              <li class="nav-item dropdown notification" style="display: none;">
+                <a class="nav-link" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                    <i class="fa fa-circle notification-circle"></i>
+                    <span class="num"></span>
+                  </i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                  <div class="text-center">
+                    <strong>No new notification</strong>
+                  </div>
+                </div>
+              </li>
+              <li id="avatar" class="nav-item">
+                <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+              </li>
+              <li class="nav-item username ml-2">Neha Dudhoria</li>
+              <li class="nav-item dropdown profile ml-2">
+                <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-lock"></i> Change Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-power-off"></i> Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <!-- ./header -->
+        <aside class="sidebar" style="left: 0 !important;">
+          <div class="sidebar-container">
+            <div class="sidebar-header"></div>
+            <nav class="menu">
+              <ul id="sidebar-menu" class="nav flex-column">
+                <li class="nav-item">&nbsp;</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/">
+                    <i class="fa fa-home"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/portfolio">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> New Launches
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/refresh">
+                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> Extension
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> Paid Asset Master
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">
+                    <i class="fa fa-laptop"></i> Exception
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/deployment-summary">
+                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <!-- ./sidebar -->
+
+        <div id="includedContent" class="main-content new-launches">
+          <div class="diff-list-heading">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-auto">
+                <div class="someTextt">
+                  <p>Exception</p>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="input-container">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="search">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row g-3 align-items-center select-exception">
+                  <div class="col-auto">
+                    <label for="exceptionType" class="col-form-label">Exception Type</label>
+                  </div>
+                  <div class="col-auto">
+                    <select id="exceptionType" class="form-control form-select form-select-sm custom-select" aria-label="Default select example">
+                      <option selected>Select</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ./row -->
+          </div>
+          <!-- ./diff-list-heading -->
+          
+          <section class="exception-page-inner">
+            <!-- Table -->
+            <div class="exception-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Workspace</th>
+                    <th>MOC</th>
+                    <th>Exception Type</th>
+                    <th>Listing Type</th>
+                    <th>Platforms</th>
+                    <th>BigC</th>
+                    <th>SmallC</th>
+                    <th>Action</th>
+                    <th>Owned Asset Exception Status</th>
+                    <th>Paid Asset Exception Status</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="txt-secondary">retest</td>
+                    <td></td>
+                    <td>Visual Content</td>
+                    <td>Transitions & Updates</td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                    </td>
+                    <td class="txt-gray-dark">BPC</td>
+                    <td class="txt-gray-dark">BG_BB35 : LAKME</td>
+                    <td><span class="status primary" data-bs-toggle="modal" data-bs-target="#approvexceptionModal">Approve / Reject</span></td>
+                    <td><span class="status draft active">Owned Asset Exception Pending</span></td>
+                    <td><span class="status draft active">Paid Asset Exception Pending</span></td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                    </td>
+                    <td>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="txt-secondary">retest 2</td>
+                    <td></td>
+                    <td>Visual Content</td>
+                    <td>Extension</td>
+                    <td class="txt-gray-dark">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" title="Amazon">
+                      <img  class="tag-brand-logo" src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" title="Bigbasket">
+                    </td>
+                    <td class="txt-gray-dark">HC</td>
+                    <td class="txt-gray-dark">HHC : HOUSE HOLD CARE</td>
+                    <td>
+                      <span class="txt-secondary">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-line"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 10.663c0 -4.224 -4.041 -7.663 -9 -7.663s-9 3.439 -9 7.663c0 3.783 3.201 6.958 7.527 7.56c1.053 .239 .932 .644 .696 2.133c-.039 .238 -.184 .932 .777 .512c.96 -.42 5.18 -3.201 7.073 -5.48c1.304 -1.504 1.927 -3.029 1.927 -4.715v-.01z" /></svg>
+                      </span>
+                    </td>
+                    <td><span class="status success">Owned Asset Exception Approved</span></td>
+                    <td><span class="status danger">Paid Asset Exception Rejected</span></td>
+                    <td>
+                      <i class="fa fa-trash txt-info edit"></i>
+                    </td>
+                    <td>
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-caret-down show-more"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" /></svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            
+          </section>
+          
+        </div>
+        <!-- ./main-content -->
+
+        <!-- Modal: Exception Modal -->
+        <div class="modal fade" id="approvexceptionModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body text-start p-4">
+                <div class="visual-exception-container">
+                  <h1 class="form-title">Visual Content Exception</h1>
+                  <small>Exception Requested For: A+, Paid Asset Master</small>
+                  <form class="exception-form">
+                    <h5 class="mt-4">Confirm Exception Approval For:</h5>
+                    <ul>
+                        <li>
+                          <h6>1. A+</h6>
+                          <div class="approval mt-3">
+                            <ul>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Approve
+                                </label>
+                              </li>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Reject
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- Reason for Video -->
+                          <div class="form-group comment-sec">
+                            <label for="reason2" class="form-label d-flex justify-content-between">
+                              <span>Comment <span class="comment">*</span></span>
+                              <small class="text-danger fw-normal">Please enter a comment to proceed</small>
+                            </label>
+                            <textarea id="reason2" class="form-textarea" placeholder="Enter Comment for Visual Content Exception Here"></textarea>
+                          </div>
+                        </li>
+                        <li>
+                          <h6>2. Images</h6>
+                          <div class="approval mt-3">
+                            <ul>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Approve
+                                </label>
+                              </li>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Reject
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- Reason for Video -->
+                          <div class="form-group comment-sec">
+                            <label for="reason2" class="form-label d-flex justify-content-between">
+                              <span>Comment <span class="comment">*</span></span>
+                              <small class="text-danger fw-normal">Please enter a comment to proceed</small>
+                            </label>
+                            <textarea id="reason2" class="form-textarea" placeholder="Enter Comment for Visual Content Exception Here"></textarea>
+                          </div>
+                        </li>
+                        <li>
+                          <h6>3. Video</h6>
+                          <div class="approval mt-3">
+                            <ul>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Approve
+                                </label>
+                              </li>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Reject
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- Reason for Video -->
+                          <div class="form-group comment-sec">
+                            <label for="reason2" class="form-label d-flex justify-content-between">
+                              <span>Comment <span class="comment">*</span></span>
+                              <small class="text-danger fw-normal">Please enter a comment to proceed</small>
+                            </label>
+                            <textarea id="reason2" class="form-textarea" placeholder="Enter Comment for Visual Content Exception Here"></textarea>
+                          </div>
+                        </li>
+                        <li>
+                          <h6>4. Paid Asset Master</h6>
+                          <div class="approval mt-3">
+                            <ul>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Approve
+                                </label>
+                              </li>
+                              <li class="form-check">
+                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                <label class="form-check-label" for="radioDefault1">
+                                  Reject
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- Reason for Video -->
+                          <div class="form-group comment-sec">
+                            <label for="reason2" class="form-label d-flex justify-content-between">
+                              <span>Comment <span class="comment">*</span></span>
+                              <small class="text-danger fw-normal">Please enter a comment to proceed</small>
+                            </label>
+                            <textarea id="reason2" class="form-textarea" placeholder="Enter Comment for Visual Content Exception Here"></textarea>
+                          </div>
+                        </li>
+                      </ul>
+
+                    <div class="form-group">
+                      <!-- Buttons -->
+                      <div class="d-flex justify-content-center gap-2">
+                        <button type="button" id="modalClose" class="cta cta-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="modalSubmit" class="cta cta-primary">Submit</button>
+                      </div>
+                    </div> <!-- Closes A+ Content form-group -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal: Exception Modal -->
+        <div class="modal fade" id="exceptionApprovalModal" tabindex="-1" aria-labelledby="exceptionApprovalModalLabel" aria-hidden="true" 
+        data-bs-backdrop="static" data-bs-keyboard="false">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body text-start p-4">
+                <div class="visual-exception-container">
+                  <h1 class="form-title">Visual Content Exception</h1>
+                  <form class="exception-form">
+                    <p class="form-subtitle">
+                      Submit your request to proceed without <span class="required">*</span>
+                    </p>
+
+                    <!-- Checkbox Group -->
+                    <div class="checkbox-group m-0">
+                      <div class="form-group m-0 d-inline-block">
+                        <label class="checkbox-wrapper" for="imageCheckbox1">
+                          <input type="checkbox" name="imageCheckbox" id="imageCheckbox1" checked />
+                          <span class="form-label m-0 fw-bold">Image</span>
+                        </label>
+                      </div>
+                      <div class="ps-3 mb-3">
+                        <label class="checkbox-wrapper" for="mandatoryCheckbox">
+                          <input type="checkbox" name="mandatoryCheckbox" id="mandatoryCheckbox" checked />
+                          <span class="checkbox-label">Mandatory Image – FOP, EAN</span>
+                        </label>
+                        <label class="checkbox-wrapper" for="numImagesCheckbox">
+                          <input type="checkbox" name="numImagesCheckbox" id="numImagesCheckbox" checked />
+                          <span class="checkbox-label">Number of Images – 2</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- Reason -->
+                    <div class="comment-group p-3 bg-body-secondary rounded-3 mb-2">
+                      <div class="exception-log-container d-flex justify-content-between align-items-center mb-2">
+                        <label class="m-0">Exception Log</label>
+                        <p class="m-0">Neha Dudhoria</p>
+                      </div>
+                      <i>Mandatory Images not available for the product</i>
+                      <div class="form-group mb-0 mt-2">
+                        <label for="comment1" class="form-label d-flex justify-content-between">
+                          <span>Comment <span class="required">*</span></span>
+                        </label>
+                        <textarea id="comment1" class="form-textarea" placeholder="Enter Comments"></textarea>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- A+ Content -->
+                    <div class="form-group">
+                      <div class="checkbox-group mb-3 d-inline-block">
+                        <label class="checkbox-wrapper" for="aPlusContent">
+                          <input type="checkbox" name="aPlusContent" id="aPlusContent" checked/>
+                          <span class="form-label m-0 fw-bold">A+ Content</span>
+                        </label>
+                      </div>
+
+                      <!-- Reason for A+ Content -->
+                      <!-- Reason -->
+                    <div class="comment-group p-3 bg-body-secondary rounded-3 mb-2">
+                      <div class="exception-log-container d-flex justify-content-between align-items-center mb-2">
+                        <label class="m-0">Exception Log</label>
+                        <p class="m-0">Neha Dudhoria</p>
+                      </div>
+                      <i>A+ Content not available for the product</i>
+                      <div class="form-group mb-0 mt-2">
+                        <label for="comment1" class="form-label d-flex justify-content-between">
+                          <span>Comment <span class="required">*</span></span>
+                        </label>
+                        <textarea id="comment1" class="form-textarea" placeholder="Enter Comments"></textarea>
+                      </div>
+                    </div>
+                    </div>
+
+                      <hr>
+
+                      <!-- Video -->
+                      <div class="form-group">
+                        <div class="checkbox-group d-inline-block mb-3">
+                          <label class="checkbox-wrapper" for="videoCheckbox">
+                            <input type="checkbox" name="videoCheckbox" id="videoCheckbox" checked/>
+                            <span class="form-label m-0 fw-bold">Video</span>
+                          </label>
+                        </div>
+
+                        <!-- Reason for Video -->
+                        <div class="comment-group p-3 bg-body-secondary rounded-3 mb-2">
+                          <div class="exception-log-container d-flex justify-content-between align-items-center mb-2">
+                            <label class="m-0">Exception Log</label>
+                            <p class="m-0">Neha Dudhoria</p>
+                          </div>
+                          <i>Video not available for the product</i>
+                          <div class="form-group mb-0 mt-2">
+                            <label for="comment1" class="form-label d-flex justify-content-between">
+                              <span>Comment <span class="required">*</span></span>
+                            </label>
+                            <textarea id="comment1" class="form-textarea" placeholder="Enter Comments"></textarea>
+                          </div>
+                        </div>
+                      </div> <!-- Closes Video form-group -->
+
+                      <!-- Buttons -->
+                      <div class="d-flex justify-content-center gap-2">
+                        <button type="button" id="modalCancel" class="cta cta-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" id="modalContinue" class="cta cta-primary">Continue</button>
+                      </div>
+                    </div> <!-- Closes A+ Content form-group -->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="createPamWorkflowModal" tabindex="-1" aria-labelledby="createPamWorkflowLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-4">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="createPamWorkflowLabel">Create PAM Workflow</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                <form class="row g-4">
+                  <div class="col-md-6">
+                    <label class="form-label">Workspace Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Workspace Name" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">MOC <span class="text-danger">*</span></label>
+                    <select class="form-control form-select form-select-sm custom-select" required>
+                      <option selected disabled>Select MOC</option>
+                      <option value="MOC1">MOC1</option>
+                      <option value="MOC2">MOC2</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Brand <span class="text-danger">*</span></label>
+                    <select class="form-control form-select form-select-sm custom-select" required>
+                      <option selected disabled>Select Basepack</option>
+                      <option value="Brand1">Brand1</option>
+                      <option value="Brand2">Brand2</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">SmallC <span class="text-danger">*</span></label>
+                    <select class="form-control form-select form-select-sm custom-select" required>
+                      <option selected disabled>Select SmallC</option>
+                      <option value="SmallC1">SmallC1</option>
+                      <option value="SmallC2">SmallC2</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Platform <span class="text-danger">*</span></label>
+                    <select class="form-control form-select form-select-sm custom-select" required>
+                      <option selected disabled>Select Platforms</option>
+                      <option value="Platform1">Platform1</option>
+                      <option value="Platform2">Platform2</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Basepacks <span class="text-danger">*</span></label>
+                    <select class="form-control form-select form-select-sm custom-select" required>
+                      <option selected disabled>Select Basepack</option>
+                      <option value="Basepack1">Basepack1</option>
+                      <option value="Basepack2">Basepack2</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12 d-flex justify-content-end gap-3 pt-3">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="cta cta-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        
+        <footer class="footer-custom">
+          <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+        </footer>
+        <!-- ./footer -->
+      </div>
+      <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./assets/js/image_upload.js"></script>
+    <script src="./assets/js/exception.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("#createPamWorkflowModal form");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // stop default submit
+          window.location.href = "pam-added.html"; // redirect to your page
+        });
+      });
+    </script>
+
+    
+  </body>
+</html>

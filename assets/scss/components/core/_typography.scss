@@ -1,3 +1,5 @@
+@include generate-text-colors($colors);
+
 .section-header{
     font-weight: 700;
     font-size: 46px;

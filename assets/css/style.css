@@ -41,13 +41,14 @@ Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, 
   --danger-color: #EA5455;
   --danger-hover-color: #b61616;
   --warning-color: #ffc107;
-  --info-color: #17a2b8;
+  --info-color: #17A8D3;
   --light-color: #f8f9fa;
   --dark-color: #444444;
   --black-color: #100119;
   --white-color: #ffffff;
   --border-color: #D1D0D4;
   --gray-color: #DBD7DD;
+  --gray-dark-color: #727C80;
   --primary: 0, 94, 255;
   --secondary: 119, 5, 188;
   --secondary-light: 208, 160, 238;
@@ -58,13 +59,14 @@ Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, 
   --danger: 234, 84, 85;
   --danger-hover: 182, 22, 22;
   --warning: 255, 193, 7;
-  --info: 23, 162, 184;
+  --info: 23, 168, 211;
   --light: 248, 249, 250;
   --dark: 68, 68, 68;
   --black: 16, 1, 25;
   --white: 255, 255, 255;
   --border: 209, 208, 212;
   --gray: 219, 215, 221;
+  --gray-dark: 114, 124, 128;
   --h1-font-size: 38px;
   --h2-font-size: 32px;
   --h3-font-size: 26px;
@@ -601,6 +603,78 @@ select.form-control.custom-select {
   color: var(--dark-color) !important;
 }
 
+.txt-primary {
+  color: #005EFF !important;
+}
+
+.txt-secondary {
+  color: #7705BC !important;
+}
+
+.txt-secondary-light {
+  color: #d0a0ee !important;
+}
+
+.txt-secondary-dark {
+  color: #5d0495 !important;
+}
+
+.txt-bg-light {
+  color: #F6F2F2 !important;
+}
+
+.txt-sky {
+  color: #77DDF5 !important;
+}
+
+.txt-success {
+  color: #0cc53c !important;
+}
+
+.txt-danger {
+  color: #EA5455 !important;
+}
+
+.txt-danger-hover {
+  color: #b61616 !important;
+}
+
+.txt-warning {
+  color: #ffc107 !important;
+}
+
+.txt-info {
+  color: #17A8D3 !important;
+}
+
+.txt-light {
+  color: #f8f9fa !important;
+}
+
+.txt-dark {
+  color: #444444 !important;
+}
+
+.txt-black {
+  color: #100119 !important;
+}
+
+.txt-white {
+  color: #ffffff !important;
+}
+
+.txt-border {
+  color: #D1D0D4 !important;
+}
+
+.txt-gray {
+  color: #DBD7DD !important;
+}
+
+.txt-gray-dark {
+  color: #727C80 !important;
+}
+
 .section-header {
   font-weight: 700;
   font-size: 46px;
@@ -871,6 +945,16 @@ select.form-control.custom-select {
   color: var(--white-color);
 }
 
+#approvexceptionModal .visual-exception-container .exception-form ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+#approvexceptionModal .visual-exception-container .exception-form ul li ul {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
 #includedContent {
   margin-top: 72px;
   padding: 25px;
@@ -1879,4 +1963,246 @@ body.new-launches-page #pamCardContainer .card-wrapper-main.fade-in-show {
 body.new-launches-page #pamCardContainer .card-wrapper-main.fade-out {
   opacity: 0;
   transform: translateY(-10px);
+}
+body.new-launches-page .action-area .score {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--white-color);
+  font-size: 12px;
+  margin-right: 6px;
+}
+body.new-launches-page .action-area .score.success {
+  background: var(--success-color);
+}
+body.new-launches-page .action-area .score.danger {
+  background: var(--danger-color);
+}
+
+body.new-exception-page input {
+  background-color: var(--white-color) !important;
+}
+body.new-exception-page select.form-control.custom-select {
+  background-color: var(--white-color) !important;
+}
+body.new-exception-page .modal-backdrop {
+  opacity: 0.8 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #000 !important;
+  --bs-backdrop-bg: #000 !important;
+}
+body.new-exception-page .diff-list-heading .someTextt p {
+  margin: 0;
+}
+body.new-exception-page .input-container {
+  position: relative;
+}
+body.new-exception-page .input-container input {
+  border-radius: 40px;
+  min-width: 320px;
+  background: var(--white-color) !important;
+}
+body.new-exception-page .input-container svg {
+  position: absolute;
+  right: 16px;
+  top: 8px;
+  color: var(--secondary-color);
+}
+body.new-exception-page .select-exception .col-auto {
+  margin: 0;
+}
+body.new-exception-page .select-exception .col-auto #exceptionType {
+  min-width: 220px;
+  background-color: var(--white-color) !important;
+}
+
+.exception-page-inner .exception-table {
+  margin-top: 2rem;
+}
+.exception-page-inner .exception-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 16px;
+}
+.exception-page-inner .exception-table table thead tr {
+  background: var(--dark-color);
+  color: var(--white-color);
+}
+.exception-page-inner .exception-table table thead tr th {
+  text-align: center;
+}
+.exception-page-inner .exception-table table thead tr th:first-child {
+  border-radius: 60px 0 0 60px;
+}
+.exception-page-inner .exception-table table thead tr th:last-child {
+  border-radius: 0 60px 60px 0;
+}
+.exception-page-inner .exception-table table tbody tr {
+  background: #ECECEC;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section {
+  background: none !important;
+  display: none;
+  position: relative;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section td {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step .label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step .circle {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-size: 12px;
+  color: #999;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step .circle i {
+  margin: 0;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step .line {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #ddd;
+  z-index: 0;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step:last-child .line {
+  display: none;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section .stepper .step.completed .circle {
+  background: #ccc;
+  border-color: #ccc;
+  color: #fff;
+}
+.exception-page-inner .exception-table table tbody tr td {
+  text-align: center;
+}
+.exception-page-inner .exception-table table tbody tr td .status {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 60px;
+}
+.exception-page-inner .exception-table table tbody tr td .status.primary {
+  background: var(--secondary-color);
+  color: var(--white-color);
+}
+.exception-page-inner .exception-table table tbody tr td .status.draft.active {
+  background: #FFF7E6;
+  color: #FFB26C;
+}
+.exception-page-inner .exception-table table tbody tr td .status.draft.inactive {
+  background: #D1D0D4;
+  color: #666666;
+}
+.exception-page-inner .exception-table table tbody tr td .status.danger {
+  background: #F8D7DA;
+  color: #DC3545;
+}
+.exception-page-inner .exception-table table tbody tr td .status.success {
+  background: #BCEF9F;
+  color: #54922B;
+}
+.exception-page-inner .exception-table table tbody tr td:first-child {
+  border-radius: 60px 0 0 60px;
+}
+.exception-page-inner .exception-table table tbody tr td:last-child {
+  border-radius: 0 60px 60px 0;
+}
+.exception-page-inner .exception-table table tbody tr.hidden-table-section {
+  display: none;
+}
+.exception-page-inner .exception-table table th, .exception-page-inner .exception-table table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.exception-page-inner .exception-table table td i {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.exception-page-inner .exception-table table td .status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+.exception-page-inner .exception-table table td .status.draft {
+  background: #f1f1f1;
+}
+.exception-page-inner .exception-table table td .status.submit {
+  background: #ffe599;
+}
+.exception-page-inner .exception-table table td .status.rejected {
+  background: #f8d7da;
+}
+.exception-page-inner .exception-table table td .status.published {
+  background: #d4edda;
+}
+.exception-page-inner .exception-table table td .status.upload {
+  background: #d1ecf1;
+}
+.exception-page-inner .pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.exception-page-inner .pagination .pages button {
+  margin: 0 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.exception-page-inner .pagination .pages button.active {
+  background: #000;
+  color: #fff;
+}
+
+body #includedContent .link-containers {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  justify-content: end;
+  align-items: center;
+}
+body #includedContent .link-containers a i {
+  margin-right: 8px;
+}
+body #includedContent .link-containers a:last-child i {
+  margin-left: 8px;
+  margin-right: 0;
+}
+body .exception-page-inner table tbody tr {
+  font-size: 13px;
 }/*# sourceMappingURL=style.css.map */

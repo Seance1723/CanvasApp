@@ -57,5 +57,26 @@ body{
                 transform: translateY(-10px);
             }
         }
+
+        .action-area{
+            .score{
+                padding: 5px 10px;
+                cursor: pointer;
+                border-radius: 4px;
+                color: var(--white-color);
+                font-size: 12px;
+                margin-right: 6px;
+                &.success{
+                    background: var(--success-color);
+                }
+                &.danger{
+                    background: var(--danger-color);
+                }
+            }
+        }
+
+
+
     }
 }
+
