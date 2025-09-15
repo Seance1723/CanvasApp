@@ -1,0 +1,1338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body class="new-launches-page">
+    <div class="main-wrapper">
+      <div id="app" class="app">
+        <header id="header" class="header">
+          <div class="logo-place">
+            <a href="#/">
+              <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+            </a>
+          </div>
+          <div class="page-heading text-center">
+            <span class="header-text1">CANVAS</span>
+            <span class="header-text2"></span>
+          </div>
+          <div class="header-block header-block-nav">
+            <ul class="nav nav-profile d-flex align-items-center">
+              <li class="nav-item dropdown notification" style="display: none;">
+                <a class="nav-link" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                    <i class="fa fa-circle notification-circle"></i>
+                    <span class="num"></span>
+                  </i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                  <div class="text-center">
+                    <strong>No new notification</strong>
+                  </div>
+                </div>
+              </li>
+              <li id="avatar" class="nav-item">
+                <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+              </li>
+              <li class="nav-item username ml-2">Neha Dudhoria</li>
+              <li class="nav-item dropdown profile ml-2">
+                <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-lock"></i> Change Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-power-off"></i> Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <!-- ./header -->
+        <aside class="sidebar" style="left: 0 !important;">
+          <div class="sidebar-container">
+            <div class="sidebar-header"></div>
+            <nav class="menu">
+              <ul id="sidebar-menu" class="nav flex-column">
+                <li class="nav-item">&nbsp;</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/">
+                    <i class="fa fa-home"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/portfolio">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> New Launches
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/refresh">
+                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> Extension
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> PAM Download
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/deployment-summary">
+                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <!-- ./sidebar -->
+
+        <div id="includedContent" class="main-content new-launches">
+          <div class="diff-list-heading">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="someTextt">
+                  <p>Paid Asset Master Download</p>
+                </div>
+              </div>
+            </div>
+            <!-- ./row -->
+          </div>
+          <!-- ./diff-list-heading -->
+          <div id="pamDownloadPage" class="">
+            <div class="container-fluid">
+              <div class="row download-header align-items-center mb-4">
+                <div class="col-md-6">
+                  <div class="back-to-page">
+                    <a href="#/launches" class="">
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg> 
+                      <span>Basepacks : XXXX, YYYY, ZZZZ</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center justify-content-end gap-3">
+                    <!-- Select All Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="selectAllCheck" checked>
+                      <label class="form-check-label" for="selectAllCheck">
+                        Select All
+                      </label>
+                    </div>
+
+                    <!-- Refresh Date Select -->
+                    <div>
+                      <select class="form-control form-select form-select-sm custom-select">
+                        <option selected>Refresh Date</option>
+                        <option value="1">Newest</option>
+                        <option value="2">Oldest</option>
+                      </select>
+                    </div>
+
+                    <!-- Download Now Button -->
+                    <button class="cta cta-primary downloadpopup" >
+                      Download Now
+                    </button>
+                  </div>
+                </div>
+              </div><!-- ./download-header -->
+              
+              <div id="cardsContainer">
+                <div class="card-wrapper-main row g-3 align-items-center mb-3">
+                  <div class="col-md-2 card-wrapper text-center">
+                    <h4>9:4</h4>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="card-wrapper-main row g-3 align-items-center mb-3">
+                  <div class="col-md-2 card-wrapper text-center">
+                    <h4>9:4</h4>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                    <div class="card image-card">
+                      <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                        <div class="card-title-container">
+                          <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        </div>
+                        <span class="action-area">
+                          <span class="score success">78%</span>
+                        </span>
+                      </div>
+                      <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                        <img src="https://img.freepik.com/free-vector/mens-shaving-cosmetics-realistic-composition_1284-22831.jpg" alt="Uploaded Image" class="img-fluid card-image" style="object-fit:contain; cursor: pointer;">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                
+
+                
+
+                <div class="row mt-3">
+                  <div class="col-md-12 d-flex gap-3 justify-content-end">
+                    <button id="downloadScoreButton" class="cta cta-secondary">
+                      <span>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-xls"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" /><path d="M4 15l4 6" /><path d="M4 21l4 -6" /><path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" /><path d="M11 15v6h3" /></svg>
+                      </span>
+                      <span>Download Scorecard</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div> <!-- ./ end of cardsContainer -->
+            
+              <!-- Hidden file input for individual card uploads -->
+              <input type="file" id="cardFileInputTab" accept="image/*" style="display: none;">
+              
+            </div>                     
+          </div>
+        </div>
+        <!-- ./main-content -->
+        
+        <!-- Lightbox Modal -->
+        <div class="modal fade" id="imageLightboxModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3 text-center">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 id="lightboxTitle" class="m-0"></h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="position-relative">
+                <img id="lightboxImage" src="" alt="Preview" class="img-fluid mb-3" />
+              </div>
+              <button class="cta cta-primary">Download Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Modal -->
+        <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+              <div class="modal-header border-0">
+                <h5 class="modal-title">Download</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label class="form-label">Format to be downloaded</label>
+                  <select class="form-control form-select form-select-sm custom-select">
+                    <option>Select format: PSD/JPEG</option>
+                    <option>PSD</option>
+                    <option>JPEG</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Size</label>
+                  <select class="form-control form-select form-select-sm custom-select">
+                    <option>Select size: All sizes available in DB</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button type="button" class="cta btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="cta cta-primary">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Modal: Scoring Progress Modal -->
+        <div class="modal fade" id="scoringProgressModal" tabindex="-1" aria-labelledby="scoringProgressModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <!-- Message Wrapper -->
+                      <div class="iconArea">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-progress-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 20.777a8.942 8.942 0 0 1 -2.48 -.969" /><path d="M14 3.223a9.003 9.003 0 0 1 0 17.554" /><path d="M4.579 17.093a8.961 8.961 0 0 1 -1.227 -2.592" /><path d="M3.124 10.5c.16 -.95 .468 -1.85 .9 -2.675l.169 -.305" /><path d="M6.907 4.579a8.954 8.954 0 0 1 3.093 -1.356" /><path d="M9 12l2 2l4 -4" /></svg>
+                      </div>
+
+                      <h5 class="text-start mt-3 mb-4">Scoring in progress</h5>
+                      <p class="text-secondary mb-4 mt-3 text-center">Once scoring is complete, click on individual scores to <br> access detailed scorecard for the image.</p>
+                      
+                      <div id="cta_container" class="d-flex justify-content-center gap-2 mt-3">
+                        <button id="mf_cancel_btn" class="cta cta-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End modal-body -->
+            </div><!-- End modal-content -->
+          </div><!-- End modal-dialog -->
+        </div><!-- End modal -->
+
+        <!-- Modal: Score Card Modal -->
+        <div class="modal fade" id="scoreCardModal" tabindex="-1" aria-labelledby="scoreCardModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content score-card-modal">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="scoreCardModalLabel">Score Card</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="score-summary d-flex mb-4">
+                  <div class="left-info">
+                    <strong>Summary</strong>
+                    <p>The asset showcases strong visual appeal with realistic product visualization, impactful clusters including people presence and packshots, and a clean design featuring primary colors. However, it lacks branding elements like copy, claims, and quantified benefits, limiting its overall branding score.</p>
+                  </div>
+                  <div class="right-info">
+                    <strong>Score</strong>
+                    <p class="score-value">3/11 <br> 27%</p>
+                  </div>
+                  
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered score-card-table">
+                    <thead>
+                      <tr>
+                        <th>Pillar</th>
+                        <th>Threshold</th>
+                        <th>Direction</th>
+                        <th>Value</th>
+                        <th>Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>no_of_cluster</td>
+                        <td>3-4</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>packshot_area</td>
+                        <td>&gt;15</td>
+                        <td>1</td>
+                        <td>15.0</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>no_of_products</td>
+                        <td>1&lt;</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>copy_area</td>
+                        <td>0.0</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>no_of_words</td>
+                        <td>3-5</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>copy_no_of_lines</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>No</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>ingredient_callout_presence</td>
+                        <td>NA</td>
+                        <td>1</td>
+                        <td>No</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>copy_multipack_callout</td>
+                        <td>NA</td>
+                        <td>1</td>
+                        <td>No</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>person_area</td>
+                        <td>25-50</td>
+                        <td>1</td>
+                        <td>56.3</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>visual_ingredients_presence</td>
+                        <td>NA</td>
+                        <td>1</td>
+                        <td>No</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>texture_swatches_presence</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr class="total-row fw-bold">
+                        <td colspan="4">Total</td>
+                        <td>3/11<br>27%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        
+        <footer class="footer-custom">
+          <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+        </footer>
+        <!-- ./footer -->
+      </div>
+      <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./assets/js/image_upload.js"></script>
+    <script src="./assets/js/scoring-full.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // =====================================================
+        // EXPAND / COLLAPSE FUNCTIONALITY
+        // =====================================================
+        let expanded = false;
+        let originalCardsHTML = "";
+        const toggleBtn = document.getElementById("toggleExpandTab");
+        const accountDropdown = document.getElementById("accountDropdownTab");
+        const accDropdownBtn = document.getElementById("accountDropdownBtn");
+        const accStatusDot = document.getElementById("accountStatusDot");
+        const collapseModal = new bootstrap.Modal(document.getElementById("collapseModal"));
+        const cardsContainer = document.getElementById("cardsContainerTab");
+      
+        toggleBtn.addEventListener("click", function(e) {
+          if (!expanded) {
+            // Save the current unified view HTML.
+            originalCardsHTML = cardsContainer.innerHTML;
+            expanded = true;
+            toggleBtn.innerHTML = '<i class="fa fa-angle-double-up" aria-hidden="true"></i><span class="expand-text">Collapse</span>';
+            //accountDropdown.disabled = false;
+            accDropdownBtn.disabled = false;
+            //accountDropdown.value = "all";
+            createGroups();
+          } else {
+            collapseModal.show();
+          }
+        });
+      
+        document.getElementById("modalContinue").addEventListener("click", function() {
+          expanded = false;
+          toggleBtn.innerHTML = '<i class="fa fa-angle-double-down" aria-hidden="true"></i><span class="expand-text">Expand</span>';
+          accountDropdown.disabled = true;
+          accountDropdown.value = "all";
+          resetGrouping();
+          collapseModal.hide();
+        });
+      
+        document.getElementById("modalCancel").addEventListener("click", function() {
+          collapseModal.hide();
+        });
+      
+        accountDropdown.addEventListener("change", function() {
+          filterGroups(this.value);
+        });
+      
+        function filterGroups(account) {
+          const groups = document.querySelectorAll(".group-section");
+          groups.forEach(group => {
+            const groupBrand = group.getAttribute("data-brand");
+            group.style.display = (account === "all" || groupBrand === account) ? "block" : "none";
+          });
+        }
+      
+        function createGroups() {
+          const container = cardsContainer;
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = originalCardsHTML;
+          const cards = Array.from(tempDiv.querySelectorAll(".card-wrapper"));
+          container.innerHTML = "";
+      
+          // Example: Build two groups: Amazon and BigBasket.
+          const amazonGroup = document.createElement("div");
+          amazonGroup.className = "group-section mb-4";
+          amazonGroup.setAttribute("data-brand", "amazon");
+          const amazonTitle = document.createElement("h4");
+          amazonTitle.textContent = "Amazon";
+          amazonGroup.appendChild(amazonTitle);
+          const amazonRow = document.createElement("div");
+          amazonRow.className = "row g-3";
+      
+          const bbGroup = document.createElement("div");
+          bbGroup.className = "group-section mb-4";
+          bbGroup.setAttribute("data-brand", "bigbasket");
+          const bbTitle = document.createElement("h4");
+          bbTitle.textContent = "BigBasket";
+          bbGroup.appendChild(bbTitle);
+          const bbRow = document.createElement("div");
+          bbRow.className = "row g-3";
+      
+          cards.forEach(card => {
+            const amazonCard = card.cloneNode(true);
+            amazonCard.setAttribute("data-brand", "amazon");
+            amazonRow.appendChild(amazonCard);
+            
+            const bbCard = card.cloneNode(true);
+            bbCard.setAttribute("data-brand", "bigbasket");
+            bbRow.appendChild(bbCard);
+          });
+          amazonGroup.appendChild(amazonRow);
+          bbGroup.appendChild(bbRow);
+          container.appendChild(amazonGroup);
+          container.appendChild(bbGroup);
+        }
+      
+        function resetGrouping() {
+          cardsContainer.innerHTML = originalCardsHTML;
+        }
+      
+        // =====================================================
+        // LIGHTBOX FUNCTIONALITY - CARD BODY CLICK TO ENLARGE IMAGE
+        // =====================================================
+        cardsContainer.addEventListener("click", function(e) {
+          const ignoreClasses = ["plus-icon", "delete-icon", "info-icon"];
+          if (ignoreClasses.some(cls => e.target.classList.contains(cls))) return;
+          const cardBody = e.target.closest(".card-body");
+          if (cardBody) {
+            const bg = getComputedStyle(cardBody).backgroundImage;
+            if (bg && bg !== "none") {
+              const url = bg.slice(5, -2);
+              const lightboxModalEl = document.getElementById("lightboxModal");
+              const lightboxModal = new bootstrap.Modal(lightboxModalEl);
+              lightboxModalEl.querySelector("img").src = url;
+              lightboxModal.show();
+            }
+          }
+        });
+      
+        // =====================================================
+        // DRAG & DROP BETWEEN CARDS
+        // =====================================================
+        let dragSourceCard = null;
+        cardsContainer.addEventListener("dragstart", function(e) {
+          const card = e.target.closest(".card-wrapper");
+          if (card) {
+            const cardBody = card.querySelector(".card-body");
+            const bg = cardBody ? getComputedStyle(cardBody).backgroundImage : "";
+            if (!bg || bg === "none") {
+              e.preventDefault();
+              return;
+            }
+            dragSourceCard = card;
+            const url = bg.slice(5, -2);
+            const dragImg = document.createElement("img");
+            dragImg.src = url;
+            dragImg.style.opacity = "0.5";
+            dragImg.style.width = "120px";
+            dragImg.style.height = "120px";
+            document.body.appendChild(dragImg);
+            e.dataTransfer.setDragImage(dragImg, 60, 60);
+            setTimeout(() => { document.body.removeChild(dragImg); }, 0);
+            e.dataTransfer.setData("text/plain", card.getAttribute("data-card-name"));
+          }
+        });
+        
+        cardsContainer.addEventListener("dragover", function(e) {
+          e.preventDefault();
+        });
+        
+        cardsContainer.addEventListener("drop", function(e) {
+          e.preventDefault();
+          const targetCard = e.target.closest(".card-wrapper");
+          if (dragSourceCard && targetCard && targetCard !== dragSourceCard) {
+            const targetBody = targetCard.querySelector(".card-body");
+            if (targetBody && getComputedStyle(targetBody).backgroundImage === "none") {
+              const sourceBody = dragSourceCard.querySelector(".card-body");
+              const sourceBg = sourceBody ? getComputedStyle(sourceBody).backgroundImage : "";
+              if (sourceBg && sourceBg !== "none") {
+                setCardImage(targetCard, sourceBg.slice(5, -2));
+                clearCardImage(dragSourceCard);
+              }
+            }
+          }
+          dragSourceCard = null;
+        });
+      
+        // =====================================================
+        // SINGLE IMAGE UPLOAD MODAL FUNCTIONALITY
+        // =====================================================
+        let currentCard = null;
+        let selectedImageData = null;
+        let uploadProgressInterval = null;
+        let fileSelected = false;
+        const singleUploadModalEl = document.getElementById("singleimageUploadModal");
+        const singleUploadModal = new bootstrap.Modal(singleUploadModalEl);
+        const cuFileInput = document.getElementById("cu_file_upload");
+        const cuThumbnail = document.getElementById("cu_thumbnail");
+        const cuFilename = document.getElementById("cu_filename");
+        const cuFilesize = document.getElementById("cu_filesize");
+        const cuProgressContainer = document.getElementById("cu_progress_container");
+        const cuProgressBar = document.getElementById("cu_progress_bar");
+        const cuProgressPercentage = document.getElementById("cu_progress_percentage");
+        const cuDeleteBtn = document.getElementById("cu_delete_btn");
+        const cuCancelBtn = document.getElementById("cu_cancel_btn");
+        const cuUploadBtn = document.getElementById("cu_upload_btn");
+        const cuChooseFile = document.querySelector(".cu-choose-file");
+        const cuUploadDetails = document.getElementById("cu_upload_details");
+      
+        // Reset single modal state whenever it’s shown.
+        singleUploadModalEl.addEventListener("show.bs.modal", function() {
+          resetSingleModal();
+        });
+      
+        // Open single upload modal when a card’s plus icon is clicked.
+        cardsContainer.addEventListener("click", function(e) {
+          if (e.target.classList.contains("plus-icon")) {
+            currentCard = e.target.closest(".card-wrapper");
+            resetSingleModal();
+            singleUploadModal.show();
+            e.stopPropagation();
+          }
+          if (e.target.classList.contains("delete-icon")) {
+            const card = e.target.closest(".card-wrapper");
+            if (card) {
+              clearCardImage(card);
+            }
+          }
+        });
+        
+        cuChooseFile.addEventListener("click", function(e) {
+          //alert('start 1');
+          e.preventDefault();
+          //alert('start 2');
+          e.stopPropagation();
+          //alert('start 3');
+          if (!fileSelected) {
+            //alert('start 4');
+            cuFileInput.click();
+            //alert('start 5');
+          }
+        });
+        
+        cuFileInput.addEventListener("change", function() {
+          if (uploadProgressInterval) {
+            clearInterval(uploadProgressInterval);
+            uploadProgressInterval = null;
+          }
+          const file = this.files[0];
+          if (file) {
+            if (!file.type.startsWith("image/")) {
+              alert("Please select an image file.");
+              return;
+            }
+            fileSelected = true;
+            cuFileInput.disabled = true;
+            cuUploadDetails.classList.remove("d-none");
+            cuFilename.textContent = file.name;
+            cuFilesize.textContent = (file.size / (1024 * 1024)).toFixed(2) + " MB";
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              selectedImageData = e.target.result;
+              cuThumbnail.src = selectedImageData;
+            };
+            reader.readAsDataURL(file);
+            startSingleSimulatedUpload();
+          }
+        });
+        
+        function startSingleSimulatedUpload() {
+          cuProgressBar.style.width = "0%";
+          cuProgressBar.setAttribute("aria-valuenow", 0);
+          cuProgressPercentage.textContent = "0%";
+          cuProgressContainer.style.display = "block";
+          cuCancelBtn.disabled = true;
+          cuUploadBtn.disabled = true;
+          cuDeleteBtn.classList.add("d-none");
+        
+          let progress = 0;
+          uploadProgressInterval = setInterval(function() {
+            progress += 10;
+            if (progress > 100) progress = 100;
+            cuProgressBar.style.width = progress + "%";
+            cuProgressBar.setAttribute("aria-valuenow", progress);
+            cuProgressPercentage.textContent = progress + "%";
+            if (progress === 100) {
+              clearInterval(uploadProgressInterval);
+              uploadProgressInterval = null;
+              cuProgressContainer.style.display = "none";
+              cuDeleteBtn.classList.remove("d-none");
+              cuCancelBtn.disabled = false;
+              cuUploadBtn.disabled = false;
+            }
+          }, 500);
+        }
+        
+        cuUploadBtn.addEventListener("click", function() {
+          if (selectedImageData && currentCard) {
+            setCardImage(currentCard, selectedImageData);
+            singleUploadModal.hide();
+            resetSingleModal();
+          }
+        });
+        
+        cuCancelBtn.addEventListener("click", function() {
+          singleUploadModal.hide();
+          resetSingleModal();
+        });
+        
+        cuDeleteBtn.addEventListener("click", function() {
+          resetSingleModal();
+        });
+        
+        function resetSingleModal() {
+          cuFileInput.value = "";
+          cuFileInput.disabled = false;
+          fileSelected = false;
+          selectedImageData = null;
+          cuThumbnail.src = "";
+          cuFilename.textContent = "";
+          cuFilesize.textContent = "";
+          cuProgressBar.style.width = "0%";
+          cuProgressBar.setAttribute("aria-valuenow", 0);
+          cuProgressPercentage.textContent = "0%";
+          cuProgressContainer.style.display = "block";
+          cuDeleteBtn.classList.add("d-none");
+          cuCancelBtn.disabled = true;
+          cuUploadBtn.disabled = true;
+          cuUploadDetails.classList.add("d-none");
+          if (uploadProgressInterval) {
+            clearInterval(uploadProgressInterval);
+            uploadProgressInterval = null;
+          }
+        }
+        
+        function setCardImage(card, src) {
+          if (!card) return;
+          const cardBody = card.querySelector(".card-body");
+          if (cardBody) {
+            cardBody.style.backgroundImage = `url('${src}')`;
+            cardBody.style.backgroundSize = "cover";
+            cardBody.style.backgroundPosition = "center";
+          }
+          const plusIcon = card.querySelector(".plus-icon");
+          const deleteIcon = card.querySelector(".delete-icon");
+          if (plusIcon) plusIcon.style.display = "none";
+          if (deleteIcon) deleteIcon.style.display = "inline-block";
+        }
+        
+        function clearCardImage(card) {
+          if (!card) return;
+          const cardBody = card.querySelector(".card-body");
+          if (cardBody) {
+            cardBody.style.backgroundImage = "none";
+          }
+          const plusIcon = card.querySelector(".plus-icon");
+          const deleteIcon = card.querySelector(".delete-icon");
+          if (plusIcon) plusIcon.style.display = "inline-block";
+          if (deleteIcon) deleteIcon.style.display = "none";
+        }
+        
+        // =====================================================
+        // ADD NEW PAM ROW
+        // =====================================================
+        const pamDropdown = document.getElementById("pamAddDropdown");
+        const pamContainer = document.getElementById("cardsContainer");
+        const pamRowTemplate = document.getElementById("pamRowTemplate");
+
+        if (pamDropdown && pamContainer && pamRowTemplate) {
+          pamDropdown.addEventListener("change", function () {
+            const ratio = this.value;
+            if (!ratio || ratio === "Add PAM") return;
+            const newRow = pamRowTemplate.cloneNode(true);
+            newRow.removeAttribute("id");
+            const ratioHeading = newRow.querySelector(".card-wrapper.text-center h4");
+            if (ratioHeading) {
+              ratioHeading.textContent = ratio;
+            }
+            newRow.querySelectorAll(".card-body").forEach(cb => {
+              cb.style.backgroundImage = "none";
+            });
+            newRow.querySelectorAll(".plus-icon").forEach(icon => icon.style.display = "inline-block");
+            newRow.querySelectorAll(".delete-icon").forEach(icon => icon.style.display = "none");
+            pamContainer.appendChild(newRow);
+            this.value = "Add PAM";
+          });
+        }
+
+        // Extra: When any modal shows, add a custom class to <body>; remove when all modals are hidden.
+        $("#staticBackdrop, #collapseModal, #exceptionModal, #exceptionApprovalModal, #lightboxModal, #singleimageUploadModal, #bulkImageUploadModal").on("shown.bs.modal", function () {
+          $("body").addClass("modal-custom");
+        });
+        
+        $("##staticBackdrop, #collapseModal, #exceptionModal, #exceptionApprovalModal, #lightboxModal, #singleimageUploadModal, #bulkImageUploadModal").on("hidden.bs.modal", function () {
+          if ($(".modal.show").length === 0) {
+            $("body").removeClass("modal-custom");
+          }
+        });
+
+      });
+
+
+      // =====================================================
+      // BULK (MULTIPLE) FILE UPLOAD MODAL FUNCTIONALITY
+      // =====================================================
+      $(document).ready(function () {
+        const $input = $('#mf_file_upload');
+        const $trigger = $('.mf-choose-file');
+        const $dropArea = $('#mf_drop_area');
+        const $preview = $('#mf_upload_list');
+        const $uploadBtn = $('#mf_upload_btn');
+
+        // Make drop area clickable
+        $dropArea.on('click', function (e) {
+          // Prevent double trigger from inner button
+          if (!$(e.target).is('input') && !$(e.target).hasClass('mf-remove-thumb')) {
+            $input.trigger('click');
+          }
+        });
+
+        // Separate trigger from "Choose files"
+        $trigger.on('click', function (e) {
+          e.stopPropagation(); // Prevent bubble to drop area
+          $input.trigger('click');
+        });
+
+        // Handle file input
+        $input.on('change', function (e) {
+          const files = Array.from(e.target.files);
+          files.forEach(renderPreview);
+        });
+
+        // Drag & Drop events
+        $dropArea.on('dragover', function (e) {
+          e.preventDefault();
+          $(this).addClass('border-primary bg-light');
+        });
+
+        $dropArea.on('dragleave', function (e) {
+          e.preventDefault();
+          $(this).removeClass('border-primary bg-light');
+        });
+
+        $dropArea.on('drop', function (e) {
+          e.preventDefault();
+          $(this).removeClass('border-primary bg-light');
+          const files = Array.from(e.originalEvent.dataTransfer.files);
+          files.forEach(renderPreview);
+        });
+
+        // Render preview
+        function renderPreview(file) {
+          if (!file.type.startsWith('image/')) return;
+
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const size = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+            const $item = $(`
+              <div class="mf-upload-thumb position-relative d-inline-block me-2 mb-2 text-center" style="width: 110px;">
+                <img src="${e.target.result}" class="img-thumbnail mb-1" style="width: 100px; height: 100px; object-fit: cover;">
+                <div class="small text-truncate" title="${file.name}">${file.name}</div>
+                <div class="small text-muted">${size}</div>
+                <span class="mf-remove-thumb position-absolute top-0 end-0 p-1" style="cursor: pointer;" title="Remove">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icon-tabler-trash">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                </span>
+              </div>
+            `);
+            $preview.append($item);
+            toggleUploadBtn();
+          };
+          reader.readAsDataURL(file);
+        }
+
+        // Remove preview
+        $(document).on('click', '.mf-remove-thumb', function () {
+          $(this).closest('.mf-upload-thumb').remove();
+          toggleUploadBtn();
+        });
+
+        // Enable/Disable Upload
+        function toggleUploadBtn() {
+          $uploadBtn.prop('disabled', $preview.children().length === 0);
+        }
+
+        // Reset modal
+        $('#bulkImageUploadModal').on('hidden.bs.modal', function () {
+          $preview.empty();
+          $input.val('');
+          toggleUploadBtn();
+        });
+      });
+
+
+
+      $(document).ready(function () {
+        const $dropdown = $('#pamAddDropdown');
+        const $container = $('#pamCardContainer');
+
+        $dropdown.on('change', function () {
+          const selectedValue = $(this).val();
+          if (!selectedValue) return;
+
+          const $card = $(`
+            <div class="card-wrapper-main row g-3 align-items-center mb-3" style="display: none;">
+              <div class="col-md-2 card-wrapper text-center position-relative">
+                <h4>${selectedValue}</h4>
+                <span class="remove-icon position-absolute top-0 end-0 me-2 mt-2" style="cursor:pointer;" title="Remove">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icon-tabler-trash">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                </span>
+              </div>
+
+              ${Array(5).fill().map(() => `
+                <div class="col-md-2 card-wrapper" data-card-name="BOP" data-info="This is the BOP card tooltip.">
+                  <div class="card image-card" draggable="true">
+                    <div class="card-header d-flex justify-content-between align-items-center card-title-wrapper">
+                      <div class="card-title-container">
+                        <span class="card-title">BOP <span class="text-danger">*</span></span>
+                        <i class="fa fa-info-circle info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Information about BOP" style="visibility: hidden; cursor: pointer;"></i>
+                      </div>
+                      <span class="action-area">
+                        <span class="score"></span>
+                        <i class="fa fa-trash-o delete-icon" title="Delete image" style="display: none; cursor: pointer;"></i>
+                      </span>
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center position-relative">
+                      <i class="fa fa-plus plus-icon" aria-hidden="true" style="font-size: 1.4rem; cursor: pointer;"></i>
+                      <img src="" alt="Uploaded Image" class="img-fluid card-image" style="display: none; max-height:150px; object-fit:contain; cursor: pointer;">
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `);
+
+          // Append with animation
+          $container.append($card);
+          $card.slideDown(200).css({ opacity: 0 }).animate({ opacity: 1 }, 200);
+
+          // Reset to placeholder
+          $dropdown.prop('selectedIndex', 0);
+
+          // Remove logic
+          $card.find('.remove-icon').on('click', function () {
+            $card.animate({ opacity: 0 }, 200).slideUp(200, function () {
+              $card.remove();
+            });
+          });
+        });
+      });
+
+      // Global reusable file input
+      const $imageInput = $('<input type="file" accept="image/*" style="display:none">');
+      $('body').append($imageInput);
+
+      // Open file picker on plus icon click
+      $(document).on('click', '.plus-icon', function () {
+        const $card = $(this).closest('.card-body');
+        $imageInput.data('targetCard', $card);
+        $imageInput.val(null); // reset file
+        $imageInput.trigger('click');
+      });
+
+      // Handle image selection
+      $imageInput.on('change', function (e) {
+        const file = e.target.files[0];
+        if (!file || !file.type.startsWith('image/')) {
+          alert('Please select an image file only.');
+          return;
+        }
+
+        const reader = new FileReader();
+        const $card = $imageInput.data('targetCard');
+        const $plus = $card.find('.plus-icon');
+        const $trash = $card.closest('.image-card').find('.delete-icon');
+
+        reader.onload = function (e) {
+          $card.css({
+            'background-image': `url(${e.target.result})`,
+            'background-size': 'contain',
+            'background-repeat': 'no-repeat',
+            'background-position': 'center'
+          });
+          $plus.hide();
+          $trash.show();
+        };
+
+        reader.readAsDataURL(file);
+      });
+
+      // Handle trash icon to reset background
+      $(document).on('click', '.delete-icon', function () {
+        const $card = $(this).closest('.image-card').find('.card-body');
+        $card.css('background-image', '');
+        $card.find('.plus-icon').show();
+        $(this).hide();
+      });
+
+      // Handle full row removal
+      $(document).on('click', '.card-wrapper-main .remove-icon', function () {
+        const $row = $(this).closest('.card-wrapper-main');
+        $row.find('.card-body').css('background-image', '');
+        $row.find('.plus-icon').show();
+        $row.find('.delete-icon').hide();
+
+        $row.animate({ opacity: 0 }, 200).slideUp(200, function () {
+          $row.remove();
+        });
+      });
+
+      // =====================================================
+      // BASEPACKS IMPORT FUNCTIONALITY
+      // =====================================================
+
+      $(document).ready(function () {
+  const basepackImages = {
+    basepacks1: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ],
+    basepacks2: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ],
+    basepacks3: [
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+    ]
+  };
+
+  $('#importFromBasepacks').on('change', function () {
+    const selected = $(this).val();
+    const $previewContainer = $('#import_preview_container');
+
+    $previewContainer.empty().addClass('d-none');
+
+    if (selected && basepackImages[selected]) {
+      basepackImages[selected].forEach(src => {
+        $previewContainer.append(`
+          <div class="col-3">
+            <div class="border rounded p-2 text-center">
+              <img src="${src}" alt="Preview" class="img-fluid mb-1" style="height: 100px; object-fit: cover;">
+              <div class="small text-muted">${src.split('?text=')[1]}</div>
+            </div>
+          </div>
+        `);
+      });
+      $previewContainer.removeClass('d-none');
+    }
+  });
+});
+
+$(document).ready(function () {
+  // When the Score button is clicked: show modal & trigger scoring immediately
+  $('#scoreBtn').on('click', function () {
+    // Show scoring modal (keep your existing attribute: works automatically)
+    // Now trigger scoring logic instantly:
+    runScoringLogic();
+  });
+
+  // The scoring function
+  function runScoringLogic() {
+    let hasAnyScore = false; // Track if we scored at least one
+
+    $('.image-card').each(function () {
+      const $card = $(this);
+      const $cardBody = $card.find('.card-body');
+      const bgImage = $cardBody.css('background-image');
+
+      const $score = $card.find('.score');
+
+      if (bgImage && bgImage !== 'none') {
+        hasAnyScore = true; // ✅ Mark that we have at least one
+
+        const randomScore = Math.floor(Math.random() * 101); // 0-100
+        const isDanger = randomScore < 50;
+
+        $score.removeClass('danger success')
+              .addClass(isDanger ? 'danger' : 'success')
+              .text('0%')
+              .show();
+
+        // Animate score from 0 to final value
+        $({ countNum: 0 }).animate({ countNum: randomScore }, {
+          duration: 800,
+          easing: 'swing',
+          step: function () {
+            $score.text(Math.floor(this.countNum) + '%');
+          },
+          complete: function () {
+            $score.text(this.countNum + '%');
+          }
+        });
+
+      } else {
+        $score.text('').hide();
+      }
+    });
+
+    // ✅ Show or hide the download button
+    if (hasAnyScore) {
+      $('#downloadScoreButton').show();
+    } else {
+      $('#downloadScoreButton').hide();
+    }
+  }
+
+  // Reset score when deleting image
+  $(document).on('click', '.delete-icon', function () {
+    const $card = $(this).closest('.image-card');
+    const $score = $card.find('.score');
+    $score.text('').hide();
+
+    // Also hide download button if no scores left
+    const anyVisible = $('.score:visible').length > 1; // >1 because this one is being deleted now
+    if (!anyVisible) {
+      $('#downloadScoreButton').hide();
+    }
+  });
+
+});
+
+
+$(document).on('click', '.card-image', function () {
+  const src = $(this).attr('src');
+  const score = $(this).closest('.image-card').find('.score').text().trim() || '80%'; // fallback
+  const fileName = 'FileName with code: Dimension'; // Replace with dynamic name if you have
+
+  $('#lightboxImage').attr('src', src);
+  $('#lightboxScore').text(score);
+  $('#lightboxTitle').text(fileName);
+
+  const modal = new bootstrap.Modal(document.getElementById('imageLightboxModal'));
+  modal.show();
+});
+
+
+      $(document).ready(function () {
+        // Click on download icon
+        $('.downloadpopup').on('click', function () {
+          $('#downloadModal').modal('show');
+        });
+      });
+
+    </script>
+      
+      
+      
+      
+      
+      
+  </body>
+</html>

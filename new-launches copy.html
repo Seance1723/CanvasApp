@@ -9,65 +9,129 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
     <style>
-      /* Beautified modal progress bars */
-      #mf_progress_container_bulk,
-      #mf_progress_container_import{
-        height:12px;border-radius:999px;background:var(--bs-gray-200);
-        box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 2px rgba(13,110,253,.08);
-        overflow:hidden;
-      }
-      #mf_progress_container_bulk .progress-bar,
-      #mf_progress_container_import .progress-bar{
-        border-radius:999px;transition:width .25s ease;
-      }
-
-      /* Subtle glow while uploading */
-      #mf_progress_container_bulk.active .progress-bar,
-      #mf_progress_container_import.active .progress-bar{box-shadow:0 0 .75rem rgba(13,110,253,.35);}
-
-      /* Bootstrap-like stripes & animation (polyfill if BS CSS is overridden/missing) */
-      .progress-bar-striped{
-        background-image:linear-gradient(45deg, rgba(255,255,255,.25) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.25) 50%, rgba(255,255,255,.25) 75%, transparent 75%, transparent);
-        background-size:1rem 1rem;
-      }
-      .progress-bar-animated{
-        animation: mfProgressStripes 1s linear infinite;
-      }
-      @keyframes mfProgressStripes{
-        0%{background-position:1rem 0;}
-        100%{background-position:0 0;}
+      /* 1) Parent grid: 7 columns × 4 rows */
+      .workspace-progress-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows:
+          auto   /* top labels */
+          auto   /* top icons  */
+          auto   /* bottom labels */
+          auto;  /* bottom icons */
+        column-gap: 1rem;
+        row-gap: 1rem;
+        align-items: center;
+        width: 100%;
+        margin: 20px 0;
       }
 
-      /* File list (kept if you use it elsewhere) */
-      .mf-filelist-empty{padding:.25rem 0;}
-      .mf-file{display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--bs-gray-200);}
-      .mf-file:last-child{border-bottom:0;}
-      .mf-ico{width:20px;height:24px;flex:0 0 20px;position:relative;border:1px solid var(--bs-gray-400);border-radius:2px;}
-      .mf-ico::after{content:"";position:absolute;right:-1px;top:-1px;width:10px;height:10px;border:1px solid var(--bs-gray-400);
-        background:linear-gradient(135deg,#fff 0%,#e9ecef 100%);transform:skew(-10deg) rotate(45deg);}
-      .mf-file-main{flex:1 1 auto;min-width:0;}
-      .mf-file-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
-      .mf-name{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-      .mf-bytes{font-size:.8rem;color:var(--bs-gray-600);white-space:nowrap;}
-      .mf-actions{display:flex;align-items:center;gap:.25rem;}
-      .mf-remove{border:0;background:transparent;color:var(--bs-gray-600);padding:0 .25rem;line-height:1;}
-      .mf-remove:hover{color:var(--bs-danger);}
-      .mf-done{font-size:1rem;color:var(--bs-success);}
+      /* 2) Each <ul> spans the full 7 parent columns and is itself a 7‑col grid */
+      .workspace-progress-grid ul {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;   /* for ::before connectors */
+        background: transparent;
+        z-index: 0;           /* sit behind connector lines */
+      }
 
-      /* Thin progress under filename (if used) */
-      .mf-progress.progress{height:3px;background:var(--bs-gray-300);border-radius:2px;margin-top:.25rem;}
-      .mf-progress .progress-bar{height:3px;transition:width .2s ease;}
-      .mf-uploading .progress-bar{box-shadow:0 0 .5rem rgba(13,110,253,.35);}
+      /* 3) Place each list into its correct row */
+      .workspace-progress-grid .labels.top    { grid-row: 1; }
+      .workspace-progress-grid .steps.top     { grid-row: 2; }
+      .workspace-progress-grid .labels.bottom { grid-row: 3; }
+      .workspace-progress-grid .steps.bottom  { grid-row: 4; }
 
-      /* Drag zone */
-      .mf-upload-zone.border-dashed{border-style:dashed!important;}
-      .mf-upload-zone.dragover{background:#f8f9fa;border-color:#86b7fe;}
+      /* 4) Center all <li> content */
+      .workspace-progress-grid li {
+        position: relative;
+        text-align: center;
+      }
 
-      /* Success fade */
-      .mf-success-animate{animation: mfFadeSlide .3s ease;}
-      @keyframes mfFadeSlide{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+      /* 5) Horizontal connectors between icons */
+      .workspace-progress-grid .steps li:not(:first-child)::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+        z-index: 1;  /* above UL, below icons */
+      }
+      .workspace-progress-grid .steps li.active:not(:first-child)::before {
+        background: #27ae60;
+      }
+
+      /* 6) Vertical “branch” under Written Content (col 4) */
+      .workspace-progress-grid .branch-connector {
+        grid-column: 4;
+        grid-row: 2;
+        position: relative;
+        justify-self: center;
+        align-self: start;
+        width: 0;
+        height: 100%;
+      }
+
+      /* vertical line down */
+      .workspace-progress-grid .branch-connector::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: calc(100% + 1.5rem); /* controls vertical distance between rows */
+        background: #ccc;
+      }
+
+      /* horizontal hook into lower line */
+      .workspace-progress-grid .branch-connector::after {
+        content: "";
+        position: absolute;
+        top: calc(100% + 1.5rem);     /* same as before’s height */
+        left: 50%;
+        width: calc(100% * 3 + 2rem); /* spans 3 columns + gap */
+        height: 2px;
+        background: #ccc;
+      }
+
+      /* 7) Icon structural styling */
+      .workspace-progress-grid .step i {
+        position: relative;
+        z-index: 2;            /* icons sit above lines */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 8) Default icon appearance */
+      .workspace-progress-grid .step.default i {
+        color: #fff;
+        background: #ccc;
+        border-radius: 50%;
+        padding: 3px;
+        font-size: 12px;
+      }
+
+      /* 9) Active icon appearance (your exact block) */
+      .workspace-progress-grid .step.active i { 
+        color: #fff;
+        background: #27ae60;
+        border-radius: 50%;
+        padding: 3px;
+        font-size: 12px; 
+      }
+
     </style>
-
   </head>
   <body class="new-launches-page">
     <div class="main-wrapper">
@@ -135,7 +199,7 @@
                     <i class="fa fa-briefcase"></i> Portfolio
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="#/launches">
                     <i class="fa fa-laptop"></i> New Launches
                   </a>
@@ -148,11 +212,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#/extension">
                     <i class="fa fa-plus"></i> Extension
-                  </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="#/launches">
-                    <i class="fa fa-laptop"></i> Paid Asset Master
                   </a>
                 </li>
                 <li class="nav-item">
@@ -171,23 +230,15 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="someTextt">
-                  <p>Product Images</p>
+                  <p>Launches Written Content</p>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="link-containers">
-                    <a href="#">
-                        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                        <span>Return to Workspace View</span>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span>Launches Written Content</span>
-                    </a>
-                    <a href="#">
-                        <span>Upload Video</span>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
+                <div class="goBack">
+                  <a href="#/launches">
+                    <i class="fa fa-angle-left"></i>
+                    <span>Launches</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -196,40 +247,56 @@
           <!-- ./diff-list-heading -->
           <div class="content-header">
             <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-10">
-                <table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px; margin-top: 20px;">
-                  <tbody class="noborder">
-                    <tr class="noborder" style="line-height: 0px;">
-                      <td class="noborder" style="padding-bottom: 26px;">
-                        <div class="workspace-progress w-50">
-                          <ul class="workspace-progress-num">
-                            <li class="text">Product Details</li>
-                            <li class="text">Send For SM Review</li>
-                            <li class="text">SM Approved</li>
-                          </ul>
-                        </div>
-                        <div class="workspace-progress margin w-50">
-                          <div class="workspace-progress-bar" style="width: 49.5%; background: #D3D3D3;"></div>
-                          <div class="progress-bar-grey1 workspace-progress-bar" style="left: 49.7%; width: 49%; background: #D3D3D3;"></div>
-                          <ul class="workspace-progress-num">
-                            <a href="#/launches">
-                              <li class="step default">
-                                <i class="fa fa-check"></i>
-                              </li>
-                            </a>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="col-md-12">
+                <div class="workspace-progress-grid">
+                  <!-- Top labels -->
+                  <ul class="labels top">
+                    <li class="text active"><a href="#/launches">Product Details</a></li>
+                    <li class="text active">Send For SM Review</li>
+                    <li class="text active">SM Approved</li>
+                    <li class="text active">
+                      <a href="#/launches/launches-written-content">
+                        Written Content
+                      </a>
+                    </li>
+                    <li class="text">Visual Content</li>
+                    <li class="text">Send For Content Review</li>
+                    <li class="text">Published</li>
+                  </ul>
+
+                  <!-- Top icons -->
+                  <ul class="steps top">
+                    <li class="step active"><i class="fa fa-check"></i></li>
+                    <li class="step active"><i class="fa fa-check"></i></li>
+                    <li class="step active"><i class="fa fa-check"></i></li>
+                    <li class="step active"><i class="fa fa-check"></i></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                  </ul>
+
+                  <!-- vertical “branch” line -->
+                  <div class="branch-connector"></div>
+
+                  <!-- Bottom labels -->
+                  <ul class="labels bottom">
+                    <!-- four empty <li> placeholders to push these into cols 5–7 -->
+                    <li></li><li></li><li></li><li></li>
+                    <li class="text">Visual Content</li>
+                    <li class="text">Send For Content Review</li>
+                    <li class="text">Published</li>
+                  </ul>
+
+                  <!-- Bottom icons -->
+                  <ul class="steps bottom">
+                    <!-- same placeholders -->
+                    <li></li><li></li><li></li><li></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                    <li class="step default"><i class="fa fa-check"></i></li>
+                  </ul>
+                </div>
+
               </div>
             </div>
             <div class="row sum-details1">
@@ -250,10 +317,10 @@
                   <tbody>
                     <tr class="noborder">
                       <td class="noborder">
-                        <p class="prjName">Testing 28th Nov</p>
+                        <p class="prjName">Tresemme Winter Launch</p>
                       </td>
                       <td class="noborder">
-                        <p>04-25</p>
+                        <p>11-24</p>
                       </td>
                       <td class="noborder">
                         <p>New Launch</p>
@@ -271,9 +338,14 @@
                         <a href="javascript:void(0)" class="upload-download-purple" data-bs-toggle="modal" data-bs-target="#exceptionModal">
                           <i class="fa fa-exclamation-triangle"></i>
                         </a>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exceptionApprovalModal">Approval Modal</a>
                       </td>
                       <td class="noborder">
-                        <button class="cta cta-primary" style="border-radius: 60px;">Upload Video</button>
+                        <span class="score" style="font-size: 20px; font-family: ui-sans-serif;">
+                          <a href="javascript:void(0)" style="font-size: 14px; color: orange; margin-left: 18px; text-decoration: none;">
+                            6 / 10
+                          </a>
+                        </span>
                       </td>
                     </tr>
                   </tbody>
@@ -1044,7 +1116,7 @@
 
                             <div id="pamCardContainer" class="mt-4"></div>
 
-                            <div class="action-button row d-none">
+                            <div class="action-button row">
                               <div class="col-md-12 d-flex justify-content-start">
                                 <select id="pamAddDropdown" class="form-control form-select form-select-sm custom-select" style="width:140px">
                                   <option value="" disabled selected>Add PAM</option>
@@ -1452,27 +1524,34 @@
 
         <!-- Modal: Bulk Image Upload Modal -->
         <div class="modal fade" id="bulkImageUploadModal" tabindex="-1" aria-labelledby="bulkImageUploadModalLabel" aria-hidden="true"
-            data-bs-backdrop="static" data-bs-keyboard="false">
+        data-bs-backdrop="static" data-bs-keyboard="false">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-body text-center">
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-lg-12">
+                      <!-- Bulk Upload Wrapper -->
                       <div id="mf_upload_wrapper" class="mf-upload-wrapper p-4">
                         <h5 class="text-start mb-3">Bulk Upload</h5>
-
+                        <!-- Drag and Drop Area -->
                         <div id="mf_drop_area" class="mf-upload-zone text-center p-5 border border-2 border-dashed rounded-3 mb-3">
-                          <div class="mf-icon mb-3"><i class="bi bi-files fs-2"></i></div>
+                          <div class="mf-icon mb-3">
+                            <!-- You can replace with any icon; here using a files icon -->
+                            <i class="bi bi-files fs-2"></i>
+                          </div>
                           <p class="mb-2">
-                            Drag and Drop files here or
+                            Drag and Drop files here or 
                             <span class="mf-choose-file text-primary" style="text-decoration: underline; cursor: pointer;">Choose files</span>
                           </p>
+                          <!-- Hidden File Input accepting multiple files -->
                           <input type="file" id="mf_file_upload" class="d-none" accept="image/*" multiple>
                         </div>
 
+                        <!-- Upload List Section: Container for each upload item -->
                         <div id="mf_upload_list" class="mf-upload-list"></div>
 
+                        <!-- Info Row: Supported formats and Maximum size -->
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
                           <div class="mb-2 text-start">
                             <label for="basepacksdownTab">Apply to basepacks</label>
@@ -1485,20 +1564,13 @@
                             <p class="text-danger small pt-2 m-0"></p>
                           </div>
                         </div>
-
-                        <div id="mf_progress_container_bulk" class="progress mt-3 d-none">
-                          <div class="progress-bar" role="progressbar" style="width:0%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-                        </div>
-                        <div id="mf_progress_text_bulk" class="small text-muted mt-1 d-none">0 of 0 (0%)</div>
-
-                        <div id="mf_success_container_bulk" class="alert alert-success mt-3 d-none" role="alert">
-                          All images uploaded successfully.
-                        </div>
-
+                        
+                        <!-- Bulk Modal CTA Buttons: Cancel & Upload -->
                         <div id="mf_cta_container" class="mf-cta-container d-flex justify-content-end gap-2 mt-3">
                           <button id="mf_cancel_btn" class="cta cta-secondary" data-bs-dismiss="modal">Cancel</button>
                           <button id="mf_upload_btn" class="cta cta-primary" disabled>Upload</button>
                         </div>
+                      
                       </div><!-- End Bulk Upload Wrapper -->
                     </div>
                   </div>
@@ -1508,18 +1580,18 @@
           </div><!-- End modal-dialog -->
         </div><!-- End modal -->
 
-        <!-- Modal: Bulk Image Import Modal -->
+        <!-- Modal: Bulk Image Upload Modal -->
         <div class="modal fade" id="importUploadModal" tabindex="-1" aria-labelledby="importUploadModalLabel" aria-hidden="true"
-            data-bs-backdrop="static" data-bs-keyboard="false">
+        data-bs-backdrop="static" data-bs-keyboard="false">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-body text-center">
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-lg-12">
+                      <!-- Import Upload Wrapper -->
                       <div id="mf_upload_wrapper" class="mf-upload-wrapper p-4">
                         <h5 class="text-start mb-3">Import Paid Asset Master</h5>
-
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
                           <div class="mb-2 text-start">
                             <label for="importFromBasepacks">Import from basepack</label>
@@ -1532,7 +1604,10 @@
                           </div>
                         </div>
 
-                        <div id="import_preview_container" class="row g-2 mb-3 d-none"></div>
+                        <!-- Preview Selected Basepack Images -->
+                        <div id="import_preview_container" class="row g-2 mb-3 d-none">
+                          <!-- Dynamically populated -->
+                        </div>
 
                         <div class="row text-secondary small mb-4 justify-content-between mf-upload-info-row">
                           <div class="mb-2 text-start">
@@ -1546,21 +1621,13 @@
                             <p class="text-danger small pt-2 m-0 d-none">Warning: These basepacks have existing PAM</p>
                           </div>
                         </div>
-
-                        <div id="mf_progress_container_import" class="progress mt-3 d-none">
-                          <div class="progress-bar" role="progressbar" style="width:0%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-                        </div>
-                        <div id="mf_progress_text_import" class="small text-muted mt-1 d-none">0 of 0 (0%)</div>
-
-                        <div id="mf_success_container_import" class="alert alert-success mt-3 d-none" role="alert">
-                          Images imported successfully.
-                        </div>
-
+                        <!-- Bulk Modal CTA Buttons: Cancel & Upload -->
                         <div id="mf_cta_container" class="mf-cta-container d-flex justify-content-end gap-2 mt-3">
                           <button id="mf_cancel_btn" class="cta cta-secondary" data-bs-dismiss="modal">Cancel</button>
                           <button id="mf_upload_btn" class="cta cta-primary" disabled>Upload</button>
                         </div>
-                      </div><!-- End Import Wrapper -->
+                      
+                      </div><!-- End Bulk Upload Wrapper -->
                     </div>
                   </div>
                 </div>
@@ -1754,6 +1821,11 @@
             </div>
           </div>
         </div>
+
+
+
+
+
         
         <footer class="footer-custom">
           <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
@@ -2498,154 +2570,11 @@ $(document).ready(function () {
 
 
     </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const bulkModalEl   = document.getElementById('bulkImageUploadModal');
-        const importModalEl = document.getElementById('importUploadModal');
-
-        const formatBytes = (bytes) => {
-          if (!bytes) return '0 B';
-          const u = ['B','KB','MB','GB','TB'];
-          const i = Math.floor(Math.log(bytes) / Math.log(1024));
-          return (bytes / Math.pow(1024, i)).toFixed(i ? 1 : 0) + ' ' + u[i];
-        };
-        const getTotalBytes = (modalEl) => {
-          let total = 0;
-          modalEl.querySelectorAll('input[type="file"]').forEach(input => {
-            const fs = input.files || [];
-            for (const f of fs) total += f.size || 0;
-          });
-          return total;
-        };
-
-        function wireModal(modalEl, progressSel, successSel, uploadBtnSel, textSel) {
-          if (!modalEl) return;
-
-          modalEl.addEventListener('shown.bs.modal', () => {
-            const progressContainer = modalEl.querySelector(progressSel);
-            const progressBar       = progressContainer?.querySelector('.progress-bar');
-            const successContainer  = modalEl.querySelector(successSel);
-            const uploadBtn         = modalEl.querySelector(uploadBtnSel);
-            const progressText      = textSel ? modalEl.querySelector(textSel) : null;
-
-            if (progressContainer && progressBar) {
-              progressContainer.classList.add('d-none');
-              progressContainer.classList.remove('active');
-              progressBar.style.width = '0%';
-              progressBar.setAttribute('aria-valuenow', 0);
-              progressBar.classList.remove('progress-bar-striped','progress-bar-animated','bg-success','bg-primary');
-            }
-            if (successContainer) {
-              successContainer.classList.add('d-none');
-              successContainer.classList.remove('mf-success-animate');
-            }
-            if (progressText) {
-              progressText.classList.add('d-none');
-              progressText.textContent = '0 of 0 (0%)';
-            }
-            if (uploadBtn) uploadBtn.dataset.uploading = '0';
-          });
-
-          modalEl.addEventListener('click', (e) => {
-            const uploadBtn = e.target.closest(uploadBtnSel);
-            if (!uploadBtn || uploadBtn.dataset.uploading === '1') return;
-
-            const progressContainer = modalEl.querySelector(progressSel);
-            const progressBar       = progressContainer.querySelector('.progress-bar');
-            const successContainer  = modalEl.querySelector(successSel);
-            const cancelBtn         = modalEl.querySelector('#mf_cancel_btn');
-            const progressText      = textSel ? modalEl.querySelector(textSel) : null;
-
-            uploadBtn.dataset.uploading = '1';
-            uploadBtn.disabled = true;
-            uploadBtn.setAttribute('aria-disabled','true');
-            uploadBtn.classList.add('disabled');
-            if (cancelBtn) cancelBtn.disabled = true;
-
-            // show + animate
-            progressContainer.classList.remove('d-none');
-            progressContainer.classList.add('active');
-            successContainer.classList.add('d-none');
-
-            // ensure stripes animation present (polyfill even if Bootstrap CSS is overridden)
-            progressBar.classList.add('progress-bar-striped','progress-bar-animated','bg-primary');
-
-            if (progressText) progressText.classList.remove('d-none');
-
-            const totalBytes = getTotalBytes(modalEl);
-            let uploadedBytes = 0;
-            const unitsTotal = totalBytes ? null : 10;
-            let unitsDone = 0;
-
-            const tickMs = 300;
-            const timer = setInterval(() => {
-              if (totalBytes) {
-                const step = Math.ceil(totalBytes * 0.05);
-                uploadedBytes = Math.min(uploadedBytes + step, totalBytes);
-                const pct = Math.floor((uploadedBytes / totalBytes) * 100);
-                progressBar.style.width = pct + '%';
-                progressBar.setAttribute('aria-valuenow', pct);
-                if (progressText) progressText.textContent =
-                  `${formatBytes(uploadedBytes)} of ${formatBytes(totalBytes)} (${pct}%)`;
-                if (uploadedBytes >= totalBytes) finish();
-              } else {
-                unitsDone = Math.min(unitsDone + 1, unitsTotal);
-                const pct = Math.floor((unitsDone / unitsTotal) * 100);
-                progressBar.style.width = pct + '%';
-                progressBar.setAttribute('aria-valuenow', pct);
-                if (progressText) progressText.textContent = `Processing… (${pct}%)`;
-                if (unitsDone >= unitsTotal) finish();
-              }
-            }, tickMs);
-
-            function finish() {
-              clearInterval(timer);
-              progressContainer.classList.remove('active');
-              progressBar.classList.remove('progress-bar-animated','bg-primary');
-              progressBar.classList.add('bg-success');
-              successContainer.classList.remove('d-none');
-              successContainer.classList.add('mf-success-animate');
-
-              setTimeout(() => {
-                const bsModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-                bsModal.hide();
-
-                uploadBtn.disabled = false;
-                uploadBtn.removeAttribute('aria-disabled');
-                uploadBtn.classList.remove('disabled');
-                uploadBtn.dataset.uploading = '0';
-                if (cancelBtn) cancelBtn.disabled = false;
-
-                successContainer.classList.add('d-none');
-                successContainer.classList.remove('mf-success-animate');
-                progressBar.classList.remove('progress-bar-striped','progress-bar-animated','bg-success','bg-primary');
-                progressBar.style.width = '0%';
-                progressBar.setAttribute('aria-valuenow', 0);
-                if (progressText) {
-                  progressText.classList.add('d-none');
-                  progressText.textContent = '0 of 0 (0%)';
-                }
-              }, 5000);
-            }
-          });
-        }
-
-        wireModal(
-          bulkModalEl,
-          '#mf_progress_container_bulk',
-          '#mf_success_container_bulk',
-          '#mf_upload_btn',
-          '#mf_progress_text_bulk'
-        );
-        wireModal(
-          importModalEl,
-          '#mf_progress_container_import',
-          '#mf_success_container_import',
-          '#mf_upload_btn',
-          '#mf_progress_text_import'
-        );
-      });  
-    </script>
-
+      
+      
+      
+      
+      
+      
   </body>
 </html>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas</title>
+    <link href="./assets/vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+  <body class="basepack-page">
+    <div class="main-wrapper">
+      <div id="app" class="app">
+        <header id="header" class="header">
+          <div class="logo-place">
+            <a href="#/">
+              <img src="./assets/images/hll-logo-128.gif" alt="logo" style="margin: auto;">
+            </a>
+          </div>
+          <div class="page-heading text-center">
+            <span class="header-text1">CANVAS</span>
+            <span class="header-text2"></span>
+          </div>
+          <div class="header-block header-block-nav">
+            <ul class="nav nav-profile d-flex align-items-center">
+              <li class="nav-item dropdown notification" style="display: none;">
+                <a class="nav-link" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell-o icon" onclick="hideNotificationCircle()">
+                    <i class="fa fa-circle notification-circle"></i>
+                    <span class="num"></span>
+                  </i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                  <div class="text-center">
+                    <strong>No new notification</strong>
+                  </div>
+                </div>
+              </li>
+              <li id="avatar" class="nav-item">
+                <img src="./assets/images/avatar.png" alt="Avatar" class="avatar rounded-circle">
+              </li>
+              <li class="nav-item username ml-2">Neha Dudhoria</li>
+              <li class="nav-item dropdown profile ml-2">
+                <a href="javascript:void(0)" class="nav-link" id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-lock"></i> Change Password
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="fa fa-power-off"></i> Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <!-- ./header -->
+        <aside class="sidebar" style="left: 0 !important;">
+          <div class="sidebar-container">
+            <div class="sidebar-header"></div>
+            <nav class="menu">
+              <ul id="sidebar-menu" class="nav flex-column">
+                <li class="nav-item">&nbsp;</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/">
+                    <i class="fa fa-home"></i> Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/portfolio">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> New Launches
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/refresh">
+                    <i class="fa fa-refresh"></i> Transitions &amp; Updates
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/extension">
+                    <i class="fa fa-plus"></i> Extension
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/launches">
+                    <i class="fa fa-laptop"></i> Paid Asset Master
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">
+                    <i class="fa fa-laptop"></i> PAM Download
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#/deployment-summary">
+                    <i class="fa fa-file-text-o"></i> Deployment Summary
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <!-- ./sidebar -->
+
+        <div id="includedContent" class="main-content new-launches">
+          <div class="diff-list-heading">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-auto">
+                <div class="someTextt">
+                  <p>Paid Asset Master Download</p>
+                </div>
+              </div>
+              
+              <div class="col-auto">
+                <div class="row g-3 align-items-center select-exception">
+                  <div class="col-auto">
+                    <label for="exceptionType" class="col-form-label">Exception Type</label>
+                  </div>
+                  <div class="col-auto">
+                    <select id="exceptionType" class="form-control form-select form-select-sm custom-select" aria-label="Default select example">
+                      <option selected>Select</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ./row -->
+          </div>
+          <!-- ./diff-list-heading -->
+          
+          <div class="container-fluid py-4 px-0">
+            <!-- Filter Row -->
+            <div class="row align-items-center g-3 mb-3">
+              <div class="col">
+                <div class="row">
+                  <div class="col-md-3">
+                    <select class="form-control form-select form-select-sm custom-select w-100">
+                      <option>Select Basepack</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-control form-select form-select-sm custom-select w-100">
+                      <option>Select Brand</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-control form-select form-select-sm custom-select w-100">
+                      <option>Select SmallC</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-control form-select form-select-sm custom-select w-100">
+                      <option>Select Platform</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <i class="txt-secondary">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-download"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" /></svg>
+                </i>
+              </div>
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" /></th>
+                    <th>MOC</th>
+                    <th>Basepack</th>
+                    <th>EAN</th>
+                    <th>Basepack Name</th>
+                    <th>BigC</th>
+                    <th>SmallC</th>
+                    <th>Brand</th>
+                    <th>View</th>
+                    <th>Scorecard</th>
+                    <th>Platforms</th>
+                    <th>Latest Refresh Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>06-25</td>
+                    <td>22045</td>
+                    <td>9862836547823</td>
+                    <td>Lakme 9 to 5 Eyeco...</td>
+                    <td>BPC</td>
+                    <td>BG_BB35: Lakme</td>
+                    <td>Lakme</td>
+                    <td><i class="fa fa-eye"></i></td>
+                    <td><i class="fa fa-file-excel-o text-purple"></i></td>
+                    <td>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/amazon.png" alt="Amazon" class="tag-brand-logo"/>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/bigbasket.png" alt="Bigbasket" class="tag-brand-logo"/>
+                    </td>
+                    <td>10-04-2025</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>05-25</td>
+                    <td>19095</td>
+                    <td>7576576555543</td>
+                    <td>Lakme Absolute Fo...</td>
+                    <td>BPC</td>
+                    <td>BG_BB35: Lakme</td>
+                    <td>Lakme</td>
+                    <td><i class="fa fa-eye"></i></td>
+                    <td><i class="fa fa-file-excel-o text-purple"></i></td>
+                    <td>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/tira.png" alt="Tira" class="tag-brand-logo"/>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/zepto.png" alt="Zepto" class="tag-brand-logo"/>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/grofers.png" alt="Blinkit" class="tag-brand-logo"/>
+                      <img src="https://canvas-dev-angular-dot-ul-cm-p-903954-01-prj.ey.r.appspot.com/assets/images/retailer/myntra.png" alt="Myntra" class="tag-brand-logo"/>
+                    </td>
+                    <td>10-03-2025</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </div>
+        <!-- ./main-content -->
+
+        <!-- Download Modal -->
+        <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+              <div class="modal-header border-0">
+                <h5 class="modal-title">Download</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label class="form-label">Format to be downloaded</label>
+                  <select class="form-control form-select form-select-sm custom-select">
+                    <option>Select format: PSD/JPEG</option>
+                    <option>PSD</option>
+                    <option>JPEG</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Size</label>
+                  <select class="form-control form-select form-select-sm custom-select">
+                    <option>Select size: All sizes available in DB</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <button type="button" class="cta btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="cta cta-primary">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <footer class="footer-custom">
+          <div class="footer-block author"> Hindustan Unilever Limited © 2024 </div>
+        </footer>
+        <!-- ./footer -->
+      </div>
+      <!-- ./app -->
+    </div>
+    <!-- ./main-wrapper -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/vendor/Bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Click on download icon
+        $('.fa-download, .icon-tabler-download').on('click', function () {
+          $('#downloadModal').modal('show');
+        });
+
+        // Example: Also show if checkboxes are selected (optional)
+        // You can customize this if needed
+        $('input[type="checkbox"]').on('change', function () {
+          if ($('input[type="checkbox"]:checked').length > 0) {
+            $('.fa-download, .icon-tabler-download').addClass('active'); // Optional: Add style if needed
+          } else {
+            $('.fa-download, .icon-tabler-download').removeClass('active');
+          }
+        });
+      });
+    </script>
+    
+  </body>
+</html>

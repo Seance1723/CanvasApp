@@ -8,6 +8,87 @@
     <!-- Using Font Awesome for some icons; Bootstrap Icons can also be loaded if needed -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
+    <style>
+      .workspace-progress-grid {
+        position: relative;
+        width: 100%;
+        padding: 40px 20px;
+        font-family: sans-serif;
+      }
+
+      .steps-row {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        z-index: 10;
+      }
+
+      .step-col {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .step {
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+      }
+
+      .step i {
+        display: inline-block;
+        margin-top: 10px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        background: #ccc;
+        color: #fff;
+        font-size: 12px;
+      }
+
+      .step.active i {
+        background: #27ae60;
+      }
+
+      .step span {
+        display: block;
+      }
+
+      #branch-connector {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .vertical-line,
+      .horizontal-line {
+        position: absolute;
+        background-color: #ccc;
+      }
+
+      .vertical-line {
+        width: 2px;
+      }
+
+      .horizontal-line {
+        height: 2px;
+      }
+      .step-line {
+        position: absolute;
+        height: 2px;
+        background-color: #27ae60;
+        top: 46px; /* adjust to align with center of <i> */
+        z-index: 0;
+      }
+      .step-line.inactive {
+        background-color: #ccc;
+      }
+    </style>
   </head>
   <body class="new-launches-page">
     <div class="main-wrapper">
@@ -123,96 +204,39 @@
           <!-- ./diff-list-heading -->
           <div class="content-header">
             <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-10">
-                <table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 15px; margin-top: 20px;">
-                  <tbody class="noborder">
-                    <tr class="noborder" style="line-height: 0px;">
-                      <td class="noborder" style="padding-bottom: 26px;">
-                        <div class="workspace-progress">
-                          <ul class="workspace-progress-num">
-                            <li class="text active">
-                              <a href="#/launches">Product Details</a>
-                            </li>
-                            <li class="text active">Send For SM Review</li>
-                            <li class="text active">SM Approved</li>
-                            <li class="text active">
-                              <a href="#/launches/launches-written-content">Written Content</a>
-                            </li>
-                            <li class="text">Visual Content</li>
-                            <li class="text">Send For Content Review</li>
-                            <li class="text">Published</li>
-                          </ul>
-                        </div>
-                        <div class="workspace-progress margin">
-                          <div class="workspace-progress-bar" style="width: 49.5%;"></div>
-                          <div class="progress-bar-grey1 workspace-progress-bar" style="left: 49.7%; width: 49%; background: #D3D3D3;"></div>
-                          <ul class="workspace-progress-num">
-                            <a href="#/launches">
-                              <li class="step active">
-                                <i class="fa fa-check"></i>
-                              </li>
-                            </a>
-                            <li class="step active">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step active">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <a href="#/launches/launches-written-content">
-                              <li class="step active">
-                                <i class="fa fa-check"></i>
-                              </li>
-                            </a>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="noborder" style="line-height: 0px;">
-                      <td class="noborder">
-                        <div class="workspace-progress">
-                          <ul class="workspace-progress-num">
-                            <li> </li>
-                            <li> </li>
-                            <li> </li>
-                            <li> </li>
-                            <li class="text" style="margin-left: 34%;">Visual Content</li>
-                            <li class="text">Send For Content Review</li>
-                            <li class="text">Published</li>
-                          </ul>
-                        </div>
-                        <div class="workspace-progress margin">
-                          <div class="workspace-progress-bar" style="width: 5%;left: 54%;top: -119%;transform: rotate(90deg); background: #D3D3D3;"></div>
-                          <div class="progress-bar-grey1 workspace-progress-bar" style="left: 56.6%; width: 42%; background: #D3D3D3;"></div>
-                          <ul class="workspace-progress-num">
-                            <li> </li>
-                            <li> </li>
-                            <li> </li>
-                            <li> </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                            <li class="step default">
-                              <i class="fa fa-check"></i>
-                            </li>
-                          </ul>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="col-md-12">
+                <div class="workspace-progress-wrapper">
+                  <!-- Main Grid -->
+                  <div class="workspace-progress-grid">
+                    <!-- TOP ROW -->
+                    <div class="steps-row top-steps">
+                      <div class="step-col"><div class="step active"><span>Product Details</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step active"><span>Send For SM Review</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step active"><span>SM Approved</span><i>✔</i></div></div>
+                      <div class="step-col" id="step-a"><div class="step active"><span>Written Content</span><i>✔</i></div></div>
+                      <div class="step-col" id="step-b"><div class="step"><span>Visual Content</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step"><span>Send For Content Review</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step"><span>Published</span><i>✔</i></div></div>
+                    </div>
+
+                    <!-- BOTTOM ROW -->
+                    <div class="steps-row bottom-steps">
+                      <div class="step-col"></div>
+                      <div class="step-col"></div>
+                      <div class="step-col"></div>
+                      <div class="step-col"></div>
+                      <div class="step-col" id="step-c"><div class="step"><span>Visual Content</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step"><span>Send For Content Review</span><i>✔</i></div></div>
+                      <div class="step-col"><div class="step"><span>Published</span><i>✔</i></div></div>
+                    </div>
+
+                    <!-- L CONNECTOR -->
+                    <div id="branch-connector">
+                      <div class="vertical-line"></div>
+                      <div class="horizontal-line"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row sum-details1">
@@ -810,7 +834,6 @@
                             </div>
                             <!-- Right Section: Bulk Upload -->
                             <div class="d-flex align-items-center gap-2">
-                              <a id="scoreCardBtnTab" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal" data-bs-target="#scoreCardModal">Score Card</a>
                               <button id="importBtnTab" class="cta cta-primary" data-bs-toggle="modal" data-bs-target="#importUploadModal">Import</button>
                               <button id="bulkUploadBtnTab" class="cta cta-primary" data-bs-toggle="modal" data-bs-target="#bulkImageUploadModal">Bulk Upload</button>
                             </div>
@@ -2136,8 +2159,6 @@
         });
 
       });
-
-
       // =====================================================
       // BULK (MULTIPLE) FILE UPLOAD MODAL FUNCTIONALITY
       // =====================================================
@@ -2487,11 +2508,97 @@ $(document).ready(function () {
 
 
     </script>
-      
-      
-      
-      
-      
-      
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector(".workspace-progress-grid");
+      const topSteps = document.querySelectorAll(".top-steps .step-col .step i");
+      const bottomSteps = document.querySelectorAll(".bottom-steps .step-col .step i");
+
+      function drawLines(steps, offsetTop = 0) {
+        for (let i = 0; i < steps.length - 1; i++) {
+          const start = steps[i].getBoundingClientRect();
+          const end = steps[i + 1].getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+
+          const x1 = start.left + start.width / 2 - containerRect.left;
+          const x2 = end.left + end.width / 2 - containerRect.left;
+          const y = start.top + start.height / 2 - containerRect.top;
+
+          const line = document.createElement("div");
+          line.className = "step-line";
+
+          if (
+            steps[i].parentElement.classList.contains("active") &&
+            steps[i + 1].parentElement.classList.contains("active")
+          ) {
+            line.classList.remove("inactive");
+          } else {
+            line.classList.add("inactive");
+          }
+
+          line.style.left = `${x1}px`;
+          line.style.top = `${y + offsetTop}px`;
+          line.style.width = `${x2 - x1}px`;
+
+          container.appendChild(line);
+        }
+      }
+
+      drawLines(topSteps);
+      drawLines(bottomSteps);
+
+      // L-Connector Setup
+      const a = document.getElementById("step-a");
+      const b = document.getElementById("step-b");
+      const c = document.getElementById("step-c");
+
+      const iconA = a.querySelector("i");
+      const iconB = b.querySelector("i");
+      const iconC = c.querySelector("i");
+
+      const branch = document.getElementById("branch-connector");
+      const vLine = branch.querySelector(".vertical-line");
+      const hLine = branch.querySelector(".horizontal-line");
+
+      function updateConnectorLines() {
+        const containerRect = container.getBoundingClientRect();
+        const iconARect = iconA.getBoundingClientRect();
+        const iconBRect = iconB.getBoundingClientRect();
+        const iconCRect = iconC.getBoundingClientRect();
+
+        const centerAX = iconARect.left + iconARect.width / 2;
+        const centerBX = iconBRect.left + iconBRect.width / 2;
+
+        const centerAY = iconARect.top + iconARect.height / 2;
+        const centerBY = iconBRect.top + iconBRect.height / 2;
+        const centerCY = iconCRect.top + iconCRect.height / 2;
+
+        const midX = (centerAX + centerBX) / 2;
+        const lineY = (centerAY + centerBY) / 2; // connector line Y (between A and B)
+        const endY = centerCY;
+
+        const relativeMidX = midX - containerRect.left;
+        const relativeStartY = lineY - containerRect.top;
+        const relativeEndY = endY - containerRect.top;
+        const relativeBottomX = iconCRect.left + iconCRect.width / 2 - containerRect.left;
+
+        // Set branch container top
+        branch.style.top = `${relativeStartY}px`;
+
+        // Apply to vertical line
+        vLine.style.left = `${relativeMidX}px`;
+        vLine.style.top = `0px`; // because branch is positioned already at relativeStartY
+        vLine.style.height = `${relativeEndY - relativeStartY}px`;
+
+        // Apply to horizontal line
+        hLine.style.top = `${relativeEndY - relativeStartY}px`;
+        hLine.style.left = `${Math.min(relativeMidX, relativeBottomX)}px`;
+        hLine.style.width = `${Math.abs(relativeMidX - relativeBottomX)}px`;
+      }
+
+      updateConnectorLines();
+      window.addEventListener("resize", updateConnectorLines);
+    });
+    </script>   
   </body>
 </html>

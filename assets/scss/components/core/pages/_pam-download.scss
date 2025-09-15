@@ -1,0 +1,128 @@
+body {
+  &.basepack-page {
+
+    .modal-backdrop{
+        opacity: 0.8 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: #000 !important;
+        --bs-backdrop-bg: #000 !important;
+    }
+    select {
+      &.form-control {
+        &.custom-select {
+          background-color: var(--white-color) !important;
+        }
+      }
+    }
+
+    .form-select {
+      height: 40px;
+      border-radius: 6px;
+      background-color: var(--white-color);
+    }
+
+    .fa-download {
+      cursor: pointer;
+      color: #444;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        tr {
+          border-bottom: none; // ✅ Removed border from tr
+        }
+
+        th {
+          font-weight: 600;
+          font-size: 0.9rem;
+          background: #ECECEC;
+          border-bottom: none; 
+
+          &:first-child {
+            border-radius: 50px 0 0 50px;
+          }
+          &:last-child {
+            border-radius: 0 50px 50px 0;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-top: none;
+
+          &:not(:first-child) {
+            border-top: 1px solid #ddd;
+          }
+        }
+
+        td {
+          font-size: 0.9rem;
+          vertical-align: middle;
+        }
+      }
+
+      .fa-eye {
+        color: #444;
+        cursor: pointer;
+      }
+
+      .fa-file-excel-o {
+        color: #7705BC; // your purple
+      }
+
+      .tag-brand-logo {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  //Download Page
+  #pamDownloadPage{
+    background: #F8F7FA;
+    margin-top: 26px;
+    padding:24px;
+    .back-to-page{
+      color: var(--dark-color);
+      a{
+        color: inherit;
+        text-decoration: none;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+    .form-control {
+      &.form-select {
+        &.custom-select{
+          background-color: var(--white-color) !important;
+        }
+      }
+    }
+
+    #downloadModal{
+      .form-control {
+        &.form-select {
+          &.custom-select{
+            background-color: var(--white-color) !important;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+#scoreCardModal{
+  input, textarea{
+    background-color: var(--white-color) !important;
+  }
+}

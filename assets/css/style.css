@@ -2205,4 +2205,92 @@ body #includedContent .link-containers a:last-child i {
 }
 body .exception-page-inner table tbody tr {
   font-size: 13px;
+}
+
+body.basepack-page .modal-backdrop {
+  opacity: 0.8 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #000 !important;
+  --bs-backdrop-bg: #000 !important;
+}
+body.basepack-page select.form-control.custom-select {
+  background-color: var(--white-color) !important;
+}
+body.basepack-page .form-select {
+  height: 40px;
+  border-radius: 6px;
+  background-color: var(--white-color);
+}
+body.basepack-page .fa-download {
+  cursor: pointer;
+  color: #444;
+}
+body.basepack-page .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+body.basepack-page .table thead tr {
+  border-bottom: none;
+}
+body.basepack-page .table thead th {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #ECECEC;
+  border-bottom: none;
+}
+body.basepack-page .table thead th:first-child {
+  border-radius: 50px 0 0 50px;
+}
+body.basepack-page .table thead th:last-child {
+  border-radius: 0 50px 50px 0;
+}
+body.basepack-page .table tbody tr {
+  border-top: none;
+}
+body.basepack-page .table tbody tr:not(:first-child) {
+  border-top: 1px solid #ddd;
+}
+body.basepack-page .table tbody td {
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+body.basepack-page .table .fa-eye {
+  color: #444;
+  cursor: pointer;
+}
+body.basepack-page .table .fa-file-excel-o {
+  color: #7705BC;
+}
+body.basepack-page .table .tag-brand-logo {
+  width: 20px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 4px;
+}
+body #pamDownloadPage {
+  background: #F8F7FA;
+  margin-top: 26px;
+  padding: 24px;
+}
+body #pamDownloadPage .back-to-page {
+  color: var(--dark-color);
+}
+body #pamDownloadPage .back-to-page a {
+  color: inherit;
+  text-decoration: none;
+}
+body #pamDownloadPage .back-to-page a:hover {
+  text-decoration: none;
+}
+body #pamDownloadPage .form-control.form-select.custom-select {
+  background-color: var(--white-color) !important;
+}
+body #pamDownloadPage #downloadModal .form-control.form-select.custom-select {
+  background-color: var(--white-color) !important;
+}
+
+#scoreCardModal input, #scoreCardModal textarea {
+  background-color: var(--white-color) !important;
 }/*# sourceMappingURL=style.css.map */
